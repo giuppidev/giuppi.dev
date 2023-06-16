@@ -93,7 +93,7 @@ export const SigninForm = ({
               id="contact-info-heading"
               className="text-3xl font-medium text-gray-900 pb-4"
             >
-              Loggati per completare l'ordine
+              Loggati per completare l&apos;ordine
             </h2>
             <div className="grid p-4 bg-white border-4 border-gray-900">
               <EmailInput />

@@ -145,7 +145,7 @@ export const SignedForm = ({
             id="contact-info-heading"
             className="text-3xl font-medium text-gray-900 pb-4 "
           >
-            Completa l'ordine
+            Completa l{"'"}ordine
           </h2>
           <div className="grid p-4 bg-white border-4 border-gray-900">
             <div>

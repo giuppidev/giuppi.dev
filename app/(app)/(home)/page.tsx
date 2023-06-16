@@ -1,10 +1,7 @@
 import { createServerSupabaseClient } from "@/app/supabase-server";
+import FAQ from "./components/faq";
 import Features from "./components/features";
 import Hero from "./components/hero";
-import CoursesList from "@/components/courses";
-import { StarIcon } from "@heroicons/react/24/solid";
-import { ArrowIcon } from "@/components/course";
-import FAQ from "./components/faq";
 
 export default async function Home() {
   const supabase = createServerSupabaseClient();
@@ -19,7 +16,7 @@ export default async function Home() {
   );
 }
 
-export const Claim = () => {
+const Claim = () => {
   return (
     <div className="border-b-4 border-gray-900 flex justify-center py-16 bg-white">
       <div className="relative text-3xl lg:text-5xl max-w-5xl text-center">

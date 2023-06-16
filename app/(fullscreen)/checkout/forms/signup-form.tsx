@@ -170,7 +170,7 @@ export const SignupForm = ({
               id="contact-info-heading"
               className="text-3xl font-medium text-gray-900 mb-8"
             >
-              Registrati per completare l'ordine
+              Registrati per completare l&apos;ordine
             </h2>
 
             <div className="flex flex-col gap-4">

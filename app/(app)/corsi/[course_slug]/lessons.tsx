@@ -24,7 +24,7 @@ export default function Lessons({ lessons }: { lessons: Lesson[] }) {
           }).format(new Date());
 
           return (
-            <div className="text-lg leading-7  space-y-1 py-8">
+            <div className="text-lg leading-7  space-y-1 py-8" key={k}>
               <span className=" text-3xl">
                 <span className="font-semibold">lezione {k + 1}:</span>{" "}
                 {lesson.name}
