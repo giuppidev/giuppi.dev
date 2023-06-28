@@ -14,6 +14,15 @@ interface CoursesProps {
 export default function CoursesList({ courses }: CoursesProps) {
   const [filter, setFilter] = useState<"all" | "course" | "masterclass">("all");
 
+  const filteredCourses = courses
+    ?.filter((course) => course !== null)
+    .filter((course) => {
+      if (filter === "all") {
+        return course;
+      }
+      return course?.product_type === filter;
+    });
+
   return (
     <div className="bg-gray-100 py-8 w-screen">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -52,17 +61,13 @@ export default function CoursesList({ courses }: CoursesProps) {
           role="list"
           className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-16 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3"
         >
-          {courses
-            ?.filter((course) => course !== null)
-            .filter((course) => {
-              if (filter === "all") {
-                return course;
-              }
-              return course?.product_type === filter;
-            })
-            .map((course, key) => (
+          {filteredCourses.length > 0 ? (
+            filteredCourses.map((course, key) => (
               <CourseCard course={course} key={key} />
-            ))}
+            ))
+          ) : (
+            <div>Nessun corso trovato.</div>
+          )}
         </ul>
       </div>
     </div>

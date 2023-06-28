@@ -48,27 +48,6 @@ export default async function Edit({
     if (error) {
       console.log(error);
     } else {
-      if (course?.stripe_product_id && course.price !== price) {
-        const product = await stripe.products.retrieve(
-          course.stripe_product_id
-        );
-        const oldPrice = product.default_price as string;
-        const newPrice = await stripe.prices.create({
-          currency: "eur",
-          product: course.stripe_product_id,
-          unit_amount: price * 100,
-        });
-        const stripeProduct = await stripe.products.update(
-          course.stripe_product_id,
-          {
-            default_price: newPrice.id,
-          }
-        );
-        await stripe.prices.update(oldPrice, {
-          active: false,
-        });
-      }
-
       redirect(`admin/corsi/${params.course_id}`);
     }
   };

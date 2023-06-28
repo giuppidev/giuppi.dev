@@ -20,7 +20,6 @@ export default function NewUser() {
       error,
       data: { user },
     } = await supabase.auth.updateUser({ password });
-    console.log(error);
     if (!error && user) {
       await supabase.auth.signInWithPassword({ email: user.email!, password });
       router.push("/");

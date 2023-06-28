@@ -1,5 +1,44 @@
 import { ArrowIcon } from "@/components/course";
 import { LifebuoyIcon, VideoCameraIcon } from "@heroicons/react/24/solid";
+import Link from "next/link";
+export default function Features() {
+  return (
+    <div className="px-8 border-b-4 border-gray-900 bg-cyan-500 ">
+      <div className="mx-auto max-w-4xl lg:text-center py-12">
+        <p className=" text-5xl font-semibold  tracking-tight text-gray-900 sm:text-7xl">
+          Come sono i miei corsi?
+        </p>
+      </div>
+      <dl
+        className="mx-auto max-w-7xl  grid  grid-cols-1 gap-x-8 gap-y-4 
+  lg:grid-cols-3 mb-16"
+      >
+        {features.map((feature) => (
+          <Link
+            href={feature.href}
+            key={feature.name}
+            className="flex flex-col justify-between  px-3 py-10  border-4 border-gray-900 bg-white rounded-3xl transition-all hover:shadow-brutal hover:-translate-y-2 hover:-translate-x-2"
+          >
+            <dt className="flex flex-col  gap-2 text-xl font-semibold leading-7 h-full ">
+              {feature.icon}
+              <div className="rounded-sm flex gap-2 items-center">
+                <span className="py-1 text-4xl">{feature.name}</span>
+              </div>
+              <span className="font-normal">{feature.description}</span>{" "}
+              <div className="flex gap-2 mt-4 items-end space-x-3  flex-grow  font-semibold text-xl ">
+                <div className="flex gap-2 items-center hover:underline">
+                  {feature.linkLabel}
+                  <ArrowIcon />
+                </div>
+              </div>
+            </dt>
+          </Link>
+        ))}
+      </dl>
+    </div>
+  );
+}
+
 const LiveIcon = () => {
   return (
     <div className="bg-red-400 px-2 py-1 w-fit border-4 border-gray-900 shadow-brutal mb-6">
@@ -75,105 +114,25 @@ const features = [
   {
     name: "Classi live",
     description:
-      "I corsi si terranno live, completamente online, in modo che tu possa interagire con me facendo domande, commenti, pair programming... ",
-    question: "E se ho un impegno o l'evento è già passato?",
-    answer: "Potrai accedere alle registrazione per sempre!",
-    href: "#",
+      "I corsi si terranno live, completamente online, in modo che tu possa interagire con me facendo domande, commenti, ... Se arrivi tardi, don't worry: avrai accesso alle registrazioni per sempre.",
+    href: "/corsi?type=course",
     icon: <LiveIcon />,
     linkLabel: "Vai ai corsi",
   },
   {
     name: "Ti aiuto io",
     description:
-      "Pellentesque enim a commodo malesuada turpis eleifend risus. Facilisis donec placerat sapien consequat tempor fermentum nibh.",
-    href: "#",
+      "Puoi farmi domande durante le lezioni live oppure tramite il canale Discord dedicato al corso che stai seguendo. Vuoi una consulenza personalizzata? Prenota una mentorship!",
+    href: "/mentorship",
     icon: <HelpIcon />,
-    question: "E se ho bisogno di altro aiuto?",
-    answer:
-      "Puoi acquistare altri ticket o richiedere una consulenza personalizzata.",
     linkLabel: "Vai alla mentorship",
   },
   {
-    name: "Non solo codice",
+    name: "Vita nomade",
     description:
-      "Pellentesque sit elit congue ante nec amet. Dolor aenean curabitur viverra suspendisse iaculis eget. Nec mollis placerat ultricies euismod ut condimentum.",
-    href: "#",
+      "Se oltre a programmare sei interessato alla vita del freelance, al nomadismo digitale e tutto quello che va al di là del codice, ogni mese troverai una masterclass su un argomento del lavoro del programmatore nomade.",
+    href: "/corsi?type=masterclass",
     icon: <NomadIcon />,
-    question: "E nei corsi non di programmazione?",
-    answer:
-      "Analizzeremo casi reali nell'ambito del lavoro nomade del programmatore",
     linkLabel: "Vai alle masterclass",
   },
 ];
-
-export default function Features() {
-  return (
-    <div className="px-8 border-b-4 border-gray-900 bg-lime-100 ">
-      <div className="mx-auto max-w-4xl lg:text-center py-12">
-        <p className=" text-5xl font-semibold  tracking-tight text-gray-900 sm:text-7xl">
-          Come sono i miei corsi?
-        </p>
-      </div>
-      <dl
-        className="mx-auto max-w-7xl  grid  grid-cols-1 gap-x-8 gap-y-4 
-  lg:grid-cols-3 mb-16"
-      >
-        {features.map((feature) => (
-          <div
-            key={feature.name}
-            className="flex flex-col justify-between  px-3 py-10  border-4 border-gray-900 bg-white rounded-3xl shadow-brutal"
-          >
-            <dt className="flex flex-col  gap-2 text-xl font-semibold leading-7 h-full ">
-              {feature.icon}
-              <div className="rounded-sm flex gap-2 items-center">
-                <span className="py-1 text-4xl">{feature.name}</span>
-              </div>
-              <span className="font-normal">{feature.description}</span>{" "}
-              <div className="flex gap-2 mt-4 items-end space-x-3  flex-grow  font-semibold text-xl ">
-                <div className="flex gap-2 items-center">
-                  {feature.linkLabel}
-                  <ArrowIcon />
-                </div>
-              </div>
-            </dt>
-          </div>
-        ))}
-      </dl>
-    </div>
-  );
-  return (
-    <div className=" bg-white border-b-4 border-b-gray-800">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
-        <div className="mx-auto max-w-2xl lg:text-center">
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Perché scegliere i miei corsi?
-          </p>
-        </div>
-        <div className="mx-auto mt-2 max-w-2xl sm:mt-20 lg:mt-8 lg:max-w-none">
-          <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-4 lg:max-w-none lg:grid-cols-3">
-            {features.map((feature) => (
-              <div
-                key={feature.name}
-                className="flex flex-col  px-3 py-5  border-4 border-gray-900"
-              >
-                <dt className="flex items-center gap-x-3 text-xl font-semibold leading-7  ">
-                  <div className="text-white rounded-sm flex gap-2 items-center">
-                    <span className="text-4xl">{feature.icon}</span>
-                    <span className="bg-gray-800  px-2 py-1 ">
-                      {feature.name}
-                    </span>
-                  </div>
-                </dt>
-                <dd className="mt-4 flex gap-2 flex-auto flex-col text-base leading-7 text-gray-800">
-                  <p className="flex-auto">{feature.description}</p>
-                  <p className="flex-auto font-bold">{feature.question}</p>
-                  <p className="flex-auto">{feature.answer}</p>
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </div>
-    </div>
-  );
-}

@@ -1,6 +1,6 @@
 import { getSession, isAdmin } from "@/app/supabase-server";
 import { NavigationMenu } from "./header-buttons";
-import { Logo } from "./logo";
+import { GiuppiLogo, Logo } from "./logo";
 import Mobile from "./mobile-menu";
 
 export default async function Header() {
@@ -15,10 +15,10 @@ export default async function Header() {
         <div className="flex lg:flex-1  px-4 lg:px-8 py-6 lg:py-0">
           <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Programmatore nomade</span>
-            <Logo className="w-72 lg:w-80" />
+            <GiuppiLogo className="w-64 lg:w-64" />
           </a>
         </div>
-        <Mobile />
+        <Mobile isAdmin={!!isUserAdmin} user={session?.user} />
         <NavigationMenu isAdmin={!!isUserAdmin} user={session?.user} />
       </nav>
     </header>

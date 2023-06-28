@@ -37,7 +37,7 @@ export default function Login({
     });
     if (!error) {
       setError("");
-      router.push(redirectTo ?? "/");
+      router.push(redirectTo ?? "/dashboard/corsi");
     } else {
       console.log(error.message);
       if (error.message === "Invalid login credentials") {
@@ -47,8 +47,8 @@ export default function Login({
       } else {
         setError("Errore in fase di login");
       }
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (
@@ -69,7 +69,7 @@ export default function Login({
               LOGIN
             </Button>
           </div>
-          <AuthLink passwordLink />
+          <AuthLink passwordLink signupLink />
         </form>
         <FormMessage error={error} />
       </FormProvider>

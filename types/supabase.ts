@@ -3,12 +3,33 @@ export type Json =
   | number
   | boolean
   | null
-  | { [key: string]: Json }
+  | { [key: string]: Json | undefined }
   | Json[]
 
 export interface Database {
   public: {
     Tables: {
+      coupons: {
+        Row: {
+          code: string
+          created_at: string | null
+          discount: number | null
+          id: number
+        }
+        Insert: {
+          code: string
+          created_at?: string | null
+          discount?: number | null
+          id?: number
+        }
+        Update: {
+          code?: string
+          created_at?: string | null
+          discount?: number | null
+          id?: number
+        }
+        Relationships: []
+      }
       lessons: {
         Row: {
           created_at: string | null
@@ -94,40 +115,55 @@ export interface Database {
           created_at: string | null
           description: string | null
           discount: number | null
+          eventbrite_url: string | null
           id: number
+          lessons_count: number | null
           level: string | null
           name: string | null
+          order: number | null
           price: number | null
           product_type: Database["public"]["Enums"]["course_type_enum"] | null
+          short_description: string | null
           slug: string | null
-          stripe_product_id: string | null
+          start_date: string | null
           tags: string[] | null
+          video_url: string | null
         }
         Insert: {
           created_at?: string | null
           description?: string | null
           discount?: number | null
+          eventbrite_url?: string | null
           id?: number
+          lessons_count?: number | null
           level?: string | null
           name?: string | null
+          order?: number | null
           price?: number | null
           product_type?: Database["public"]["Enums"]["course_type_enum"] | null
+          short_description?: string | null
           slug?: string | null
-          stripe_product_id?: string | null
+          start_date?: string | null
           tags?: string[] | null
+          video_url?: string | null
         }
         Update: {
           created_at?: string | null
           description?: string | null
           discount?: number | null
+          eventbrite_url?: string | null
           id?: number
+          lessons_count?: number | null
           level?: string | null
           name?: string | null
+          order?: number | null
           price?: number | null
           product_type?: Database["public"]["Enums"]["course_type_enum"] | null
+          short_description?: string | null
           slug?: string | null
-          stripe_product_id?: string | null
+          start_date?: string | null
           tags?: string[] | null
+          video_url?: string | null
         }
         Relationships: []
       }
@@ -140,6 +176,7 @@ export interface Database {
           id: string
           is_admin: boolean
           last_name: string | null
+          newsletter_accepted: string | null
           stripe_customer_id: string | null
           updated_at: string | null
           username: string | null
@@ -153,6 +190,7 @@ export interface Database {
           id: string
           is_admin?: boolean
           last_name?: string | null
+          newsletter_accepted?: string | null
           stripe_customer_id?: string | null
           updated_at?: string | null
           username?: string | null
@@ -166,6 +204,7 @@ export interface Database {
           id?: string
           is_admin?: boolean
           last_name?: string | null
+          newsletter_accepted?: string | null
           stripe_customer_id?: string | null
           updated_at?: string | null
           username?: string | null
@@ -210,6 +249,27 @@ export interface Database {
             referencedColumns: ["id"]
           }
         ]
+      }
+      subscriptions: {
+        Row: {
+          created_at: string | null
+          email: string
+          id: number
+          stripe_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          email: string
+          id?: number
+          stripe_id: string
+        }
+        Update: {
+          created_at?: string | null
+          email?: string
+          id?: number
+          stripe_id?: string
+        }
+        Relationships: []
       }
     }
     Views: {

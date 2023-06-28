@@ -25,7 +25,7 @@ export default function CourseHero({
             </div>
           </div>
           <div className="mt-16 sm:mt-2 lg:mt-10 lg:flex-shrink-0 ">
-            <h1 className=" mb-4 text-6xl font-semibold tracking-tight text-gray-900 sm:text-7xl  block lg:hidden ">
+            <h1 className=" mb-4 text-4xl font-semibold tracking-tight text-gray-900 sm:text-7xl  block lg:hidden ">
               {course?.name}
             </h1>
 

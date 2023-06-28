@@ -12,6 +12,7 @@ export default function CreateForm({
     "use server";
     const name = formData.get("name") as string;
     const description = formData.get("description") as string;
+    const date = formData.get("date") as string;
 
     const supabase = createServerComponentClient<Database>({ cookies });
 
@@ -19,6 +20,7 @@ export default function CreateForm({
       name,
       description,
       product_id: params.course_id as unknown as number,
+      event_timestamp: new Date(date).toISOString(),
     });
     if (error) {
       console.log(error);
@@ -62,6 +64,23 @@ export default function CreateForm({
               placeholder="descrizione"
               rows={2}
             />
+          </div>
+          <div>
+            <label
+              htmlFor="date"
+              className="block text-sm font-medium leading-6 text-gray-900"
+            >
+              date
+            </label>
+            <div className="mt-2">
+              <input
+                name="date"
+                id="date"
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                placeholder="date"
+                type="datetime-local"
+              />
+            </div>
           </div>
         </div>
       </div>

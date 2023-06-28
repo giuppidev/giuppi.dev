@@ -9,13 +9,14 @@ import { twMerge } from "tailwind-merge";
 
 type Course = Database["public"]["Tables"]["products"]["Row"];
 
-type CourseType = "all" | "course" | "masterclass";
+export type CourseType = "all" | "course" | "masterclass";
 
 interface CoursesProps {
   courses: Course[] | null;
+  type?: CourseType;
 }
-export default function CoursesList({ courses }: CoursesProps) {
-  const [filter, setFilter] = useState<CourseType>("all");
+export default function CoursesList({ courses, type }: CoursesProps) {
+  const [filter, setFilter] = useState<CourseType>(type || "all");
 
   const [filteredTags, setFilteredTags] = useState<string[]>(["all"]);
 
@@ -50,7 +51,7 @@ export default function CoursesList({ courses }: CoursesProps) {
   };
 
   return (
-    <div className="">
+    <div className="mb-8">
       <div className="  bg-white border-b-4 border-b-gray-900 space-y-2 pt-4 pb-4">
         <div className=" space-y-2 max-w-7xl mx-auto flex gap-2 items-center px-6 lg:px-8">
           <div className="flex gap-4 flex-wrap">
@@ -59,13 +60,13 @@ export default function CoursesList({ courses }: CoursesProps) {
                 <button
                   onClick={() => toggleTags(tag.name)}
                   key={key}
-                  className={`${
-                    tag.color
-                  } shadow-brutal px-2 py-1 rounded-full border-4 border-gray-900  font-semibold ${
+                  className={twMerge(
+                    tag.color,
+                    "shadow-brutalXl px-2 py-1 rounded-full border-4 border-gray-900  font-semibold",
                     filteredTags.includes(tag.name)
                       ? "shadow-brutalPressed translate-y-1"
                       : ""
-                  }`}
+                  )}
                 >
                   {tag.name}
                 </button>
@@ -100,7 +101,9 @@ export default function CoursesList({ courses }: CoursesProps) {
               <CourseCard course={course} key={key} />
             ))
           ) : (
-            <div>nessun corso trovato con questi filtri.</div>
+            <div className="text-3xl font-semibold">
+              Nessun corso trovato con questi filtri.
+            </div>
           )}
         </ul>
       </div>
@@ -138,18 +141,18 @@ const tags = [
   },
   {
     name: "react",
-    color: "bg-blue-200",
+    color: "bg-yellow-200",
   },
   {
     name: "nomade digitale",
-    color: "bg-blue-200",
+    color: "bg-green-200",
   },
   {
     name: "freelance",
-    color: "bg-blue-200",
+    color: "bg-slate-200",
   },
   {
     name: "nextjs",
-    color: "bg-blue-200",
+    color: "bg-violet-200",
   },
 ];

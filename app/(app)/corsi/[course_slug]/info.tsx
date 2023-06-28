@@ -1,11 +1,6 @@
 "use client";
-import { useSupabase } from "@/app/supabase-provider";
-import { Button } from "@/components/button";
-import { LinkButton } from "@/components/link";
 import { Database } from "@/types/supabase";
-import { Dialog, Transition } from "@headlessui/react";
-import { PlayIcon } from "@heroicons/react/24/solid";
-import { Fragment, useState } from "react";
+import { useEffect, useState } from "react";
 
 type Course = Database["public"]["Tables"]["products"]["Row"];
 
@@ -35,11 +30,27 @@ const InfoCard = ({ course }: InfoProps) => {
           </div>
         </div>
         <div>
-          <div className=" text-lg">durata</div>
+          <div className=" text-lg">tipologia</div>
           <div className="flex gap-2 items-center">
-            <div className="text-3xl font-semibold">7 lezioni</div>
+            <div className="text-3xl font-semibold">
+              {course.product_type === "course"
+                ? "Corso pratico"
+                : course.product_type}
+            </div>
           </div>
         </div>
+
+        <StartDate date={course.start_date || ""} />
+        {course.product_type === "course" && (
+          <div>
+            <div className=" text-lg">durata</div>
+            <div className="flex gap-2 items-center">
+              <div className="text-3xl font-semibold capitalize">
+                {course.lessons_count} lezioni
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -47,8 +58,28 @@ const InfoCard = ({ course }: InfoProps) => {
 
 export default InfoCard;
 
-/* <img
-              src="/images/teacher.jpg"
-              alt=""
-              className="w-16 h-16 rounded-2xl border-2 border-gray-900  shadow-brutal"
-            /> */
+const StartDate = ({ date }: { date: string }) => {
+  const [formattedDate, setFormattedDate] = useState("");
+
+  useEffect(() => {
+    const lessonDate = new Date(date || "");
+    const lessonDatetime = new Intl.DateTimeFormat("it-IT", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+    }).format(lessonDate);
+
+    setFormattedDate(lessonDatetime);
+  }, []);
+
+  return (
+    <div>
+      <div className=" text-lg">data inizio</div>
+      <div className="flex gap-2 items-center">
+        <div className="text-2xl font-semibold">{formattedDate}</div>
+      </div>
+    </div>
+  );
+};

@@ -9,7 +9,12 @@ module.exports = {
     extend: {
       boxShadow: {
         brutal: "5px 5px 0px 0px #000",
+        brutalXl: "8px 8px 0px 0px #000",
         brutalPressed: "1px 2px 0px 0px #000",
+      },
+      dropShadow: {
+        hero: "8px 4px 0 #000",
+        heroz: "-2px -2px 0 #000",
       },
       colors: {
         myYellow: "#FFCC33",

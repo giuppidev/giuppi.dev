@@ -15,18 +15,18 @@ interface CourseProps {
 }
 
 const CourseCard = ({ course, alreadyOrdered }: CourseProps) => {
-  const linkLabel =
-    course.product_type === "course"
-      ? "Acquista il corso "
-      : "Acquista la masterclass ";
+  const linkLabel = "SINGOLO EVENTO - € " + course.price;
+
+  const monthlyPriceLink =
+    process.env.NEXT_PUBLIC_STRIPE_SUBSCRIPTION_LINK_MONTHLY || "";
 
   return (
     <div
       className={` bg-white w-full lg:w-96  transition-all p-5 border-4 border-gray-900 shadow-brutal`}
     >
-      <div className="flex flex-col h-full">
+      <div className="flex flex-col h-full gap-4">
         <Video />
-        {course.discount ? (
+        {/* {course.discount ? (
           <div className=" text-3xl mb-3 font-semibold mt-2 flex justify-center items-center gap-1">
             <div className="font-extrabold text-4xl">€ {course.price}</div>
             <div className="text-gray-600 text-lg line-through ">€ 199</div>
@@ -38,7 +38,7 @@ const CourseCard = ({ course, alreadyOrdered }: CourseProps) => {
           <div className=" text-3xl mb-3 font-semibold mt-2 flex justify-center">
             <div className="font-extrabold font-4xl">€ {course.price}</div>
           </div>
-        )}
+        )} */}
 
         {alreadyOrdered ? (
           <LinkButton
@@ -48,12 +48,22 @@ const CourseCard = ({ course, alreadyOrdered }: CourseProps) => {
             Vai al corso
           </LinkButton>
         ) : (
-          <LinkButton
-            className="bg-myGreen text-white font-semibold"
-            href={`/checkout?product_id=${course.id}`}
-          >
-            {linkLabel}
-          </LinkButton>
+          <div className="flex flex-col gap-2 items-center">
+            <LinkButton
+              className="bg-myGreen text-white font-semibold text-xl"
+              href={monthlyPriceLink}
+            >
+              ACCEDI A TUTTO - € 25/m
+            </LinkButton>
+            <div>oppure</div>
+            <LinkButton
+              className="bg-myGreen text-white font-semibold text-xl"
+              href={course.eventbrite_url || ""}
+              target="_blank"
+            >
+              {linkLabel}
+            </LinkButton>
+          </div>
         )}
       </div>
     </div>

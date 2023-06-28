@@ -22,23 +22,14 @@ export default async function CoursePage({
   const { data: lessons } = await supabase
     .from("lessons")
     .select()
-    .eq("product_id", course.id);
-
-  const mockedLessons = new Array(
-    lessons![0],
-    lessons![0],
-    lessons![0],
-    lessons![0],
-    lessons![0],
-    lessons![0]
-  );
+    .eq("product_id", course.id)
+    .order("event_timestamp", { ascending: true });
 
   const {
     data: { user },
   } = await supabase.auth.getUser();
   let alreadyOrdered = false;
   if (user) {
-    console.log(user);
     const { error, data: order } = await supabase
       .from("orders")
       .select()
@@ -60,7 +51,7 @@ export default async function CoursePage({
       </div>
       <div className="py-8 w-screen ">
         <div className="flex flex-col-reverse lg:flex-row justify-between max-w-7xl px-6 lg:px-8 mx-auto">
-          <Sections course={course} lessons={mockedLessons || []} />
+          <Sections course={course} lessons={lessons || []} />
           <InfoCard course={course} />
         </div>
       </div>

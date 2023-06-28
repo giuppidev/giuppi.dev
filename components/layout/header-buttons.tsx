@@ -58,7 +58,7 @@ export const NavigationMenu = ({ isAdmin, user }: NavigationMenuProps) => {
               : "hover:border-b-gray-900 "
           )}
         >
-          I MIEI CORSI
+          DASHBOARD
         </a>
       )}
       <HeaderButtons loggedIn={!!user} />

@@ -4,44 +4,44 @@ import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
 
 const faqs = [
   {
-    question: "What's the best thing about Switzerland?",
+    question: "Come si svolgeranno le lezioni?",
     answer:
-      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+      "Le lezioni si svolgeranno LIVE utilizzando la piattaforma ZOOM: sulla pagina del corso troverai le date di ogni lezioni. Durante la lezioni ci sarà la possibilità di interagire e farmi domande.",
   },
   {
-    question: "What's the best thing about Switzerland?",
+    question: "E se il corso è iniziato oppure è già finito?",
     answer:
-      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+      "Nel caso in cui il corso sia iniziato o già terminato, troverai la registrazione di ogni lezione a cui avrai accesso a vita. Potrai comunque seguire lo sviluppo del progetto, visionare il codice e chiedere aiuto alla community se ti blocchi.",
   },
   {
-    question: "What's the best thing about Switzerland?",
+    question: "Cosa ottengo comprando un corso o una masterclass?",
     answer:
-      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+      "Oltre al link ZOOM dell'evento (se non ancora passato), riceverai l'accesso nella piattaforma alle registrazioni video, alle repository Github con il codice creato durante le lezioni e accesso al canale Discord in cui poter chiedere supporto a me e alla community.",
+  },
+
+  {
+    question: "Come faccio a chiedere aiuto durante il corso?",
+    answer:
+      "Ci sono 3 modi: farmi domande durante le lezioni live, chiedendo sul canale dedicato al corso su Discord oppure acquistando una consulenza personalizzata per chiedere code review, aiuto e tutto quello che ti serve per proseguire nel tuo percorso.",
   },
   {
-    question: "What's the best thing about Switzerland?",
+    question: "E se non mi piace?",
     answer:
-      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+      "Sono sicuro che ogni corso sarà una bomba, ma nel caso non ti trovi bene o non pensi possa esserti utile, avrai 15 giorni dall'acquisto per essere rimborsato.",
   },
-  {
-    question: "What's the best thing about Switzerland?",
-    answer:
-      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
-  },
-  // More questions...
 ];
 
 export default function FAQ() {
   return (
-    <div className="bg-white">
-      <div className="mx-auto  px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
+    <div className="bg-white border-b-4 border-b-gray-900">
+      <div className="mx-auto  px-6 py-24 sm:py-32 lg:px-8 ">
         <div className="mx-auto max-w-7xl divide-y-4 divide-gray-900">
-          <h2 className="text-7xl font-bold leading-10 tracking-tight text-gray-900">
+          <h2 className="text-5xl lg:text-7xl font-semibold  leading-tight lg:leading-10 tracking-tight text-gray-900">
             Frequently asked questions
           </h2>
           <dl className="mt-10  divide-y-4 divide-gray-900">
             {faqs.map((faq) => (
-              <Disclosure as="div" key={faq.question} className="py-16">
+              <Disclosure as="div" key={faq.question} className="py-12">
                 {({ open }) => (
                   <>
                     <dt>

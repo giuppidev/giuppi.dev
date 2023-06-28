@@ -2,16 +2,23 @@ import { createServerSupabaseClient } from "@/app/supabase-server";
 import FAQ from "./components/faq";
 import Features from "./components/features";
 import Hero from "./components/hero";
+import Contact from "./components/contact";
+import { Target } from "./components/target";
+import Prices from "./components/prices";
 
 export default async function Home() {
   const supabase = createServerSupabaseClient();
-  const { data: courses } = await supabase.from("products").select();
+  const { data } = await supabase.auth.getSession();
+
   return (
     <main className="">
       <Hero />
       <Claim />
       <Features />
+      <Target />
+      <Prices />
       <FAQ />
+      <Contact />
     </main>
   );
 }

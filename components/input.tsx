@@ -7,6 +7,7 @@ interface InputProps {
   required?: boolean;
   placeholder: string;
   validate?: (value: string) => boolean | string;
+  minLength?: number;
 }
 
 export const Input = ({
@@ -16,6 +17,7 @@ export const Input = ({
   required = false,
   placeholder,
   validate = () => true,
+  minLength = 0,
 }: InputProps) => {
   const {
     register,
@@ -39,6 +41,10 @@ export const Input = ({
           required: required ? `Campo obbligatorio.` : false,
           validate: {
             matchPattern: validate,
+          },
+          minLength: {
+            value: minLength,
+            message: `Deve essere almeno ${minLength} caratteri.`,
           },
         })}
       />

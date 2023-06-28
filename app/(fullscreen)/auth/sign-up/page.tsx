@@ -17,8 +17,6 @@ export type Inputs = {
   password: string;
   confirmPassword: string;
   email: string;
-  first_name: string;
-  last_name: string;
 };
 
 export default function Signup() {
@@ -33,45 +31,32 @@ export default function Signup() {
     email,
     password,
     confirmPassword,
-    first_name,
-    last_name,
   }) => {
     setLoading(true);
     if (password !== confirmPassword) {
       methods.setError("confirmPassword", {
         message: "Le due password non coincidono.",
       });
-    } else {
-      const verificationTime = new Date().toISOString();
-
-      // const { error, data: newUser } = await supabase.auth.signUp({
-      //   email,
-      //   password,
-      //   options: {
-      //     emailRedirectTo: `${getURL()}auth/callback`,
-      //     data: {
-      //       first_name,
-      //       last_name,
-      //     },
-      //   },
-      // });
-
-      const res = await fetch("/api/sign-up", {
-        method: "POST",
-        body: JSON.stringify({
-          email,
-          password,
-          first_name,
-          last_name,
-        }),
-      });
-      console.log(res);
-      if (!res.ok) {
-        setError("Errore in fase di registrazione.");
-      } else {
-        router.push("/auth/sign-up/sent");
-      }
+      return;
     }
+    const res = await fetch("/api/sign-up", {
+      method: "POST",
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
+
+    if (!res.ok) {
+      setError("Errore in fase di registrazione.");
+    } else {
+      const { error, data } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+      router.push("/");
+    }
+
     setLoading(false);
   };
 
@@ -82,8 +67,6 @@ export default function Signup() {
           className="space-y-4 md:space-y-6"
           onSubmit={methods.handleSubmit(onSubmit)}
         >
-          <Input label="Nome" name="first_name" placeholder="Nome" />
-          <Input label="Cognome" name="last_name" placeholder="Cognome" />
           <EmailInput />
           <PasswordInput />
           <PasswordInput name="confirmPassword" label="Conferma password" />
@@ -113,13 +96,14 @@ export default function Signup() {
                 htmlFor="terms"
                 className="font-light text-gray-500 dark:text-gray-300"
               >
-                I accept the{" "}
+                Accetto i
                 <a
                   className="font-medium text-primary-600 hover:underline dark:text-primary-500"
-                  href="#"
+                  href="/terms"
                 >
-                  Terms and Conditions
-                </a>
+                  termini e le condizioni
+                </a>{" "}
+                del sito.
               </label>
             </div>
           </div>

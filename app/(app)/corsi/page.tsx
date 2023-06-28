@@ -1,10 +1,18 @@
-import CoursesList from "@/components/courses";
+import CoursesList, { CourseType } from "@/components/courses";
 import { createServerSupabaseClient } from "../../supabase-server";
 
-export default async function Corsi() {
+export default async function Corsi({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
   const supabase = createServerSupabaseClient();
-  const { data: courses } = await supabase.from("products").select();
-
+  const { data: courses } = await supabase
+    .from("products")
+    .select()
+    .or("product_type.eq.course,product_type.eq.masterclass")
+    .order("order");
+  const type = searchParams["type"] as CourseType | undefined;
   return (
     <>
       <div className="bg-myYellow border-b-4 border-b-gray-900 ">
@@ -16,7 +24,7 @@ export default async function Corsi() {
           </div>
         </div>
       </div>
-      <CoursesList courses={courses} />
+      <CoursesList courses={courses} type={type} />
     </>
   );
 }

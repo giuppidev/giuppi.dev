@@ -27,8 +27,8 @@ export default function ChangePassword() {
       router.push("/auth/forgotten-password/sent");
     } else {
       setError(error.message);
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (

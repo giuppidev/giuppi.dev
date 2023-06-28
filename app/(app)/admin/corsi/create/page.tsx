@@ -1,5 +1,4 @@
 import { Database } from "@/types/supabase";
-import { stripe } from "@/utils/stripe";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
@@ -11,8 +10,9 @@ export default function CreateForm() {
     const name = formData.get("name") as string;
     const description = formData.get("description") as string;
     const price = parseFloat(formData.get("price") as string);
-    const discount = parseInt(formData.get("discount") as string);
-    const level = formData.get("difficulty") as string;
+    const eventbrite_url = formData.get("eventbrite_url") as string;
+    const video_url = formData.get("video_url") as string;
+    const level = formData.get("level") as string;
     const supabase = createServerComponentClient<Database>({ cookies });
     const slug = slugify(name, { lower: true });
     const { error, data: newProduct } = await supabase
@@ -22,40 +22,18 @@ export default function CreateForm() {
         description,
         level,
         price,
-        discount,
         slug,
+        eventbrite_url,
+        video_url,
       })
       .select()
       .single();
     if (error) {
       console.log(error);
-    } else {
-      const stripeProduct = await stripe.products.create({
-        name,
-        description,
-      });
-
-      const stripePrice = await stripe.prices.create({
-        currency: "eur",
-        product: stripeProduct.id,
-        unit_amount: price * 100,
-      });
-
-      await stripe.products.update(stripeProduct.id, {
-        default_price: stripePrice.id,
-      });
-
-      if (stripeProduct) {
-        const { error } = await supabase
-          .from("products")
-          .update({
-            stripe_product_id: stripeProduct.id,
-          })
-          .eq("id", newProduct.id);
-      }
-
-      redirect("admin/corsi");
+      return;
     }
+
+    redirect("admin/corsi");
   };
   return (
     <form action={createCourse}>
@@ -115,46 +93,56 @@ export default function CreateForm() {
         </div>
         <div>
           <label
-            htmlFor="difficulty"
+            htmlFor="eventbrite_url"
             className="block text-sm font-medium leading-6 text-gray-900"
           >
-            Difficoltà
+            Eventbrite
+          </label>
+          <div className="mt-2">
+            <input
+              type="text"
+              name="eventbrite_url"
+              id="eventbrite_url"
+              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              placeholder="url"
+              required
+            />
+          </div>
+        </div>
+        <div>
+          <label
+            htmlFor="video_url"
+            className="block text-sm font-medium leading-6 text-gray-900"
+          >
+            Video url
+          </label>
+          <div className="mt-2">
+            <input
+              type="text"
+              name="video_url"
+              id="video_url"
+              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              placeholder="url"
+              required
+            />
+          </div>
+        </div>
+        <div>
+          <label
+            htmlFor="level"
+            className="block text-sm font-medium leading-6 text-gray-900"
+          >
+            Livello
           </label>
           <select
-            id="difficulty"
-            name="difficulty"
+            id="level"
+            name="level"
             className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
             defaultValue="principiante"
           >
             <option>principiante</option>
             <option>medio</option>
-            <option>esperto</option>
-          </select>
-        </div>
-        <div>
-          <label
-            htmlFor="discount"
-            className="block text-sm font-medium leading-6 text-gray-900"
-          >
-            Sconto
-          </label>
-          <select
-            id="discount"
-            name="discount"
-            className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            defaultValue="0"
-          >
-            <option>0</option>
-            <option>5</option>
-            <option>10</option>
-            <option>15</option>
-            <option>20</option>
-            <option>25</option>
-            <option>30</option>
-            <option>35</option>
-            <option>40</option>
-            <option>45</option>
-            <option>50</option>
+            <option>avanzato</option>
           </select>
         </div>
       </div>

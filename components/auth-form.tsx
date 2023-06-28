@@ -1,5 +1,5 @@
 import SupabaseProvider from "@/app/supabase-provider";
-import { Logo } from "@/components/layout/logo";
+import { GiuppiLogo, Logo } from "@/components/layout/logo";
 import React from "react";
 
 export default function AuthForm({
@@ -17,7 +17,7 @@ export default function AuthForm({
             href="/"
             className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
           >
-            <Logo className="w-96" />
+            <GiuppiLogo className="w-96" />
           </a>
           <div className="w-full bg-white shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 border-4 border-gray-900">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">

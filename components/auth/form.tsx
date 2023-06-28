@@ -29,6 +29,7 @@ export const PasswordInput = ({
       placeholder="********"
       type="password"
       required
+      minLength={8}
     />
   );
 };

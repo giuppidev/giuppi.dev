@@ -1,15 +1,31 @@
 "use client";
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
-import { Logo } from "./logo";
+import { Bars2Icon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
+import { GiuppiLogo, Logo } from "./logo";
+import { User } from "@supabase/supabase-js";
+import { useSupabase } from "@/app/supabase-provider";
+import { useRouter } from "next/navigation";
 const navigation = [
   { name: "Corsi", href: "/corsi" },
-  { name: "Pacchetti", href: "#" },
-  { name: "About me", href: "#" },
+  { name: "Mentorship", href: "/mentorship" },
+  { name: "About me", href: "/about-me" },
 ];
-export default function Mobile() {
+
+interface NavigationMenuProps {
+  isAdmin: boolean;
+  user?: User;
+}
+export default function Mobile({ isAdmin, user }: NavigationMenuProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const { supabase } = useSupabase();
+  const router = useRouter();
+  async function signout() {
+    await supabase.auth.signOut();
+    setMobileMenuOpen(false);
+    router.push("/");
+  }
   return (
     <>
       <div className="flex lg:hidden pr-6">
@@ -19,7 +35,7 @@ export default function Mobile() {
           onClick={() => setMobileMenuOpen(true)}
         >
           <span className="sr-only">Open main menu</span>
-          <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+          <Bars3Icon className="h-12 w-12" aria-hidden="true" />
         </button>
       </div>
       <Dialog
@@ -29,11 +45,11 @@ export default function Mobile() {
         onClose={setMobileMenuOpen}
       >
         <div className="fixed inset-0 z-50" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-4 py-4 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <Logo className="w-64" />
+            <a href="/" className="mt-2">
+              <span className="sr-only">Giuppi.dev</span>
+              <GiuppiLogo className="w-64 lg:w-64" />
             </a>
             <button
               type="button"
@@ -41,29 +57,32 @@ export default function Mobile() {
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              <XMarkIcon className="h-12 w-12" aria-hidden="true" />
             </button>
           </div>
           <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
+            <div className="-my-6 divide-y-4 divide-gray-900">
+              <div className="space-y-6 py-10">
                 {navigation.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-5xl  leading-7 text-gray-900 hover:bg-gray-50"
                   >
                     {item.name}
                   </a>
                 ))}
+                {isAdmin && (
+                  <a
+                    href="/admin/corsi"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-5xl  leading-7 text-gray-900 hover:bg-gray-50"
+                  >
+                    ADMIN
+                  </a>
+                )}
               </div>
               <div className="py-6">
-                <a
-                  href="/sign-in"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Entra
-                </a>
+                <HeaderButtons loggedIn={!!user} signout={signout} />
               </div>
             </div>
           </div>
@@ -72,3 +91,31 @@ export default function Mobile() {
     </>
   );
 }
+
+export const HeaderButtons = ({
+  loggedIn,
+  signout,
+}: {
+  loggedIn: boolean;
+  signout: () => void;
+}) => {
+  if (loggedIn) {
+    return (
+      <button
+        onClick={signout}
+        className="-mx-3 block rounded-lg px-3 py-2.5 text-5xl leading-7 text-gray-900 hover:bg-gray-50"
+      >
+        LOGOUT
+      </button>
+    );
+  }
+
+  return (
+    <a
+      href="/auth/sign-in"
+      className="-mx-3 block rounded-lg px-3 py-2.5 text-5xl leading-7 text-gray-900 hover:bg-gray-50"
+    >
+      LOGIN
+    </a>
+  );
+};
