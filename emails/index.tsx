@@ -64,7 +64,7 @@ export const OrderEmail = ({ name = "nomade" }: EmailProps) => {
                 pX={20}
                 pY={12}
                 className="bg-[#6D9022] rounded text-white text-[12px] font-semibold no-underline text-center"
-                href={`${baseUrl}/auth/sign-in`}
+                href={`https://giuppi.dev/auth/sign-in`}
               >
                 Registrati o effettua il login
               </Button>
