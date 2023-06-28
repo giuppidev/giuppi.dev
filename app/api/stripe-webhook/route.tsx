@@ -27,6 +27,7 @@ export async function POST(req: NextRequest) {
   }
 
   console.log({ cose: event.data.object });
+  console.log({ cose2: event });
 
   try {
     // Handle the event
