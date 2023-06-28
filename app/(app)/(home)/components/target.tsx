@@ -1,4 +1,4 @@
-import { VideoCameraIcon } from "@heroicons/react/24/solid";
+import { PlusSmallIcon, VideoCameraIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 
 export const Target = () => {
@@ -13,11 +13,11 @@ export const Target = () => {
           <dl className="mt-10  divide-y-4 divide-gray-900">
             <dt className="flex w-full  gap-8 text-gray-900 ">
               <span className="text-4xl leading-7">
-                <LiveIcon />
+                <PlusIcon />
               </span>
               <div className="flex flex-col gap-2">
                 <span className="text-3xl lg:text-5xl">
-                  Non ho mai programmato
+                  Non hai mai programmato
                 </span>
                 <span>
                   Per chi non ha esperienza, può aiutare iniziare dalla
@@ -54,10 +54,10 @@ export const Target = () => {
             </dt>
             <dt className="flex w-full  gap-8 text-gray-900 pt-4">
               <span className="text-4xl leading-7">
-                <LiveIcon />
+                <PlusIcon />
               </span>
               <div className="flex flex-col gap-2">
-                <span className="text-3xl lg:text-5xl">Qualcosa so fare</span>
+                <span className="text-3xl lg:text-5xl">Qualcosa sai fare</span>
                 <span>
                   È il momento di dare uno sprint alla tua carriera. Entra
                   nell&apos;academy attivando la{" "}
@@ -87,10 +87,10 @@ export const Target = () => {
             </dt>
             <dt className="flex w-full  gap-8 text-gray-900 pt-4">
               <span className="text-4xl leading-7">
-                <LiveIcon />
+                <PlusIcon />
               </span>
               <div className="flex flex-col gap-2">
-                <span className="text-3xl lg:text-5xl">Insegno io a te</span>
+                <span className="text-3xl lg:text-5xl">Ne sai a pacchi</span>
                 <span>
                   Sei nel posto giusto se ti interessa alzare l&apos;asticella
                   delle tue competenze su{" "}
@@ -122,10 +122,10 @@ export const Target = () => {
   );
 };
 
-const LiveIcon = () => {
+const PlusIcon = () => {
   return (
-    <div className="bg-red-400 px-2 py-1 w-fit border-4 border-gray-900 shadow-brutal mb-6">
-      <VideoCameraIcon className="h-24 w-24  text-gray-900" />
+    <div className="bg-violet-400 px-2 py-1 w-fit border-4 border-gray-900 shadow-brutal mb-6">
+      <PlusSmallIcon className="h-24 w-24  text-gray-900" />
     </div>
   );
 };

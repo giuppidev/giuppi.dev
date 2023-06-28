@@ -37,10 +37,7 @@ export default function RootLayout({
   return (
     <html lang="it" className={workSans.className}>
       <head></head>
-      <body className={`${workSans.className} min-h-screen `}>
-        {children}{" "}
-        {/* <div dangerouslySetInnerHTML={{ __html: iubendaImplementation }} /> */}
-      </body>
+      <body className={`${workSans.className} min-h-screen `}>{children} </body>
     </html>
   );
 }

@@ -11,23 +11,18 @@ const faqs = [
   {
     question: "E se il corso è iniziato oppure è già finito?",
     answer:
-      "Nel caso in cui il corso sia iniziato o già terminato, troverai la registrazione di ogni lezione a cui avrai accesso a vita. Potrai comunque seguire lo sviluppo del progetto, visionare il codice e chiedere aiuto alla community se ti blocchi.",
+      "Nel caso in cui il corso sia iniziato o già terminato, entrando nella community troverai la registrazione di ogni lezione. Potrai comunque seguire lo sviluppo del progetto, visionare il codice e chiedere aiuto alla community su DISCORD se ti blocchi.",
   },
   {
     question: "Cosa ottengo comprando un corso o una masterclass?",
     answer:
-      "Oltre al link ZOOM dell'evento (se non ancora passato), riceverai l'accesso nella piattaforma alle registrazioni video, alle repository Github con il codice creato durante le lezioni e accesso al canale Discord in cui poter chiedere supporto a me e alla community.",
+      "Oltre al link ZOOM dell'evento (se non ancora passato), riceverai l'accesso nella piattaforma alle registrazioni video e alle repository Github con il codice creato durante le lezioni.",
   },
 
   {
     question: "Come faccio a chiedere aiuto durante il corso?",
     answer:
-      "Ci sono 3 modi: farmi domande durante le lezioni live, chiedendo sul canale dedicato al corso su Discord oppure acquistando una consulenza personalizzata per chiedere code review, aiuto e tutto quello che ti serve per proseguire nel tuo percorso.",
-  },
-  {
-    question: "E se non mi piace?",
-    answer:
-      "Sono sicuro che ogni corso sarà una bomba, ma nel caso non ti trovi bene o non pensi possa esserti utile, avrai 15 giorni dall'acquisto per essere rimborsato.",
+      "Ci sono 3 modi: farmi domande durante le lezioni live, chiedendo sul canale dedicato al corso su Discord per gli abbonati oppure acquistando una consulenza personalizzata per chiedere code review, aiuto e tutto quello che ti serve per proseguire nel tuo percorso.",
   },
 ];
 

@@ -14,7 +14,15 @@ const AboutCard = () => {
       className={` bg-white w-full lg:w-96  transition-all p-5 border-4 border-gray-900 shadow-brutal`}
     >
       <div className="flex flex-col h-full gap-4">
-        <Video />
+        <div className="relative bg-white  w-full  flex justify-center border-4 border-gray-900">
+          <img
+            src={
+              "https://res.cloudinary.com/de30mupo1/image/upload/c_limit,h_753,q_80/v1687969988/giuppi.dev/nomade.png"
+            }
+            alt="GIUPPI"
+            className=" w-full  object-cover"
+          />
+        </div>
 
         <div className="flex  gap-2 items-center w-full">
           <LinkButton

@@ -114,15 +114,15 @@ const features = [
   {
     name: "Classi live",
     description:
-      "I corsi si terranno live, completamente online, in modo che tu possa interagire con me facendo domande, commenti, ... Se arrivi tardi, don't worry: avrai accesso alle registrazioni per sempre.",
-    href: "/corsi?type=course",
+      "I corsi si terranno live, completamente online, in modo che tu possa interagire con me facendo domande, commenti, ... Se arrivi tardi, don't worry: abbonandoti avrai accesso alle registrazioni video.",
+    href: "/corsi",
     icon: <LiveIcon />,
     linkLabel: "Vai ai corsi",
   },
   {
     name: "Ti aiuto io",
     description:
-      "Puoi farmi domande durante le lezioni live oppure tramite il canale Discord dedicato al corso che stai seguendo. Vuoi una consulenza personalizzata? Prenota una mentorship!",
+      "Puoi farmi domande durante le lezioni live oppure tramite il canale Discord dedicato al corso che stai seguendo se ti abboni. Vuoi una consulenza personalizzata? Prenota una mentorship!",
     href: "/mentorship",
     icon: <HelpIcon />,
     linkLabel: "Vai alla mentorship",
@@ -130,8 +130,8 @@ const features = [
   {
     name: "Vita nomade",
     description:
-      "Se oltre a programmare sei interessato alla vita del freelance, al nomadismo digitale e tutto quello che va al di là del codice, ogni mese troverai una masterclass su un argomento del lavoro del programmatore nomade.",
-    href: "/corsi?type=masterclass",
+      "Se oltre a programmare sei interessato alla vita del freelance, al nomadismo digitale e tutto quello che va al di là del codice,  troverai  masterclass sul mondo del programmatore nomade.",
+    href: "/corsi",
     icon: <NomadIcon />,
     linkLabel: "Vai alle masterclass",
   },
