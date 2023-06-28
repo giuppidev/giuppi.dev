@@ -35,10 +35,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={workSans.className}>
+    <html lang="it" className={workSans.className}>
       <head></head>
       <body className={`${workSans.className} min-h-screen `}>
-        {children} <IubendaCookieBanner />
+        {children}{" "}
+        {/* <div dangerouslySetInnerHTML={{ __html: iubendaImplementation }} /> */}
       </body>
     </html>
   );
@@ -71,6 +72,21 @@ const GAHeader = () => {
     </>
   );
 };
+const iubendaImplementation = `
+<script type="text/javascript">
+var _iub = _iub || [];
+_iub.csConfiguration = {"invalidateConsentWithoutLog":false,"countryDetection":true,"perPurposeConsent":true,"whitelabel":false,"lang":"it","siteId":3195486,"consentOnDocument":true,"consentOnHorizontalScroll":true,"cookiePolicyId":81964887, "banner":{ "acceptButtonDisplay":true,"customizeButtonDisplay":true,"acceptButtonColor":"#65a6a0","acceptButtonCaptionColor":"white","customizeButtonColor":"#212121","customizeButtonCaptionColor":"white","position":"bottom","textColor":"white","backgroundColor":"#000001" },    "callback": {
+  "onReady": function() {
+      var banner = document.getElementById('iubenda-cs-banner');
+      if (banner) {
+          bannerHTML = banner.innerHTML;
+      }
+  },
+  "onPreferenceFirstExpressed": function(event) {
+    localStorage.set("iubendaConsent", true);
+  }}};
+</script>
+<script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>`;
 
 const IubendaCookieBanner = () => {
   const script = `<script type="text/javascript">

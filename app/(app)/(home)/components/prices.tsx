@@ -13,7 +13,7 @@ const tiers = [
     description: "Diventa un membro della community dei programmatori nomadi!",
     features: [
       "Tutti gli eventi LIVE",
-      "Registrazioni degli eventi passati",
+      "Registrazioni video degli eventi passati",
       "Gruppo DISCORD della community",
       "Tutte le repo github",
       "Sessioni extra di studio",
@@ -29,7 +29,7 @@ const tiers = [
     priceMonthly: "Custom",
     label: "evento",
 
-    description: "Scegli solo quello che ti interesssa.",
+    description: "Scegli solo quello che ti interessa.",
     features: [
       "Evento singolo LIVE",
       "Registrazioni post evento",

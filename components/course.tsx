@@ -24,12 +24,8 @@ const CourseCard = ({ course }: CourseProps) => {
     >
       <Link href={`/corsi/${course.slug}/`}>
         <div className="flex flex-col h-full">
-          <div className="relative bg-myGreen h-48 w-full">
-            <div
-              className={`absolute top-2 left-2 ${levelBg} px-3 border-2 rounded-2xl border-gray-900 uppercase`}
-            >
-              {course.product_type}
-            </div>
+          <div className="relative bg-white h-44 w-full">
+            <img src={course.cover_url || ""} alt="copertina corso"></img>
           </div>
 
           <h4 className=" text-2xl mb-3 font-extrabold mt-2">{course.name}</h4>

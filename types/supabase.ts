@@ -112,6 +112,7 @@ export interface Database {
       }
       products: {
         Row: {
+          cover_url: string | null
           created_at: string | null
           description: string | null
           discount: number | null
@@ -130,6 +131,7 @@ export interface Database {
           video_url: string | null
         }
         Insert: {
+          cover_url?: string | null
           created_at?: string | null
           description?: string | null
           discount?: number | null
@@ -148,6 +150,7 @@ export interface Database {
           video_url?: string | null
         }
         Update: {
+          cover_url?: string | null
           created_at?: string | null
           description?: string | null
           discount?: number | null
