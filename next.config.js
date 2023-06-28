@@ -4,6 +4,15 @@ const nextConfig = {
     serverActions: true,
     mdxRs: true,
   },
+  async redirects() {
+    return [
+      {
+        source: "/nomads",
+        destination: "/",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 const withMDX = require("@next/mdx")();
