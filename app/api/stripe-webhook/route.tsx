@@ -34,6 +34,9 @@ export async function POST(req: NextRequest) {
       case "invoice.paid":
         const { customer_email, subscription, customer_name } = event.data
           .object as any;
+        console.log({ email: customer_email });
+        console.log({ subscription: subscription });
+        console.log({ customer_name: customer_name });
 
         const { data: customer, error } = await supabase
           .from("subscriptions")
