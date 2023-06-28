@@ -8,7 +8,7 @@ const InfoCard = () => {
       <h1 className="font-semibold text-5xl pb-4">Overview</h1>
       <div className="flex flex-col h-full gap-2">
         <div>
-          <div className=" text-lg">insegnante</div>
+          <div className=" text-lg">mentor</div>
           <div className="flex gap-2 items-center">
             <div className="text-3xl font-semibold">Giuseppe Funicello</div>
           </div>
@@ -17,7 +17,7 @@ const InfoCard = () => {
         <div>
           <div className=" text-lg">durata</div>
           <div className="flex gap-2 items-center">
-            <div className="text-3xl font-semibold">1 ora</div>
+            <div className="text-3xl font-semibold">30 minuti / 1 ora</div>
           </div>
         </div>
       </div>

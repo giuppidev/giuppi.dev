@@ -71,7 +71,7 @@ export const AuthLink = ({
   return (
     <div>
       {passwordLink && (
-        <p className="text-base text-gray-900 dark:text-gray-400">
+        <p className="text-base text-gray-900 ">
           <a
             href="/auth/forgotten-password"
             className="font-medium text-primary-600 hover:underline "
@@ -81,7 +81,7 @@ export const AuthLink = ({
         </p>
       )}
       {loginLink && (
-        <p className="text-base text-gray-900 dark:text-gray-400">
+        <p className="text-base text-gray-900 ">
           <a
             href="/auth/sign-in"
             className="font-medium text-primary-600 hover:underline "
@@ -91,7 +91,7 @@ export const AuthLink = ({
         </p>
       )}
       {signupLink && (
-        <p className="text-base text-gray-900 dark:text-gray-400">
+        <p className="text-base text-gray-900 ">
           Sei nuovo?{" "}
           <a
             href="/auth/sign-up"

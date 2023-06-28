@@ -11,12 +11,18 @@ export default function Description() {
       >
         <div className="text-3xl font-semibold pb-4">Programmatore</div>
         <div className="text-2xl">
-          lorem ipsum dolor sit amet consectetur adipisicing elit lorem ipsum
-          dolor sit amet consectetur adipisicing elit lorem ipsum dolor sit amet
-          consectetur adipisicing elit lorem ipsum dolor sit amet consectetur
-          adipisicing elit lorem ipsum dolor sit amet consectetur adipisicing
-          elit lorem ipsum dolor sit amet consectetur adipisicing elit lorem
-          ipsum dolor sit amet consectetur adipisicing elit{" "}
+          Ho iniziato ad appassionarmi alla programmazione quando c&apos;erano
+          ancora i floppy disk.. Da lì, molto studio, la scelta di fare
+          ingegneria informatica di cui mi pentii 2 anni dopo e i primi lavori.
+        </div>
+        <div className="text-2xl">
+          Sono passato da fare l&apos;operatore su turni al sistemista
+          applicativa, dal programmatore Java al full stack developer in una
+          startup.
+        </div>
+        <div className="text-2xl">
+          Il vero divertimento è arrivato quando sono diventato freelance: tanti
+          progetti diversi.
         </div>
       </div>
       <div

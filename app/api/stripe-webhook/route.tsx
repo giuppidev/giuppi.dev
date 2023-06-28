@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false }, { status: 400 });
   }
 
-  console.log({ event });
+  console.log({ cose: event.data.object });
 
   try {
     // Handle the event
@@ -47,7 +47,6 @@ export async function POST(req: NextRequest) {
 
         if (error) {
           console.log(error);
-          return NextResponse.json({ ok: false }, { status: 500 });
         }
 
         const emailHtml = render(<OrderEmail name={customer_name} />);
