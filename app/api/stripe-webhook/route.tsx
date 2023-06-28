@@ -32,8 +32,12 @@ export async function POST(req: NextRequest) {
     // Handle the event
     switch (event.type) {
       case "invoice.paid":
-        const { customer_email, subscription, customer_name } = event.data
-          .object as any;
+        const res = event.data.object as any;
+
+        const customer_email = res.customer_email;
+        const subscription = res.subscription;
+        const customer_name = res.customer_name;
+
         console.log({ email: customer_email });
         console.log({ subscription: subscription });
         console.log({ customer_name: customer_name });
