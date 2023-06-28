@@ -23,13 +23,10 @@ export async function POST(req: NextRequest) {
       process.env.STRIPE_WEBHOOK_KEY ?? ""
     );
   } catch (err: any) {
-    return (
-      new Response(),
-      {
-        status: 400,
-      }
-    );
+    return NextResponse.json({ ok: false }, { status: 400 });
   }
+
+  console.log({ event });
 
   try {
     // Handle the event
