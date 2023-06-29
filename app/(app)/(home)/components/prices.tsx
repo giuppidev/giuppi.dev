@@ -79,6 +79,16 @@ export default function Prices() {
               </span>
               <span className="text-base text-gray-500">/{tier.label}</span>
             </p>
+            {tier.id === "tier-sub" && (
+              <div>
+                <div>
+                  <div className="w-fit border-2 border-gray-900 font-semibold p-1 text-xl bg-blue-300">
+                    PROVA GRATUITA DI 14 GIORNI*
+                  </div>
+                </div>
+                <div>*Offerta lancio 🚀</div>
+              </div>
+            )}
             <p className="mt-6 text-2xl leading-7 text-gray-600">
               {tier.description}
             </p>
@@ -101,9 +111,12 @@ export default function Prices() {
                 <input type="hidden" name="mode" value="yearly" />
                 <Button
                   type="submit"
-                  className="bg-red-600 text-white font-semibold text-xl mt-4"
+                  className="bg-red-600 text-white font-semibold text-xl mt-4 relative"
                 >
-                  ENTRA A € 25/mese
+                  MEMBERSHIP € 25/mese
+                  <div className="absolute -bottom-6 text-gray-900 right-0 w-fit border-2 border-gray-900 font-semibold p-1 text-sm bg-blue-200">
+                    PROVA GRATIS 14 GIORNI
+                  </div>
                 </Button>
               </form>
             ) : (

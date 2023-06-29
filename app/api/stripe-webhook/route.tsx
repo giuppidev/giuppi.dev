@@ -37,11 +37,6 @@ export async function POST(req: NextRequest) {
 
         const customer_email = res.customer_email;
         const subscription = res.subscription;
-        const customer_name = res.customer_name;
-
-        console.log({ email: customer_email });
-        console.log({ subscription: subscription });
-        console.log({ customer_name: customer_name });
 
         const { data: customer, error } = await supabase
           .from("subscriptions")
@@ -57,7 +52,7 @@ export async function POST(req: NextRequest) {
           console.log(error);
         }
 
-        const emailHtml = render(<OrderEmail name={customer_name} />);
+        const emailHtml = render(<OrderEmail />);
 
         const options = {
           from: '"Giuseppe Funicello" <info@giuppi.dev>',
