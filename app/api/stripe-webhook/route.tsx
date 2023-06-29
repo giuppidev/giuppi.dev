@@ -52,12 +52,14 @@ export async function POST(req: NextRequest) {
             },
             { onConflict: "email" }
           );
-
+        console.log("sub saved");
         if (error) {
           console.log({ subError: error });
         }
+        console.log("sub saved no error");
 
         const emailHtml = render(<OrderEmail />);
+        console.log("render email");
 
         const options = {
           from: '"Giuseppe Funicello" <info@giuppi.dev>',
@@ -65,9 +67,17 @@ export async function POST(req: NextRequest) {
           subject: "🚀 Benvenuto nella giuppi<dev> academy!",
           html: emailHtml,
         };
+
+        console.log("render email - options");
+
         try {
+          console.log("if customer_email", customer_email);
+
           if (customer_email) {
+            console.log("time to send");
+
             transporter.sendMail(options);
+            console.log("sent");
           }
         } catch (e) {
           console.log({ invioError: JSON.stringify(e) });
