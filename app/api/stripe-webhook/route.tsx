@@ -33,10 +33,15 @@ export async function POST(req: NextRequest) {
     // Handle the event
     switch (event.type) {
       case "invoice.paid":
+        console.log("invoice.paid");
         const res = event.data.object as any;
+        console.log({ object: res });
 
         const customer_email = res.customer_email;
+        console.log({ customer_email });
         const subscription = res.subscription;
+
+        console.log({ subscription });
 
         const { data: customer, error } = await supabase
           .from("subscriptions")
@@ -49,7 +54,7 @@ export async function POST(req: NextRequest) {
           );
 
         if (error) {
-          console.log(error);
+          console.log({ subError: error });
         }
 
         const emailHtml = render(<OrderEmail />);
@@ -65,11 +70,12 @@ export async function POST(req: NextRequest) {
             transporter.sendMail(options);
           }
         } catch (e) {
-          console.log(e);
+          console.log({ invioError: JSON.stringify(e) });
         }
 
         break;
       case "checkout.session.completed":
+        console.log("checkout.session.completed");
         const { status, customer_details, metadata } = event.data.object as any;
 
         const mentorship_customer_email = customer_details.email;
