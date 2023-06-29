@@ -66,7 +66,7 @@ export default function CoursesList({ courses }: CoursesProps) {
               <CourseCard course={course} key={key} />
             ))
           ) : (
-            <div>Nessun corso trovato.</div>
+            <div>Qui troverai le registrazioni dei corsi.</div>
           )}
         </ul>
       </div>

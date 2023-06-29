@@ -80,6 +80,14 @@ export default function Mobile({ isAdmin, user }: NavigationMenuProps) {
                     ADMIN
                   </a>
                 )}
+                {!!user && (
+                  <a
+                    href="/dashboard/corsi"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-5xl  leading-7 text-gray-900 hover:bg-gray-50"
+                  >
+                    DASHBOARD
+                  </a>
+                )}
               </div>
               <div className="py-6">
                 <HeaderButtons loggedIn={!!user} signout={signout} />

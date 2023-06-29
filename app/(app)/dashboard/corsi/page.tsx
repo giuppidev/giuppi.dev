@@ -38,7 +38,7 @@ export default async function Corsi() {
             <div>
               <LinkButton
                 href={customerPortal}
-                className="bg-myGreen text-white"
+                className="bg-myGreen text-white text-base lg:text-xl"
                 target="_blank"
               >
                 Gestisci il tuo abbonamento
