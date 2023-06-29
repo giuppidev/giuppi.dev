@@ -1,6 +1,5 @@
 import "../globals.css";
 import SupabaseProvider from "../supabase-provider";
-
 export default function RootLayout({
   children,
 }: {

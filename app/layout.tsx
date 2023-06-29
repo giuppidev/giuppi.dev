@@ -1,6 +1,8 @@
 import Script from "next/script";
 import "./globals.css";
 import { workSans } from "./fonts";
+import CookieConsent from "@/components/cookies";
+export const dynamic = "force-dynamic";
 
 const meta = {
   title: "giuppi<dev> - Programmatore nomade",
@@ -37,7 +39,10 @@ export default function RootLayout({
   return (
     <html lang="it" className={workSans.className}>
       <head></head>
-      <body className={`${workSans.className} min-h-screen `}>{children} </body>
+      <body className={`${workSans.className} min-h-screen `}>
+        {children}
+        <CookieConsent />
+      </body>
     </html>
   );
 }
@@ -68,29 +73,4 @@ const GAHeader = () => {
     `}</Script>
     </>
   );
-};
-const iubendaImplementation = `
-<script type="text/javascript">
-var _iub = _iub || [];
-_iub.csConfiguration = {"invalidateConsentWithoutLog":false,"countryDetection":true,"perPurposeConsent":true,"whitelabel":false,"lang":"it","siteId":3195486,"consentOnDocument":true,"consentOnHorizontalScroll":true,"cookiePolicyId":81964887, "banner":{ "acceptButtonDisplay":true,"customizeButtonDisplay":true,"acceptButtonColor":"#65a6a0","acceptButtonCaptionColor":"white","customizeButtonColor":"#212121","customizeButtonCaptionColor":"white","position":"bottom","textColor":"white","backgroundColor":"#000001" },    "callback": {
-  "onReady": function() {
-      var banner = document.getElementById('iubenda-cs-banner');
-      if (banner) {
-          bannerHTML = banner.innerHTML;
-      }
-  },
-  "onPreferenceFirstExpressed": function(event) {
-    localStorage.set("iubendaConsent", true);
-  }}};
-</script>
-<script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>`;
-
-const IubendaCookieBanner = () => {
-  const script = `<script type="text/javascript">
-    var _iub = _iub || [];
-    _iub.csConfiguration = {"ccpaAcknowledgeOnDisplay":true,"consentOnContinuedBrowsing":false,"countryDetection":true,"enableCcpa":true,"enableLgpd":true,"invalidateConsentWithoutLog":true,"lgpdAppliesGlobally":false,"perPurposeConsent":true,"siteId":2831268,"whitelabel":false,"cookiePolicyId":17159544,"lang":"it", "banner":{ "acceptButtonDisplay":true,"closeButtonDisplay":false,"customizeButtonDisplay":true,"explicitWithdrawal":true,"listPurposes":false,"position":"bottom","rejectButtonDisplay":true }};
-    </script>
-    <script type="text/javascript" src="//cdn.iubenda.com/cs/ccpa/stub.js"></script>
-    <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>`;
-  return <div dangerouslySetInnerHTML={{ __html: script }}></div>;
 };

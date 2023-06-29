@@ -96,7 +96,7 @@ export default function Signup() {
                 Accetto i{" "}
                 <a
                   className="font-medium text-primary-600 hover:underline "
-                  href="/terms"
+                  href="https://www.iubenda.com/privacy-policy/81964887"
                   target="_blank"
                 >
                   termini e le condizioni
