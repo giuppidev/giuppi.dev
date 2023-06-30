@@ -7,7 +7,8 @@ export const dynamic = "force-dynamic";
 const meta = {
   title: "giuppi<dev> - Programmatore nomade",
   description: "La prima academy per diventare programmatori e nomadi digitali",
-  cardImage: "/og.png",
+  cardImage:
+    "https://res.cloudinary.com/de30mupo1/image/upload/v1688128070/giuppi.dev/giuppidev.jpg",
   robots: "follow, index",
   favicon: "/favicon.ico",
   url: "https://www.giuppi.dev",
@@ -29,6 +30,7 @@ export const metadata = {
     cardImage: meta.cardImage,
     type: meta.type,
     site_name: meta.title,
+    images: [meta.cardImage],
   },
 };
 export default function RootLayout({
