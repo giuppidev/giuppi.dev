@@ -5,6 +5,7 @@ import Hero from "./components/hero";
 import Contact from "./components/contact";
 import { Target } from "./components/target";
 import Prices from "./components/prices";
+import Pricing from "./components/pricing";
 
 export default async function Home() {
   const supabase = createServerSupabaseClient();
@@ -16,7 +17,7 @@ export default async function Home() {
       <Claim />
       <Features />
       <Target />
-      <Prices />
+      <Pricing />
       <FAQ />
       <Contact />
     </main>

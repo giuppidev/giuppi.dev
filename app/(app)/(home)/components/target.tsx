@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const Target = () => {
   return (
-    <div className="bg-white border-b-4 border-b-gray-900">
+    <div className="bg-white border-b-4 border-b-gray-900 box-border">
       <div className="mx-auto  px-6 py-24 lg:px-8 ">
         <div className="mx-auto max-w-7xl  ">
           <p className=" text-5xl font-semibold  tracking-tight text-gray-900 sm:text-7xl lg:text-center">
@@ -15,7 +15,7 @@ export const Target = () => {
               <span className="text-4xl leading-7">
                 <PlusIcon />
               </span>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 mb-4">
                 <span className="text-3xl lg:text-5xl">
                   Non hai mai programmato
                 </span>
@@ -52,7 +52,7 @@ export const Target = () => {
                 </span>
               </div>
             </dt>
-            <dt className="flex w-full  gap-8 text-gray-900 pt-4">
+            <dt className="flex w-full  gap-8 text-gray-900 py-8 ">
               <span className="text-4xl leading-7">
                 <PlusIcon />
               </span>
@@ -124,8 +124,8 @@ export const Target = () => {
 
 const PlusIcon = () => {
   return (
-    <div className="bg-violet-400 px-2 py-1 w-fit border-4 border-gray-900 shadow-brutal mb-6">
-      <PlusSmallIcon className="h-24 w-24  text-gray-900" />
+    <div className="bg-violet-400 px-2 py-1 w-fit border-4 border-gray-900 shadow-brutal ">
+      <PlusSmallIcon className="h-12 w-12 lg:h-24 lg:w-24  text-gray-900" />
     </div>
   );
 };

@@ -8,6 +8,7 @@ module.exports = {
   theme: {
     extend: {
       boxShadow: {
+        brutalSmall: "4px 4px 0px 0px #000",
         brutal: "5px 5px 0px 0px #000",
         brutalXl: "8px 8px 0px 0px #000",
         brutalPressed: "1px 2px 0px 0px #000",
