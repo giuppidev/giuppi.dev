@@ -1,11 +1,10 @@
 import { createServerSupabaseClient } from "@/app/supabase-server";
+import Contact from "./components/contact";
 import FAQ from "./components/faq";
 import Features from "./components/features";
 import Hero from "./components/hero";
-import Contact from "./components/contact";
-import { Target } from "./components/target";
-import Prices from "./components/prices";
 import Pricing from "./components/pricing";
+import { Target } from "./components/target";
 
 export default async function Home() {
   const supabase = createServerSupabaseClient();
