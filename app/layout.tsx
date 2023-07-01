@@ -40,7 +40,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="it" className={workSans.className}>
-      <head></head>
+      <head>
+        <GAHeader />
+      </head>
       <body className={`${workSans.className} min-h-screen `}>
         {children}
         <CookieConsent />
