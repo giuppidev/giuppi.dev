@@ -107,6 +107,14 @@ export default function Pricing() {
                     </span>
                   )}
                 </p>
+                {tier.id === "tier-sub" && (
+                  <div className="pt-4">
+                    <div className="w-fit border-2 border-gray-900 font-semibold p-1 text-xl bg-blue-300">
+                      PROVA GRATUITA DI 14 GIORNI*
+                    </div>
+                    <div>*Offerta lancio 🚀</div>
+                  </div>
+                )}
                 <p className={`mt-4 text-2xl leading-7 text-gray-600`}>
                   {tier.description}
                 </p>
@@ -126,18 +134,20 @@ export default function Pricing() {
                 </ul>
               </div>
               {tier.id === "tier-sub" ? (
-                <form action={handleSubscribe} className="mt-8">
-                  <input type="hidden" name="mode" value="yearly" />
-                  <Button
-                    type="submit"
-                    className="bg-myYellow text-gray-900 font-semibold text-xl  relative uppercase"
-                  >
-                    {tier.buttonLabel}
-                    {/* <div className="absolute -bottom-6 text-gray-900 right-0 w-fit border-2 border-gray-900 font-semibold p-1 text-sm bg-blue-200">
-                      PROVA GRATIS 14 GIORNI
-                    </div> */}
-                  </Button>
-                </form>
+                <>
+                  <form action={handleSubscribe} className="mt-8">
+                    <input type="hidden" name="mode" value="yearly" />
+                    <Button
+                      type="submit"
+                      className="bg-myYellow text-gray-900 font-semibold text-xl  relative uppercase"
+                    >
+                      {tier.buttonLabel}
+                    </Button>
+                  </form>
+                  <a href="/corsi" className="underline pt-4 pl-2">
+                    Vedi la lista dei corsi{" "}
+                  </a>
+                </>
               ) : (
                 <LinkButton
                   href={tier.href || ""}

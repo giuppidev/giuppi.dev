@@ -1,5 +1,7 @@
+"use client";
 import { Database } from "@/types/supabase";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 type Course = Database["public"]["Tables"]["products"]["Row"];
 
@@ -30,6 +32,10 @@ const CourseCard = ({ course }: CourseProps) => {
 
           <h4 className=" text-2xl mb-3 font-extrabold mt-2">{course.name}</h4>
           <div className=" text-xl mb-3 ">{course.short_description}</div>
+          <div className=" text-xl mb-3 flex gap-2 ">
+            <strong>Quando: </strong>
+            <StartDate date={course.start_date || ""} />
+          </div>
           <div className="flex gap-2 items-end space-x-3  flex-grow text-secondary font-bold text-xl ">
             {linkLabel}
             <ArrowIcon />
@@ -41,6 +47,23 @@ const CourseCard = ({ course }: CourseProps) => {
 };
 
 export default CourseCard;
+
+const StartDate = ({ date }: { date: string }) => {
+  const [formattedDate, setFormattedDate] = useState("");
+
+  useEffect(() => {
+    const lessonDate = new Date(date || "");
+    const lessonDatetime = new Intl.DateTimeFormat("it-IT", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }).format(lessonDate);
+
+    setFormattedDate(lessonDatetime);
+  }, []);
+
+  return <div className="">{formattedDate}</div>;
+};
 
 function getDifficultyBg(course: Course) {
   const level = course.level;
