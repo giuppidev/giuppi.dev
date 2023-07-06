@@ -17,15 +17,18 @@ export default async function Corsi() {
 
   const customerPortal = process.env.NEXT_PUBLIC_STRIPE_CUSTOMER_PORTAL || "";
 
-  const { data: products } = await supabase
-    .from("orders")
-    .select("products(*)")
-    .eq("user_id", session?.user.id)
-    .eq("payment_status", "succeeded");
+  const { data: sub } = await supabase
+    .from("subscriptions")
+    .select()
+    .eq("email", session.user.email)
+    .eq("active", true)
+    .single();
 
-  const courses =
-    (products?.map((p) => p.products).filter((p) => p !== null) as Course[]) ||
-    [];
+  const now = new Date().toISOString();
+  const { data } = await supabase
+    .from("products")
+    .select()
+    .lte("start_date", now);
 
   return (
     <>
@@ -47,7 +50,7 @@ export default async function Corsi() {
           </div>
         </div>
       </div>
-      <CoursesList courses={courses} />
+      <CoursesList courses={data as Course[]} />
     </>
   );
 }

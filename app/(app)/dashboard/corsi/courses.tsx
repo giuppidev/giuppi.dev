@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/button";
-import CourseCard from "@/components/course";
+import CourseCard from "./course";
 import { Database } from "@/types/supabase";
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
@@ -61,7 +61,7 @@ export default function CoursesList({ courses }: CoursesProps) {
           role="list"
           className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-16 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3"
         >
-          {filteredCourses.length > 0 ? (
+          {filteredCourses?.length > 0 ? (
             filteredCourses.map((course, key) => (
               <CourseCard course={course} key={key} />
             ))

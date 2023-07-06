@@ -1,11 +1,11 @@
 import { createServerSupabaseClient } from "@/app/supabase-server";
-import { OrderEmail, MentorshipEmail } from "@/emails";
+import OrderEmail from "@/emails";
+import MentorshipEmail from "@/emails/mentorship";
 import { Database } from "@/types/supabase";
 import { transporter } from "@/utils/nodemailer";
 import { stripe } from "@/utils/stripe";
 import { render } from "@react-email/render";
 import { NextResponse, type NextRequest } from "next/server";
-type Customer = Database["public"]["Tables"]["profiles"]["Row"];
 
 export async function POST(req: NextRequest) {
   let event;

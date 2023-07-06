@@ -1,9 +1,8 @@
-import { redirect } from "next/navigation";
 import { Database } from "@/types/supabase";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import { cache } from "react";
 import Lessons from "./lessons/lessons";
+import { SendNotification } from "./send";
 
 export default async function ViewCourse({
   params,
@@ -43,6 +42,9 @@ export default async function ViewCourse({
             Aggiorna corso
           </a>
         </div>
+      </div>
+      <div>
+        <SendNotification course_id={course.id} />
       </div>
       <Lessons course_id={params.course_id} lessons={lessons} />
     </div>

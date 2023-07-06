@@ -129,6 +129,7 @@ export interface Database {
           start_date: string | null
           tags: string[] | null
           video_url: string | null
+          zoom_url: string | null
         }
         Insert: {
           cover_url?: string | null
@@ -148,6 +149,7 @@ export interface Database {
           start_date?: string | null
           tags?: string[] | null
           video_url?: string | null
+          zoom_url?: string | null
         }
         Update: {
           cover_url?: string | null
@@ -167,6 +169,7 @@ export interface Database {
           start_date?: string | null
           tags?: string[] | null
           video_url?: string | null
+          zoom_url?: string | null
         }
         Relationships: []
       }
@@ -255,18 +258,21 @@ export interface Database {
       }
       subscriptions: {
         Row: {
+          active: boolean | null
           created_at: string | null
           email: string
           id: number
           stripe_id: string
         }
         Insert: {
+          active?: boolean | null
           created_at?: string | null
           email: string
           id?: number
           stripe_id: string
         }
         Update: {
+          active?: boolean | null
           created_at?: string | null
           email?: string
           id?: number
