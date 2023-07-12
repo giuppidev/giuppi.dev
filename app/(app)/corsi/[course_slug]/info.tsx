@@ -1,14 +1,16 @@
 "use client";
 import { Database } from "@/types/supabase";
 import { useEffect, useState } from "react";
+import { CourseStatus } from "./page";
 
 type Course = Database["public"]["Tables"]["products"]["Row"];
 
 interface InfoProps {
   course: Course;
+  courseState: CourseStatus;
 }
 
-const InfoCard = ({ course }: InfoProps) => {
+const InfoCard = ({ course, courseState }: InfoProps) => {
   return (
     <div
       className={` bg-white w-full lg:w-96 h-fit   transition-all p-5 border-4 border-gray-900 shadow-brutal mb-8`}
@@ -40,7 +42,7 @@ const InfoCard = ({ course }: InfoProps) => {
           </div>
         </div>
 
-        <StartDate date={course.start_date || ""} />
+        <StartDate date={course.start_date || ""} courseState={courseState} />
         {course.product_type === "course" && (
           <div>
             <div className=" text-lg">durata</div>
@@ -58,11 +60,18 @@ const InfoCard = ({ course }: InfoProps) => {
 
 export default InfoCard;
 
-const StartDate = ({ date }: { date: string }) => {
+const StartDate = ({
+  date,
+  courseState,
+}: {
+  date: string;
+  courseState: CourseStatus;
+}) => {
   const [formattedDate, setFormattedDate] = useState("");
 
   useEffect(() => {
     const lessonDate = new Date(date || "");
+
     const lessonDatetime = new Intl.DateTimeFormat("it-IT", {
       day: "numeric",
       month: "long",
@@ -78,7 +87,13 @@ const StartDate = ({ date }: { date: string }) => {
     <div>
       <div className=" text-lg">data inizio</div>
       <div className="flex gap-2 items-center">
-        <div className="text-2xl font-semibold">{formattedDate}</div>
+        <div className="text-2xl font-semibold">
+          {courseState === "new"
+            ? formattedDate
+            : courseState === "inprogress"
+            ? "In corso"
+            : "Finito"}
+        </div>
       </div>
     </div>
   );

@@ -6,15 +6,16 @@ import { Dialog, Transition } from "@headlessui/react";
 import { PlayIcon } from "@heroicons/react/24/solid";
 import { Fragment, useState } from "react";
 import { handleSubscribe } from "../../actions";
+import { CourseStatus } from "./page";
 
 type Course = Database["public"]["Tables"]["products"]["Row"];
 
 interface CourseProps {
   course: Course;
-  alreadyOrdered: boolean;
+  courseState: CourseStatus;
 }
 
-const CourseCard = ({ course, alreadyOrdered }: CourseProps) => {
+const CourseCard = ({ course, courseState }: CourseProps) => {
   const linkLabel = "SINGOLO EVENTO - € " + course.price;
 
   return (
@@ -29,27 +30,17 @@ const CourseCard = ({ course, alreadyOrdered }: CourseProps) => {
             className=" w-full  object-cover"
           />
         </div>
-        {/* {course.discount ? (
-          <div className=" text-3xl mb-3 font-semibold mt-2 flex justify-center items-center gap-1">
-            <div className="font-extrabold text-4xl">€ {course.price}</div>
-            <div className="text-gray-600 text-lg line-through ">€ 199</div>
-            <div className="font-extrabold text-lg text-white bg-red-600  border-2 border-gray-900 px-1">
-              -{course.discount}%
-            </div>
-          </div>
-        ) : (
-          <div className=" text-3xl mb-3 font-semibold mt-2 flex justify-center">
-            <div className="font-extrabold font-4xl">€ {course.price}</div>
-          </div>
-        )} */}
 
-        {alreadyOrdered ? (
-          <LinkButton
-            className="bg-myGreen text-white font-semibold"
-            href={`/dashboard/corsi`}
-          >
-            Vai al corso
-          </LinkButton>
+        {courseState === "new" ? (
+          <form action={handleSubscribe}>
+            <input type="hidden" name="mode" value="yearly" />
+            <Button
+              type="submit"
+              className="bg-red-600 w-full text-white font-semibold text-xl mt-4 relative"
+            >
+              ACCEDI A TUTTO - € 25/m
+            </Button>
+          </form>
         ) : (
           <div className="flex flex-col gap-2 items-center">
             <form action={handleSubscribe}>

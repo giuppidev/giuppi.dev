@@ -1,15 +1,16 @@
 import { Database } from "@/types/supabase";
 import CourseCard from "./card";
 import { Tags } from "./tags";
+import { CourseStatus } from "./page";
 
 type Course = Database["public"]["Tables"]["products"]["Row"];
 
 export default function CourseHero({
   course,
-  alreadyOrdered,
+  courseState,
 }: {
   course: Course;
-  alreadyOrdered: boolean;
+  courseState: CourseStatus;
 }) {
   return (
     <div className=" isolate  bg-myYellow border-b-4 border-b-gray-800">
@@ -29,7 +30,7 @@ export default function CourseHero({
               {course?.name}
             </h1>
 
-            <CourseCard course={course} alreadyOrdered={alreadyOrdered} />
+            <CourseCard course={course} courseState={courseState} />
           </div>
         </div>
       </div>

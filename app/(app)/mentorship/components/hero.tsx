@@ -15,7 +15,7 @@ export default function MentorshipHero({
         <div className="mx-auto max-w-7xl lg:mx-0 lg:flex-auto  space-y-5 flex flex-col-reverse lg:flex-row gap-4 justify-between">
           <div className="flex flex-col gap-4 justify-between">
             <h1 className=" mt-2 max-w-2xl text-3xl  tracking-tight text-gray-900 sm:text-8xl leading-8 hidden lg:block ">
-              Chiedimi una mentoship personalizzata
+              Chiedimi una mentorship personalizzata
             </h1>
             <div className="space-y-2">
               <h1 className="font-semibold text-3xl">Argomenti:</h1>

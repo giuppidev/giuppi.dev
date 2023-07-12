@@ -35,6 +35,8 @@ export async function generateMetadata(
   };
 }
 
+export type CourseStatus = "inprogress" | "finished" | "new";
+
 export default async function CoursePage({
   params,
 }: {
@@ -57,34 +59,34 @@ export default async function CoursePage({
     .eq("product_id", course.id)
     .order("event_timestamp", { ascending: true });
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  let alreadyOrdered = false;
-  if (user) {
-    const { error, data: order } = await supabase
-      .from("orders")
-      .select()
-      .eq("product_id", course.id)
-      .eq("user_id", user.id)
-      .eq("payment_status", "succeeded")
-      .single();
-
-    if (order) {
-      alreadyOrdered = true;
+  let courseStatus: CourseStatus = "new";
+  if (lessons) {
+    const now = new Date();
+    const hasFutureLessons = lessons.some((lesson) => {
+      const lessonDate = new Date(lesson.event_timestamp || "");
+      return lessonDate > now;
+    });
+    const hasPastLessons = lessons.some((lesson) => {
+      const lessonDate = new Date(lesson.event_timestamp || "");
+      return lessonDate < now;
+    });
+    if (hasFutureLessons && hasPastLessons) {
+      courseStatus = "inprogress";
+    } else if (!hasFutureLessons && hasPastLessons) {
+      courseStatus = "finished";
     }
   }
 
   return (
     <>
-      <CourseHero course={course} alreadyOrdered={alreadyOrdered} />
+      <CourseHero course={course} courseState={courseStatus} />
       <div className="flex flex-col lg:flex-row">
         <div></div>
       </div>
       <div className="py-8 w-screen ">
         <div className="flex flex-col-reverse lg:flex-row justify-between max-w-7xl px-6 lg:px-8 mx-auto">
           <Sections course={course} lessons={lessons || []} />
-          <InfoCard course={course} />
+          <InfoCard course={course} courseState={courseStatus} />
         </div>
       </div>
     </>
