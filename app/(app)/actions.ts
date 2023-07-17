@@ -2,6 +2,8 @@ import { getURL } from "@/utils/helpers";
 import { stripe } from "@/utils/stripe";
 import { redirect } from "next/navigation";
 
+const TRIAL_DAYS = 7;
+
 export async function handleSubscribe(formData: FormData) {
   "use server";
 
@@ -23,7 +25,7 @@ export async function handleSubscribe(formData: FormData) {
           missing_payment_method: "cancel",
         },
       },
-      trial_period_days: 14,
+      trial_period_days: TRIAL_DAYS,
     },
     allow_promotion_codes: true,
     custom_fields: [
@@ -98,9 +100,9 @@ export async function handleMentorship(formData: FormData) {
 
 function getSubscriptionPriceID(mode: string) {
   if (mode === "yearly") {
-    return process.env.STRIPE_SUBSCRIPTION_ID_MONTHLY || "";
+    return process.env.STRIPE_SUBSCRIPTION_ID_YEARLY || "";
   }
-  return process.env.STRIPE_SUBSCRIPTION_ID_YEARLY || "";
+  return process.env.STRIPE_SUBSCRIPTION_ID_MONTHLY || "";
 }
 function getMentorshipPriceID(duration: string) {
   if (duration === "30") {

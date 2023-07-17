@@ -15,7 +15,7 @@ const SubscriptionCard = () => {
 
         <div className="flex flex-col gap-2 items-center">
           <form action={handleSubscribe}>
-            <input type="hidden" name="mode" value="monthly" />
+            <input type="hidden" name="mode" value="yearly" />
             <Button
               type="submit"
               className="bg-myGreen text-white font-semibold text-xl"
@@ -25,7 +25,7 @@ const SubscriptionCard = () => {
           </form>
           <div>oppure</div>
           <form action={handleSubscribe}>
-            <input type="hidden" name="mode" value="yearly" />
+            <input type="hidden" name="mode" value="monthly" />
             <Button
               type="submit"
               className="bg-myGreen text-white font-semibold text-xl"

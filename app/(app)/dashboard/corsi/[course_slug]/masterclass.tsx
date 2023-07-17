@@ -50,13 +50,15 @@ const Lesson = ({ lesson, k }: { lesson: Lesson; k: number }) => {
         <CalendarDaysIcon className="w-5 h-5" />
         <span>{formattedDate}</span>
       </div>
-      <iframe
-        src={`${lesson.video_url}`}
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen
-        className="aspect-video w-full px-4 pt-4 "
-      ></iframe>
+      {lesson.video_url && (
+        <iframe
+          src={`${lesson.video_url}`}
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          className="aspect-video w-full px-4 pt-4 "
+        ></iframe>
+      )}
     </div>
   );
 };

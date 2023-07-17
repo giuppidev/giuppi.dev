@@ -110,7 +110,7 @@ export default function Pricing() {
                 {tier.id === "tier-sub" && (
                   <div className="pt-4">
                     <div className="w-fit border-2 border-gray-900 font-semibold p-1 text-xl bg-blue-300">
-                      PROVA GRATUITA DI 14 GIORNI*
+                      PROVA GRATUITA DI 7 GIORNI*
                     </div>
                     <div>*Offerta lancio 🚀</div>
                   </div>
@@ -136,7 +136,7 @@ export default function Pricing() {
               {tier.id === "tier-sub" ? (
                 <>
                   <form action={handleSubscribe} className="mt-8">
-                    <input type="hidden" name="mode" value="yearly" />
+                    <input type="hidden" name="mode" value="monthly" />
                     <Button
                       type="submit"
                       className="bg-myYellow text-gray-900 font-semibold text-xl  relative uppercase"
