@@ -20,10 +20,18 @@ export async function SendNotification({ course_id }: { course_id: number }) {
       return;
     }
 
-    const { data: subs } = await supabase.from("subscriptions").select();
+    const { data: subs } = await supabase
+      .from("subscriptions")
+      .select()
+      .eq("active", true);
+
     subs?.forEach((sub) => {
-      const emailHtml = render(<ZoomLinkEmail course={course} />);
-      console.log("render email");
+      const emailHtml = render(
+        <ZoomLinkEmail
+          course={course}
+          customDate={new Date("08-03-2023 20:30:00")}
+        />
+      );
 
       const options = {
         from: '"Giuseppe Funicello" <info@giuppi.dev>',

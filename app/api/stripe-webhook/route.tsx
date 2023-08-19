@@ -1,7 +1,6 @@
 import { createServerSupabaseClient } from "@/app/supabase-server";
 import OrderEmail from "@/emails";
 import MentorshipEmail from "@/emails/mentorship";
-import { Database } from "@/types/supabase";
 import { transporter } from "@/utils/nodemailer";
 import { stripe } from "@/utils/stripe";
 import { render } from "@react-email/render";
@@ -26,40 +25,29 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false }, { status: 400 });
   }
 
-  console.log({ cose: event.data.object });
-  console.log({ cose2: event });
-
   try {
     // Handle the event
     switch (event.type) {
       case "invoice.paid":
-        console.log("invoice.paid");
         const res = event.data.object as any;
-        console.log({ object: res });
 
         const customer_email = res.customer_email;
-        console.log({ customer_email });
+
         const subscription = res.subscription;
 
-        console.log({ subscription });
+        const { error } = await supabase.from("subscriptions").upsert(
+          {
+            email: customer_email || "",
+            stripe_id: subscription || "",
+          },
+          { onConflict: "email" }
+        );
 
-        const { data: customer, error } = await supabase
-          .from("subscriptions")
-          .upsert(
-            {
-              email: customer_email || "",
-              stripe_id: subscription || "",
-            },
-            { onConflict: "email" }
-          );
-        console.log("sub saved");
         if (error) {
           console.log({ subError: error });
         }
-        console.log("sub saved no error");
 
         const emailHtml = render(<OrderEmail />);
-        console.log("render email");
 
         const options = {
           from: '"Giuseppe Funicello" <info@giuppi.dev>',
@@ -68,14 +56,8 @@ export async function POST(req: NextRequest) {
           html: emailHtml,
         };
 
-        console.log("render email - options");
-
         try {
-          console.log("if customer_email", customer_email);
-
           if (customer_email) {
-            console.log("time to send");
-
             transporter.sendMail(options);
             console.log("sent");
           }
@@ -85,7 +67,6 @@ export async function POST(req: NextRequest) {
 
         break;
       case "checkout.session.completed":
-        console.log("checkout.session.completed");
         const { status, customer_details, metadata } = event.data.object as any;
 
         const mentorship_customer_email = customer_details.email;

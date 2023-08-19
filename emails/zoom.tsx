@@ -24,6 +24,7 @@ const logoURL =
 
 interface ZoomLinkEmailProps extends EmailProps {
   course?: Partial<Course>;
+  customDate?: Date;
 }
 
 export default function ZoomLinkEmail({
@@ -32,9 +33,10 @@ export default function ZoomLinkEmail({
     name: "Da HTML a React: viaggio nella programmazione WEB moderna.",
     start_date: "2023-07-05 20:30:00",
   },
+  customDate,
 }: ZoomLinkEmailProps) {
   const previewText = `L'evento si avvicina!`;
-  const courseDate = new Date(course?.start_date || "");
+  const courseDate = customDate ?? new Date(course?.start_date || "");
   const courseDatetime = new Intl.DateTimeFormat("it-IT", {
     day: "numeric",
     month: "long",

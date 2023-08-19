@@ -1,10 +1,6 @@
-import { useSupabase } from "@/app/supabase-provider";
 import { Button } from "@/components/button";
 import { LinkButton } from "@/components/link";
 import { Database } from "@/types/supabase";
-import { Dialog, Transition } from "@headlessui/react";
-import { PlayIcon } from "@heroicons/react/24/solid";
-import { Fragment, useState } from "react";
 import { handleSubscribe } from "../../actions";
 import { CourseStatus } from "./page";
 
