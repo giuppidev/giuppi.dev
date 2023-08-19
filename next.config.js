@@ -11,6 +11,26 @@ const nextConfig = {
         destination: "/",
         permanent: true,
       },
+      {
+        source: "/discord",
+        destination: process.env.NEXT_PUBLIC_DISCORD_SERVER,
+        permanent: true,
+      },
+      {
+        source: "/fiscozen",
+        destination: process.env.NEXT_PUBLIC_FISCOZEN,
+        permanent: true,
+      },
+      {
+        source: "/instagram",
+        destination: process.env.NEXT_PUBLIC_INSTAGRAM,
+        permanent: true,
+      },
+      {
+        source: "/youtube",
+        destination: process.env.NEXT_PUBLIC_YOUTUBE,
+        permanent: true,
+      },
     ];
   },
 };
