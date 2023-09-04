@@ -14,25 +14,26 @@ export default function Features() {
   lg:grid-cols-3 mb-16"
       >
         {features.map((feature) => (
-          <Link
-            href={feature.href}
-            key={feature.name}
-            className="flex flex-col justify-between  px-3 py-10  border-4 border-gray-900 bg-white rounded-3xl transition-all hover:shadow-brutal hover:-translate-y-2 hover:-translate-x-2"
-          >
-            <dt className="flex flex-col  gap-2 text-xl font-semibold leading-7 h-full ">
-              {feature.icon}
-              <div className="rounded-sm flex gap-2 items-center">
-                <span className="py-1 text-4xl">{feature.name}</span>
-              </div>
-              <span className="font-normal">{feature.description}</span>{" "}
-              <div className="flex gap-2 mt-4 items-end space-x-3  flex-grow  font-semibold text-xl ">
-                <div className="flex gap-2 items-center hover:underline">
-                  {feature.linkLabel}
-                  <ArrowIcon />
+          <dt key={feature.name}>
+            <Link
+              href={feature.href}
+              className="flex flex-col justify-between  px-3 py-10  border-4 border-gray-900 bg-white rounded-3xl transition-all hover:shadow-brutal hover:-translate-y-2 hover:-translate-x-2"
+            >
+              <div className="flex flex-col  gap-2 text-xl font-semibold leading-7 h-full ">
+                {feature.icon}
+                <div className="rounded-sm flex gap-2 items-center">
+                  <span className="py-1 text-4xl">{feature.name}</span>
+                </div>
+                <span className="font-normal">{feature.description}</span>{" "}
+                <div className="flex gap-2 mt-4 items-end space-x-3  flex-grow  font-semibold text-xl ">
+                  <div className="flex gap-2 items-center hover:underline">
+                    {feature.linkLabel}
+                    <ArrowIcon />
+                  </div>
                 </div>
               </div>
-            </dt>
-          </Link>
+            </Link>
+          </dt>
         ))}
       </dl>
     </div>

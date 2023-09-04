@@ -3,56 +3,24 @@ import { LinkButton } from "@/components/link";
 import { CheckIcon } from "@heroicons/react/20/solid";
 import { twMerge } from "tailwind-merge";
 import { handleSubscribe } from "../../actions";
-import { Props } from "@mdx-js/react/lib";
 
-const tiers = [
-  {
-    name: "Community",
-    id: "tier-community",
-    href: process.env.NEXT_PUBLIC_DISCORD,
-    priceMonthly: "Free",
-    description: "Entra nella community dei programmatori nomadi!",
-    mostPopular: false,
-    buttonLabel: "Entra gratis",
-    features: ["Server Discord della community", "Sessioni di studio insieme"],
-    target: "_blank" as "_blank",
-  },
-  {
-    name: "Academy",
-    id: "tier-sub",
-    href: "/subscription",
-    priceMonthly: "€ 25",
-    mostPopular: true,
-    buttonLabel: "Accedi a tutto",
+const academy = {
+  name: "Academy",
+  id: "tier-sub",
+  href: "/subscription",
+  priceMonthly: "€ 25",
+  mostPopular: true,
+  buttonLabel: "Entra",
 
-    description: "Accedi a tutti i corsi e alle masterclass!",
-    features: [
-      "Tutti gli eventi LIVE",
-      "Registrazioni video degli eventi passati",
-      "Canale Discord dedicato ad ogni corso",
-      "Tutte le repo github",
-      "Lezioni extra su Discord",
-      "Esci quando vuoi",
-    ],
-    pricePeriod: "mese",
-  },
-  {
-    name: "Evento",
-    id: "tier-event",
-    href: "/corsi",
-    priceMonthly: "Custom",
-    mostPopular: false,
-    buttonLabel: "Vedi i corsi",
-    pricePeriod: "evento",
-    description: "Scegli solo quello che ti interessa.",
-    features: [
-      "Evento singolo LIVE",
-      "Registrazioni post evento",
-      "Repo github del corso + materiale",
-    ],
-    target: "_self" as "_self",
-  },
-];
+  description: "Accedi a tutti i corsi e alle masterclass!",
+  features: [
+    "Lezioni settimanali con me LIVE su Zoom",
+    "Registrazioni video sempre disponibili",
+    "Accesso a tutti i corsi e masterclass, passati e futuri",
+    "Nessun vincolo, cancellati quando vuoi",
+  ],
+  pricePeriod: "mese",
+};
 
 export default function Pricing() {
   return (
@@ -66,99 +34,65 @@ export default function Pricing() {
             Come entrare nell&apos;academy
           </p>
         </div>
+        <div className="border-4  border-gray-900 shadow-brutalXl mx-auto mt-16 max-w-md  bg-white  sm:mt-20 lg:mx-0 lg:flex md:max-w-none">
+          <div className="p-8 sm:p-10 lg:flex-auto">
+            <h3 className="text-4xl font-semibold tracking-tight text-gray-900">
+              Tutto molto semplice
+            </h3>
 
-        <div className="isolate gap-4 mx-auto mt-10 grid max-w-md box-border  grid-cols-1 gap-y-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          {tiers.map((tier) => (
-            <div
-              key={tier.id}
-              className={twMerge(
-                tier.mostPopular
-                  ? "lg:z-10  shadow-brutalXl"
-                  : "lg:mt-8 shadow-brutalSmall",
-
-                "flex flex-col justify-between  bg-white p-8 mx-4 lg:mx-0  xl:p-10 border-4 border-gray-900 "
-              )}
+            <ul
+              role="list"
+              className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-900 sm:gap-6"
             >
-              <div>
-                <div className="flex items-center justify-between gap-x-4">
-                  <h3
-                    id={tier.id}
-                    className={twMerge(
-                      tier.mostPopular ? "font-semibold" : "text-gray-900",
-                      "text-4xl leading-8"
-                    )}
-                  >
-                    {tier.name}
-                  </h3>
-                </div>
-
+              {academy.features.map((feature) => (
+                <li key={feature} className="flex gap-x-3 text-3xl">
+                  <Arrow
+                    className="h-8 w-5 flex-none text-gray-950"
+                    aria-hidden="true"
+                  />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0 ">
+            <div className="rounded-2xl py-10 text-center lg:flex lg:flex-col lg:justify-center lg:py-16">
+              <div className="mx-auto max-w-xs px-8 flex flex-col items-center">
+                <p className="text-base font-semibold text-gray-900">
+                  Accedi a masterclass e corsi
+                </p>
                 <p
                   className={twMerge(
                     " flex items-baseline gap-x-1",
-                    tier.mostPopular ? "mt-6 lg:mt-8" : "mt-6 lg:mt-8"
+                    academy.mostPopular ? "mt-6 lg:mt-8" : "mt-6 lg:mt-8"
                   )}
                 >
                   <span className="text-6xl font-bold tracking-tight text-gray-900">
-                    {tier.priceMonthly}
+                    {academy.priceMonthly}
                   </span>
-                  {tier.pricePeriod && (
+                  {academy.pricePeriod && (
                     <span className="text-lg font-semibold leading-6 text-gray-600">
-                      /{tier.pricePeriod}
+                      /{academy.pricePeriod}
                     </span>
                   )}
                 </p>
-                {tier.id === "tier-sub" && (
-                  <div className="pt-4">
-                    <div className="w-fit border-2 border-gray-900 font-semibold p-1 text-xl bg-blue-300">
-                      PROVA GRATUITA DI 7 GIORNI*
-                    </div>
-                    <div>*Offerta lancio 🚀</div>
-                  </div>
-                )}
-                <p className={`mt-4 text-2xl leading-7 text-gray-600`}>
-                  {tier.description}
-                </p>
-                <ul
-                  role="list"
-                  className="mt-8 space-y-4 text-xl leading-6 text-gray-600 sm:mt-10"
-                >
-                  {tier.features.map((feature) => (
-                    <li key={feature} className="flex gap-x-3">
-                      <Arrow
-                        className="h-6 w-5 flex-none text-gray-950"
-                        aria-hidden="true"
-                      />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              {tier.id === "tier-sub" ? (
                 <>
                   <form action={handleSubscribe} className="mt-8">
                     <input type="hidden" name="mode" value="monthly" />
                     <Button
                       type="submit"
-                      className="bg-myYellow text-gray-900 font-semibold text-xl  relative uppercase"
+                      className="bg-myGreen text-white font-semibold text-xl  relative uppercase"
                     >
-                      {tier.buttonLabel}
+                      {academy.buttonLabel}
                     </Button>
                   </form>
-                  <a href="/corsi" className="underline pt-4 pl-2">
-                    Vedi la lista dei corsi{" "}
-                  </a>
                 </>
-              ) : (
-                <LinkButton
-                  href={tier.href || ""}
-                  className=" text-gray-900 font-semibold text-xl uppercase mt-8 w-fit"
-                  target={tier.target || "_self"}
-                >
-                  {tier.buttonLabel}
-                </LinkButton>
-              )}
+                <p className="mt-6 text-base leading-5 text-gray-800">
+                  Prova GRATIS 7 giorni, cancella quando vuoi. 🚀
+                </p>
+              </div>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </div>

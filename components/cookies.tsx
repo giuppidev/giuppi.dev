@@ -36,10 +36,10 @@ const CookieConsent = (props: any) => {
           funzioni.
         </span>
         <button
-          className="bg-green-500 py-2 px-8 rounded text-white border-4 border-gray-900 shadow-brutal mt-4"
+          className="bg-myGreen py-2 px-8 rounded text-white  font-semibold border-4 border-gray-900 shadow-brutal mt-4"
           onClick={() => acceptCookie()}
         >
-          Accetto
+          ACCETTO
         </button>
       </div>
     </div>
