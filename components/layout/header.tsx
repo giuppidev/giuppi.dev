@@ -35,7 +35,7 @@ function Alert() {
   return (
     <div className="flex gap-2 items-center  border-b-4 border-gray-900 p-3  text-gray-900 bg-white">
       <h2 className="text-2xl font-semibold leading-7 ">
-        🚀 Corso NEXT 13 in partenza il 6 SETTEMBRE! 🚀
+        🚀 Corso NEXT 13 in partenza il 13 SETTEMBRE! 🚀
       </h2>
       <div className="md:flex hidden gap-2">
         <form action={handleSubscribe}>

@@ -43,9 +43,9 @@ export default async function ViewCourse({
           </a>
         </div>
       </div>
-      <div>
-        <SendNotification course_id={course.id} />
-      </div>
+
+      <SendNotification course_id={course.id} />
+
       <Lessons course_id={params.course_id} lessons={lessons} />
     </div>
   );

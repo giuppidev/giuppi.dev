@@ -31,7 +31,7 @@ export default async function AdminLayout({
           <AdminNavbar />
         </div>
 
-        <main className="py-10">
+        <main className="py-10 max-w-7xl">
           <div className="px-4 sm:px-6 lg:px-8">{children}</div>
         </main>
       </div>
