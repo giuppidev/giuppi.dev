@@ -10,16 +10,16 @@ export const Target = () => {
             Da dove partire?
           </p>
 
-          <dl className="mt-10  divide-y-4 divide-gray-900">
-            <dt className="flex w-full  gap-8 text-gray-900 ">
+          <div className="mt-10  divide-y-4 divide-gray-900">
+            <dl className="flex w-full  gap-8 text-gray-900 ">
               <span className="text-4xl leading-7">
                 <PlusIcon />
               </span>
               <div className="flex flex-col gap-2 mb-4">
-                <span className="text-3xl lg:text-5xl">
+                <dt className="text-3xl lg:text-5xl">
                   Non hai mai programmato
-                </span>
-                <span>
+                </dt>
+                <dd>
                   Per chi non ha esperienza, può aiutare iniziare dalla
                   masterclass{" "}
                   <a
@@ -49,16 +49,16 @@ export const Target = () => {
                   </a>{" "}
                   per avere consigli su come iniziare (anche con altre
                   scuole/corsi).
-                </span>
+                </dd>
               </div>
-            </dt>
-            <dt className="flex w-full  gap-8 text-gray-900 py-8 ">
+            </dl>
+            <dl className="flex w-full  gap-8 text-gray-900 py-8 ">
               <span className="text-4xl leading-7">
                 <PlusIcon />
               </span>
               <div className="flex flex-col gap-2">
-                <span className="text-3xl lg:text-5xl">Qualcosa sai fare</span>
-                <span>
+                <dt className="text-3xl lg:text-5xl">Qualcosa sai fare</dt>
+                <dd>
                   È il momento di dare uno sprint alla tua carriera. Entra
                   nell&apos;academy attivando la{" "}
                   <Link
@@ -82,16 +82,16 @@ export const Target = () => {
                     Nextjs
                   </a>
                   .
-                </span>
+                </dd>
               </div>
-            </dt>
-            <dt className="flex w-full  gap-8 text-gray-900 pt-4">
+            </dl>
+            <dl className="flex w-full  gap-8 text-gray-900 pt-4">
               <span className="text-4xl leading-7">
                 <PlusIcon />
               </span>
               <div className="flex flex-col gap-2">
-                <span className="text-3xl lg:text-5xl">Ne sai a pacchi</span>
-                <span>
+                <dt className="text-3xl lg:text-5xl">Ne sai a pacchi</dt>
+                <dd>
                   Sei nel posto giusto se ti interessa alzare l&apos;asticella
                   delle tue competenze su{" "}
                   <a
@@ -112,10 +112,10 @@ export const Target = () => {
                     freelance
                   </a>
                   .
-                </span>
+                </dd>
               </div>
-            </dt>
-          </dl>
+            </dl>
+          </div>
         </div>
       </div>
     </div>

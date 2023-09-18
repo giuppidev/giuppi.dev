@@ -21,9 +21,9 @@ export default function Features() {
             >
               <div className="flex flex-col  gap-2 text-xl font-semibold leading-7 h-full ">
                 {feature.icon}
-                <div className="rounded-sm flex gap-2 items-center">
-                  <dt className="py-1 text-4xl">{feature.name}</dt>
-                </div>
+                <dt className="rounded-sm flex gap-2 items-center">
+                  <div className="py-1 text-4xl">{feature.name}</div>
+                </dt>
                 <dd className="font-normal">{feature.description}</dd>{" "}
                 <div className="flex gap-2 mt-4 items-end space-x-3  flex-grow  font-semibold text-xl ">
                   <div className="flex gap-2 items-center hover:underline">
