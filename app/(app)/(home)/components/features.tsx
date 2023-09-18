@@ -9,7 +9,7 @@ export default function Features() {
           Come sono i miei corsi?
         </p>
       </div>
-      <dl
+      <div
         className="mx-auto max-w-7xl  grid  grid-cols-1 gap-x-8 gap-y-4 
   lg:grid-cols-3 mb-16"
       >
@@ -19,7 +19,7 @@ export default function Features() {
               href={feature.href}
               className="flex flex-col justify-between  px-3 py-10  border-4 border-gray-900 bg-white rounded-3xl transition-all hover:shadow-brutal hover:-translate-y-2 hover:-translate-x-2"
             >
-              <div className="flex flex-col  gap-2 text-xl font-semibold leading-7 h-full ">
+              <dl className="flex flex-col  gap-2 text-xl font-semibold leading-7 h-full ">
                 {feature.icon}
                 <dt className="rounded-sm flex gap-2 items-center">
                   <div className="py-1 text-4xl">{feature.name}</div>
@@ -31,11 +31,11 @@ export default function Features() {
                     <ArrowIcon />
                   </div>
                 </div>
-              </div>
+              </dl>
             </Link>
           </div>
         ))}
-      </dl>
+      </div>
     </div>
   );
 }
