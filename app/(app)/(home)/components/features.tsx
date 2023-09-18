@@ -19,19 +19,19 @@ export default function Features() {
               href={feature.href}
               className="flex flex-col justify-between  px-3 py-10  border-4 border-gray-900 bg-white rounded-3xl transition-all hover:shadow-brutal hover:-translate-y-2 hover:-translate-x-2"
             >
-              <dl className="flex flex-col  gap-2 text-xl font-semibold leading-7 h-full ">
+              <div className="flex flex-col  gap-2 text-xl font-semibold leading-7 h-full ">
                 {feature.icon}
-                <dt className="rounded-sm flex gap-2 items-center">
+                <div className="rounded-sm flex gap-2 items-center">
                   <div className="py-1 text-4xl">{feature.name}</div>
-                </dt>
-                <dd className="font-normal">{feature.description}</dd>{" "}
+                </div>
+                <div className="font-normal">{feature.description}</div>
                 <div className="flex gap-2 mt-4 items-end space-x-3  flex-grow  font-semibold text-xl ">
                   <div className="flex gap-2 items-center hover:underline">
                     {feature.linkLabel}
                     <ArrowIcon />
                   </div>
                 </div>
-              </dl>
+              </div>
             </Link>
           </div>
         ))}
