@@ -20,7 +20,7 @@ module.exports = {
       colors: {
         myYellow: "#FFCC33",
         myYellowLight: "#ffedbf",
-        myGreen: "#6D9022",
+        myGreen: "#495F16",
       },
       fontFamily: {
         worksans: ["var(--font-worksans)"],

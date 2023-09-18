@@ -65,8 +65,7 @@ export default function Hero() {
             </div>
             <img
               src="https://res.cloudinary.com/de30mupo1/image/upload/c_limit,h_753,q_80,f_auto/v1687969988/giuppi.dev/me2_tyhc5m.png"
-              className="rounded-b absolute -bottom-1 left-4 h-[110%] w-[75%]  lg:h-[135%] lg:w-[90%] drop-shadow-hero"
-              width={200}
+              className="rounded-b absolute -bottom-1 left-8 lg:left-4  drop-shadow-hero w-[70%] lg:w-[90%]"
               alt="giuppi"
             />
             <div className="hidden md:block absolute top-36 -right-8 lg:-right-24">

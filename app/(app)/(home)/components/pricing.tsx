@@ -36,9 +36,9 @@ export default function Pricing() {
         </div>
         <div className="border-4  border-gray-900 shadow-brutalXl mx-auto mt-16 max-w-md  bg-white  sm:mt-20 lg:mx-0 lg:flex md:max-w-none">
           <div className="p-8 sm:p-10 lg:flex-auto">
-            <h3 className="text-4xl font-semibold tracking-tight text-gray-900">
+            <h1 className="text-4xl font-semibold tracking-tight text-gray-900">
               Tutto molto semplice
-            </h3>
+            </h1>
 
             <ul
               role="list"

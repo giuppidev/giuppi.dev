@@ -1,7 +1,6 @@
 import Script from "next/script";
 import "./globals.css";
 import { workSans } from "./fonts";
-import CookieConsent from "@/components/cookies";
 export const dynamic = "force-dynamic";
 
 const meta = {
@@ -45,7 +44,7 @@ export default function RootLayout({
       </head>
       <body className={`${workSans.className} min-h-screen `}>
         {children}
-        <CookieConsent />
+        <IubendaCookieBanner />
       </body>
     </html>
   );
@@ -77,4 +76,14 @@ const GAHeader = () => {
     `}</Script>
     </>
   );
+};
+
+const IubendaCookieBanner = () => {
+  const script = `<script type="text/javascript">
+  var _iub = _iub || [];
+  _iub.csConfiguration = {"askConsentAtCookiePolicyUpdate":true,"floatingPreferencesButtonDisplay":"bottom-right","perPurposeConsent":true,"siteId":3195486,"whitelabel":false,"cookiePolicyId":81964887,"lang":"it", "banner":{ "acceptButtonCaptionColor":"#FFFFFF","acceptButtonColor":"#495F16","acceptButtonDisplay":true,"backgroundColor":"#FFFFFF","closeButtonDisplay":false,"customizeButtonCaptionColor":"#4D4D4D","customizeButtonColor":"#DADADA","customizeButtonDisplay":true,"explicitWithdrawal":true,"listPurposes":true,"position":"bottom","rejectButtonCaptionColor":"#FFFFFF","rejectButtonColor":"#495F16","rejectButtonDisplay":true,"textColor":"#000000" }};
+  </script>
+  <script type="text/javascript" src="//cdn.iubenda.com/cs/ccpa/stub.js"></script>
+  <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>`;
+  return <div dangerouslySetInnerHTML={{ __html: script }}></div>;
 };
