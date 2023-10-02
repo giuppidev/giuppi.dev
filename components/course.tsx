@@ -21,28 +21,26 @@ const CourseCard = ({ course }: CourseProps) => {
       : "Vai alla masterclass ";
 
   return (
-    <div
-      className={` bg-white  hover:drop-shadow-[8px_8px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all p-5 border-4 border-gray-900`}
+    <Link
+      href={`/corsi/${course.slug}/`}
+      className={` bg-white  hover:drop-shadow-[8px_8px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all p-5 border-4 border-gray-900 grid grid-rows-[subgrid] row-[auto_/_span_5] gap-1`}
     >
-      <Link href={`/corsi/${course.slug}/`}>
-        <div className="flex flex-col h-full">
-          <div className="relative bg-white h-44 w-full">
-            <img src={course.cover_url || ""} alt="copertina corso"></img>
-          </div>
+      <div className="relative bg-white h-44 w-full">
+        <img src={course.cover_url || ""} alt="copertina corso"></img>
+      </div>
 
-          <h4 className=" text-2xl mb-3 font-extrabold mt-2">{course.name}</h4>
-          <div className=" text-xl mb-3 ">{course.short_description}</div>
-          <div className=" text-xl mb-3 flex gap-2 ">
-            <strong>Quando: </strong>
-            <StartDate date={course.start_date || ""} />
-          </div>
-          <div className="flex gap-2 items-end space-x-3  flex-grow text-secondary font-bold text-xl ">
-            {linkLabel}
-            <ArrowIcon />
-          </div>
-        </div>
-      </Link>
-    </div>
+      <h4 className=" text-2xl mb-3 font-extrabold mt-2">{course.name}</h4>
+      <div className=" text-xl mb-3 ">{course.short_description}</div>
+
+      <div className=" text-xl mb-3 flex gap-2 ">
+        <strong>Quando: </strong>
+        <StartDate date={course.start_date || ""} />
+      </div>
+      <div className="flex gap-2 items-end space-x-3  flex-grow text-secondary font-bold text-xl ">
+        {linkLabel}
+        <ArrowIcon />
+      </div>
+    </Link>
   );
 };
 

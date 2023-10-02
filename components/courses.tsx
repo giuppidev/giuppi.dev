@@ -94,7 +94,8 @@ export default function CoursesList({ courses, type }: CoursesProps) {
         </div>
         <ul
           role="list"
-          className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-16 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+          className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-16 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3  
+          "
         >
           {filteredCourses.length > 0 ? (
             filteredCourses.map((course, key) => (
