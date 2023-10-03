@@ -1,6 +1,7 @@
 import { createServerSupabaseClient } from "@/app/supabase-server";
 import OrderEmail from "@/emails";
 import MentorshipEmail from "@/emails/mentorship";
+import Newsub from "@/emails/newsub";
 import { transporter } from "@/utils/nodemailer";
 import { stripe } from "@/utils/stripe";
 import { render } from "@react-email/render";
@@ -60,6 +61,17 @@ export async function POST(req: NextRequest) {
           if (customer_email) {
             transporter.sendMail(options);
             console.log("sent");
+            const notificationEmailHtml = render(
+              <Newsub email={customer_email} />
+            );
+
+            const notificationOptions = {
+              from: '"Giuseppe Funicello" <info@giuppi.dev>',
+              to: "info@giuppi.dev",
+              subject: "🚀 Benvenuto nella giuppi<dev> academy!",
+              html: notificationEmailHtml,
+            };
+            transporter.sendMail(notificationOptions);
           }
         } catch (e) {
           console.log({ invioError: JSON.stringify(e) });
