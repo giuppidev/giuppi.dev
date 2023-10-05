@@ -23,9 +23,9 @@ const CourseCard = ({ course }: CourseProps) => {
   return (
     <Link
       href={`/corsi/${course.slug}/`}
-      className={` bg-white  hover:drop-shadow-[8px_8px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all p-5 border-4 border-gray-900 grid grid-rows-[subgrid] row-[auto_/_span_5] gap-1`}
+      className={` bg-white  hover:drop-shadow-[8px_8px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all p-5 border-4 border-gray-900 grid grid-rows-[subgrid] row-[span_5] gap-0`}
     >
-      <div className="relative bg-white h-44 w-full">
+      <div className="relative bg-white  w-full">
         <img src={course.cover_url || ""} alt="copertina corso"></img>
       </div>
 

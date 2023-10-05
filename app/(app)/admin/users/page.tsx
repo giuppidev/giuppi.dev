@@ -1,4 +1,7 @@
 import { getAllUsers, isAdmin } from "@/app/supabase-server";
+import OrderEmail from "@/emails";
+import { transporter } from "@/utils/nodemailer";
+import { render } from "@react-email/render";
 import { redirect } from "next/navigation";
 
 export default async function AdminCorsi() {
@@ -7,6 +10,25 @@ export default async function AdminCorsi() {
     redirect("/");
   }
   const users = await getAllUsers();
+
+  const sendWelcomeMail = async () => {
+    "use server";
+    const emailHtml = render(<OrderEmail />);
+
+    const options = {
+      from: '"Giuseppe Funicello" <info@giuppi.dev>',
+      to: "g.funicello@gmail.com",
+      subject: "🚀 Benvenuto nella giuppi<dev> academy!",
+      html: emailHtml,
+    };
+
+    try {
+      transporter.sendMail(options);
+      console.log("sent");
+    } catch (e) {
+      console.log({ invioError: JSON.stringify(e) });
+    }
+  };
   return (
     <div className="px-4 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">
@@ -14,6 +36,9 @@ export default async function AdminCorsi() {
           <h1 className="text-base font-semibold leading-6 text-gray-900">
             Utenti
           </h1>
+          <form action={sendWelcomeMail}>
+            <button>Send</button>
+          </form>
           <p className="mt-2 text-sm text-gray-700">Lista degli utenti</p>
         </div>
       </div>
