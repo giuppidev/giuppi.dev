@@ -2,7 +2,6 @@ import { createServerSupabaseClient } from "@/app/supabase-server";
 import { Button } from "@/components/button";
 import SendNotificationTestEmail from "@/emails/test_notification";
 import ZoomLinkEmail from "@/emails/zoom";
-import { Database } from "@/types/supabase";
 import { sendMail } from "@/utils/nodemailer";
 import { render } from "@react-email/render";
 
@@ -25,25 +24,24 @@ export async function SendNotification({ course_id }: { course_id: number }) {
       .from("subscriptions")
       .select()
       .eq("active", true);
-    subs?.forEach(async (sub) => {
-      const emailHtml = render(
-        <ZoomLinkEmail course={course} customDate={new Date(date)} />
-      );
+    const emails = subs?.map((sub) => sub.email);
 
-      const options = {
-        from: '"Giuseppe Funicello" <info@giuppi.dev>',
-        to: sub.email,
-        subject: "🚀 Il prossimo evento LIVE si avvicina!",
-        html: emailHtml,
-      };
-      try {
-        if (sub.email) {
-          await sendMail(options);
-        }
-      } catch (e) {
-        console.log(e);
-      }
-    });
+    const emailHtml = render(
+      <ZoomLinkEmail course={course} customDate={new Date(date)} />
+    );
+
+    const options = {
+      from: '"Giuseppe Funicello" <info@giuppi.dev>',
+      to: "info@giuppi.dev",
+      bcc: emails,
+      subject: "🚀 Il prossimo evento LIVE si avvicina!",
+      html: emailHtml,
+    };
+    try {
+      await sendMail(options);
+    } catch (e) {
+      console.log(e);
+    }
   };
   const testSend = async (data: FormData) => {
     "use server";

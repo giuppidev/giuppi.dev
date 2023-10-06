@@ -17,7 +17,7 @@ export default async function AdminCorsi() {
 
     const options = {
       from: '"Giuseppe Funicello" <info@giuppi.dev>',
-      to: "g.funicello@gmail.com",
+      to: "info@giuppi.dev",
       subject: "🚀 Benvenuto nella giuppi<dev> academy!",
       html: emailHtml,
     };
