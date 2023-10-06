@@ -50,9 +50,9 @@ const Lesson = ({ lesson, k }: { lesson: Lesson; k: number }) => {
         <CalendarDaysIcon className="w-5 h-5" />
         <span>{formattedDate}</span>
       </div>
-      {lesson.video_url && (
+      {lesson.video_yt_id && (
         <iframe
-          src={`${lesson.video_url}`}
+          src={`https://www.youtube.com/embed/${lesson.video_yt_id}`}
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen

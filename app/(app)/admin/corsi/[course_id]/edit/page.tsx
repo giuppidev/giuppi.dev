@@ -25,7 +25,6 @@ export default async function Edit({
     const name = formData.get("name") as string;
     const description = formData.get("description") as string;
     const price = parseFloat(formData.get("price") as string);
-    const discount = parseInt(formData.get("discount") as string);
     const difficulty = formData.get("difficulty") as string;
     const course_type = formData.get("type") as CourseType;
     const tags = formData.get("tags") as string;
@@ -39,7 +38,6 @@ export default async function Edit({
         description,
         level: difficulty,
         price,
-        discount,
         product_type: course_type,
         tags: tags.split(","),
         slug,
@@ -141,24 +139,6 @@ export default async function Edit({
           >
             Sconto
           </label>
-          <select
-            id="discount"
-            name="discount"
-            className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            defaultValue={course.discount || 0}
-          >
-            <option>0</option>
-            <option>5</option>
-            <option>10</option>
-            <option>15</option>
-            <option>20</option>
-            <option>25</option>
-            <option>30</option>
-            <option>35</option>
-            <option>40</option>
-            <option>45</option>
-            <option>50</option>
-          </select>
         </div>
         <div>
           <label

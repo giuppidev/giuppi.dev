@@ -21,6 +21,20 @@ const InfoCard = ({ course }: InfoProps) => {
             <div className="text-3xl font-semibold">Giuseppe Funicello</div>
           </div>
         </div>
+        {course.github_repo && (
+          <div>
+            <div className=" text-lg">repo</div>
+            <div className="flex gap-2 items-center">
+              <a
+                href={course.github_repo}
+                target="_blank"
+                className="text-3xl underline text-blue-500 font-semibold capitalize"
+              >
+                GitHub
+              </a>
+            </div>
+          </div>
+        )}
         <div>
           <div className=" text-lg">livello</div>
           <div className="flex gap-2 items-center">
@@ -40,7 +54,6 @@ const InfoCard = ({ course }: InfoProps) => {
           </div>
         </div>
 
-        <StartDate date={course.start_date || ""} />
         {course.product_type === "course" && (
           <div>
             <div className=" text-lg">durata</div>
@@ -48,6 +61,20 @@ const InfoCard = ({ course }: InfoProps) => {
               <div className="text-3xl font-semibold capitalize">
                 {course.lessons_count} lezioni
               </div>
+            </div>
+          </div>
+        )}
+        {course.github_repo && (
+          <div>
+            <div className=" text-lg">repo</div>
+            <div className="flex gap-2 items-center">
+              <a
+                href={course.github_repo}
+                target="_blank"
+                className="text-3xl underline text-blue font-semibold capitalize"
+              >
+                GitHub
+              </a>
             </div>
           </div>
         )}

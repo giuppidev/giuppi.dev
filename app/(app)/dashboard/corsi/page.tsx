@@ -28,7 +28,8 @@ export default async function Corsi() {
   const { data } = await supabase
     .from("products")
     .select()
-    .lte("start_date", now);
+    .lte("start_date", now)
+    .order("order");
 
   return (
     <>

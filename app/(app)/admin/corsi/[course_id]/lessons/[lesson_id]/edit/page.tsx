@@ -22,6 +22,7 @@ export default async function Edit({
     "use server";
     const name = formData.get("name") as string;
     const description = formData.get("description") as string;
+    const video_yt_id = formData.get("video_yt_id") as string;
 
     const supabase = createServerComponentClient<Database>({ cookies });
     const { error, data } = await supabase
@@ -29,6 +30,7 @@ export default async function Edit({
       .update({
         name,
         description,
+        video_yt_id,
       })
       .eq("id", params.lesson_id)
       .eq("product_id", params.course_id);
@@ -79,6 +81,24 @@ export default async function Edit({
               placeholder="descrizione"
               rows={2}
               defaultValue={lesson.description || ""}
+            />
+          </div>
+        </div>
+        <div>
+          <label
+            htmlFor="video_yt_id"
+            className="block text-sm font-medium leading-6 text-gray-900"
+          >
+            Video Youtube ID
+          </label>
+          <div className="mt-2">
+            <textarea
+              name="video_yt_id"
+              id="video_yt_id"
+              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              placeholder="descrizione"
+              rows={2}
+              defaultValue={lesson.video_yt_id || ""}
             />
           </div>
         </div>

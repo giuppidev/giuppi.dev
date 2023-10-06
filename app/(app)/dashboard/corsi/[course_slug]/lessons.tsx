@@ -12,7 +12,7 @@ type Lesson = Database["public"]["Tables"]["lessons"]["Row"];
 export default function Lessons({ lessons }: { lessons: Lesson[] }) {
   return (
     <div className="mt-8 max-w-3xl">
-      <h1 className="text-5xl font-semibold mb-6">Programma del corso</h1>
+      <h1 className="text-5xl font-semibold mb-6">Lezioni del corso</h1>
       <dl className=" divide-y-4 divide-gray-900">
         {lessons.map((lesson, k) => (
           <Lesson lesson={lesson} key={k} k={k} />
@@ -50,13 +50,19 @@ const Lesson = ({ lesson, k }: { lesson: Lesson; k: number }) => {
         <CalendarDaysIcon className="w-5 h-5" />
         <span>{formattedDate}</span>
       </div>
-      {lesson.video_url && (
+      {lesson.description && (
+        <div>
+          <strong>Argomenti: </strong>
+          {lesson.description}
+        </div>
+      )}
+      {lesson.video_yt_id && (
         <iframe
-          src={`${lesson.video_url}`}
+          src={`https://www.youtube.com/embed/${lesson.video_yt_id}`}
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
-          className="aspect-video w-full px-4 pt-4 "
+          className="aspect-video w-2/3 px-4 pt-4 "
         ></iframe>
       )}
     </div>

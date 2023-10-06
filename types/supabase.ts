@@ -36,30 +36,27 @@ export interface Database {
           description: string | null
           event_timestamp: string | null
           id: number
-          live_url: string | null
           name: string | null
           product_id: number
-          video_url: string | null
+          video_yt_id: string | null
         }
         Insert: {
           created_at?: string | null
           description?: string | null
           event_timestamp?: string | null
           id?: number
-          live_url?: string | null
           name?: string | null
           product_id: number
-          video_url?: string | null
+          video_yt_id?: string | null
         }
         Update: {
           created_at?: string | null
           description?: string | null
           event_timestamp?: string | null
           id?: number
-          live_url?: string | null
           name?: string | null
           product_id?: number
-          video_url?: string | null
+          video_yt_id?: string | null
         }
         Relationships: [
           {
@@ -115,8 +112,8 @@ export interface Database {
           cover_url: string | null
           created_at: string | null
           description: string | null
-          discount: number | null
           eventbrite_url: string | null
+          github_repo: string | null
           id: number
           lessons_count: number | null
           level: string | null
@@ -135,8 +132,8 @@ export interface Database {
           cover_url?: string | null
           created_at?: string | null
           description?: string | null
-          discount?: number | null
           eventbrite_url?: string | null
+          github_repo?: string | null
           id?: number
           lessons_count?: number | null
           level?: string | null
@@ -155,8 +152,8 @@ export interface Database {
           cover_url?: string | null
           created_at?: string | null
           description?: string | null
-          discount?: number | null
           eventbrite_url?: string | null
+          github_repo?: string | null
           id?: number
           lessons_count?: number | null
           level?: string | null
