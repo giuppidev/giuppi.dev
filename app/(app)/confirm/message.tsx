@@ -16,7 +16,7 @@ export default function ConfirmMessage({
   const message = getMessage(messagge);
 
   return (
-    <div className="flex flex-col w-full items-center justify-center text-5xl flex-grow bg-white h-full">
+    <div className="flex flex-col w-full  items-center justify-center text-5xl flex-grow bg-white h-full">
       {icon}
       <span className="text-7xl mb-4">Grazie!</span>
       <span className="text-center mb-2">{message}</span>
