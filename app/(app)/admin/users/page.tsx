@@ -1,6 +1,6 @@
 import { getAllUsers, isAdmin } from "@/app/supabase-server";
 import OrderEmail from "@/emails";
-import { transporter } from "@/utils/nodemailer";
+import { sendMail } from "@/utils/nodemailer";
 import { render } from "@react-email/render";
 import { redirect } from "next/navigation";
 
@@ -23,7 +23,7 @@ export default async function AdminCorsi() {
     };
 
     try {
-      transporter.sendMail(options);
+      await sendMail(options);
       console.log("sent");
     } catch (e) {
       console.log({ invioError: JSON.stringify(e) });

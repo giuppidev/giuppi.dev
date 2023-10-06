@@ -2,34 +2,13 @@ import { createServerSupabaseClient } from "@/app/supabase-server";
 import OrderEmail from "@/emails";
 import MentorshipEmail from "@/emails/mentorship";
 import Newsub from "@/emails/newsub";
+import { sendMail } from "@/utils/nodemailer";
 import { stripe } from "@/utils/stripe";
 import { render } from "@react-email/render";
 import { NextResponse, type NextRequest } from "next/server";
 import nodemailer from "nodemailer";
 
 export async function POST(req: NextRequest) {
-  const transporter = nodemailer.createTransport({
-    host: "mail.smtp2go.com",
-    port: 2525,
-    secure: false,
-    auth: {
-      user: process.env.SMTP2GO_USER,
-      pass: process.env.SMTP2GO_PWD,
-    },
-  });
-  await new Promise((resolve, reject) => {
-    // verify connection configuration
-    transporter.verify(function (error, success) {
-      if (error) {
-        console.log(error);
-        reject(error);
-      } else {
-        console.log("Server is ready to take our messages");
-        resolve(success);
-      }
-    });
-  });
-
   let event;
   const body = await req.text(); // Otherwise use the basic event deserialized with JSON.parse
   const requestHeaders = new Headers(req.headers);
@@ -81,22 +60,7 @@ export async function POST(req: NextRequest) {
             html: emailHtml,
           };
           if (customer_email) {
-            await new Promise((resolve, reject) => {
-              // send mail
-              transporter.sendMail(options, (err, info) => {
-                if (err) {
-                  console.error(err);
-                  console.log("error sending");
-
-                  reject(err);
-                } else {
-                  console.log(info);
-                  console.log("sent");
-
-                  resolve(info);
-                }
-              });
-            });
+            await sendMail(options);
             const notificationEmailHtml = render(
               <Newsub email={customer_email} />
             );
@@ -107,21 +71,7 @@ export async function POST(req: NextRequest) {
               subject: "🚀 Benvenuto nella giuppi<dev> academy!",
               html: notificationEmailHtml,
             };
-            await new Promise((resolve, reject) => {
-              // send mail
-              transporter.sendMail(notificationOptions, (err, info) => {
-                if (err) {
-                  console.error(err);
-                  console.log("error sending");
-                  reject(err);
-                } else {
-                  console.log(info);
-                  console.log("sent notification");
-
-                  resolve(info);
-                }
-              });
-            });
+            await sendMail(notificationOptions);
           }
         } catch (e) {
           console.log({ invioError: JSON.stringify(e) });
@@ -153,7 +103,7 @@ export async function POST(req: NextRequest) {
           };
           try {
             if (mentorship_customer_email) {
-              transporter.sendMail(optionsMentor);
+              await sendMail(optionsMentor);
             }
           } catch (e) {
             console.log(e);

@@ -3,9 +3,8 @@ import { Button } from "@/components/button";
 import SendNotificationTestEmail from "@/emails/test_notification";
 import ZoomLinkEmail from "@/emails/zoom";
 import { Database } from "@/types/supabase";
-import { transporter } from "@/utils/nodemailer";
+import { sendMail } from "@/utils/nodemailer";
 import { render } from "@react-email/render";
-type Course = Database["public"]["Tables"]["products"]["Row"];
 
 export async function SendNotification({ course_id }: { course_id: number }) {
   const handleSubmit = async (data: FormData) => {
@@ -26,7 +25,7 @@ export async function SendNotification({ course_id }: { course_id: number }) {
       .from("subscriptions")
       .select()
       .eq("active", true);
-    subs?.forEach((sub) => {
+    subs?.forEach(async (sub) => {
       const emailHtml = render(
         <ZoomLinkEmail course={course} customDate={new Date(date)} />
       );
@@ -39,7 +38,7 @@ export async function SendNotification({ course_id }: { course_id: number }) {
       };
       try {
         if (sub.email) {
-          transporter.sendMail(options);
+          await sendMail(options);
         }
       } catch (e) {
         console.log(e);
@@ -77,7 +76,7 @@ export async function SendNotification({ course_id }: { course_id: number }) {
       html: emailHtml,
     };
     try {
-      transporter.sendMail(options);
+      await sendMail(options);
     } catch (e) {
       console.log(e);
     }
@@ -93,7 +92,7 @@ export async function SendNotification({ course_id }: { course_id: number }) {
       html: testEmailHtml,
     };
     try {
-      transporter.sendMail(optionsTest);
+      await sendMail(optionsTest);
     } catch (e) {
       console.log(e);
     }
