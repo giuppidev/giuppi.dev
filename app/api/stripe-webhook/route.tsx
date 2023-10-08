@@ -37,6 +37,10 @@ export async function POST(req: NextRequest) {
 
         const subscription = res.subscription;
 
+        if (res.billing_reason !== "subscription_create") {
+          return;
+        }
+
         const { error } = await supabase.from("subscriptions").upsert(
           {
             email: customer_email || "",
@@ -51,7 +55,6 @@ export async function POST(req: NextRequest) {
 
         try {
           const emailHtml = render(<OrderEmail />);
-          console.log("customer_email", customer_email);
 
           const options = {
             from: '"Giuseppe Funicello" <info@giuppi.dev>',
