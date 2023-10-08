@@ -222,6 +222,27 @@ export interface Database {
           }
         ]
       }
+      reactday: {
+        Row: {
+          created_at: string
+          email: string | null
+          id: number
+          idea: string | null
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          id?: number
+          idea?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          id?: number
+          idea?: string | null
+        }
+        Relationships: []
+      }
       sections: {
         Row: {
           created_at: string | null
