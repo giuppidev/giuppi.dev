@@ -48,11 +48,11 @@ export default function ReactDayPage() {
         <div className="w-full bg-white shadow md:mt-0 sm:max-w-3xl xl:p-0 border-4 border-gray-900 ">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-2xl font-bold leading-tight tracking-tight text-gray-900 md:text-4xl ">
-              Scrivimi un progetto assurdo in React!
+              Proponimi un progetto assurdo in React!
             </h1>
             <h1 className="text-lg   leading-tight tracking-tight text-gray-900  ">
               Le 2 idee più fuori di testa vinceranno un biglietto per
-              partecipare online GRATIS al{" "}
+              partecipare online al{" "}
               <a
                 className="font-medium text-primary-600 underline hover:no-underline "
                 href="https://reactjsday.it"
