@@ -24,7 +24,7 @@ export const Target = () => {
                   masterclass{" "}
                   <a
                     className="underline font-semibold"
-                    href="/corsi/react-da-zero-a-master"
+                    href="/corsi/da-html-a-react"
                   >
                     Da Html a React
                   </a>
@@ -69,14 +69,14 @@ export const Target = () => {
                   </Link>{" "}
                   per seguire sia i corsi base, sia quelli più avanzati su{" "}
                   <a
-                    href="/corsi/typescript"
+                    href="/corsi/typescript-da-zero-a-ninja"
                     className="underline font-semibold"
                   >
                     Typescript
                   </a>{" "}
                   e{" "}
                   <a
-                    href="/corsi/react-nextjs"
+                    href="/corsi/crea-un-ecommerce-da-zero-con-react-e-nextjs"
                     className="underline font-semibold"
                   >
                     Nextjs
@@ -95,18 +95,21 @@ export const Target = () => {
                   Sei nel posto giusto se ti interessa alzare l&apos;asticella
                   delle tue competenze su{" "}
                   <a
-                    href="/corsi/react-nextjs"
+                    href="/corsi/rea-un-ecommerce-da-zero-con-react-e-nextjs"
                     className="underline font-semibold"
                   >
                     React e Nextjs
                   </a>
                   , ma soprattutto se sei pronto a diventare un{" "}
-                  <a href="/corsi/nomads" className="underline font-semibold">
+                  <a
+                    href="/corsi/diventa-un-programmatore-nomade-digitale"
+                    className="underline font-semibold"
+                  >
                     nomade digitale
                   </a>{" "}
                   o trasformare la tua avvità per lavorare come{" "}
                   <a
-                    href="/corsi/freelance"
+                    href="/corsi/lavorare-come-programmatore-freelance"
                     className="underline font-semibold"
                   >
                     freelance
