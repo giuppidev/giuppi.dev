@@ -6,17 +6,9 @@ import { sendMail } from "@/utils/nodemailer";
 import { stripe } from "@/utils/stripe";
 import { render } from "@react-email/render";
 import { NextResponse, type NextRequest } from "next/server";
-import nodemailer from "nodemailer";
 
 export async function POST(req: NextRequest) {
   let event;
-
-  if (!req) {
-    return NextResponse.json(
-      { ok: false, text: "no req object" },
-      { status: 500 }
-    );
-  }
 
   const body = await req.text(); // Otherwise use the basic event deserialized with JSON.parse
   const requestHeaders = new Headers(req.headers);
@@ -45,8 +37,17 @@ export async function POST(req: NextRequest) {
 
         const subscription = res.subscription;
 
+        if (res.billing_reason === "subscription_cycle") {
+          return NextResponse.json({
+            message: "Subcription cycle",
+            success: true,
+          });
+        }
         if (res.billing_reason !== "subscription_create") {
-          return;
+          return NextResponse.json({
+            message: "Subcription state unknow",
+            success: true,
+          });
         }
 
         const { error } = await supabase.from("subscriptions").upsert(
