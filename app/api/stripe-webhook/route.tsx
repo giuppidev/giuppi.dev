@@ -10,6 +10,14 @@ import nodemailer from "nodemailer";
 
 export async function POST(req: NextRequest) {
   let event;
+
+  if (!req) {
+    return NextResponse.json(
+      { ok: false, text: "no req object" },
+      { status: 500 }
+    );
+  }
+
   const body = await req.text(); // Otherwise use the basic event deserialized with JSON.parse
   const requestHeaders = new Headers(req.headers);
 
