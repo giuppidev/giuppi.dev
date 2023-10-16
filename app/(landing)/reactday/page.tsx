@@ -36,6 +36,36 @@ export default function ReactDayPage() {
     setLoading(false);
     setSuccess(true);
   };
+
+  return (
+    <section className="bg-myYellow  w-full min-h-screen">
+      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
+        <a
+          href="/"
+          className="flex items-center my-6 text-2xl font-semibold text-gray-900 "
+        >
+          <GiuppiLogo className="w-80" />
+        </a>
+        <div className="w-full bg-white shadow md:mt-0 sm:max-w-3xl xl:p-0 border-4 border-gray-900 ">
+          <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+            <h1 className="text-2xl font-bold leading-tight tracking-tight text-gray-900 md:text-4xl ">
+              Il contest per vincere i biglietti per il reactjsday è terminato!
+            </h1>
+            <h1 className="text-lg   leading-tight tracking-tight text-gray-900  ">
+              Non perdere i prossimi contest, iscrivendoti al{" "}
+              <a
+                className="font-medium text-primary-600 underline hover:no-underline "
+                href="https://youtube.com/@giuppidev"
+                target="_blank"
+              >
+                canale YouTube
+              </a>
+            </h1>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
   return (
     <section className="bg-myYellow  w-full min-h-screen">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
