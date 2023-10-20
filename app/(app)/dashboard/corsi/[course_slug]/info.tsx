@@ -21,20 +21,6 @@ const InfoCard = ({ course }: InfoProps) => {
             <div className="text-3xl font-semibold">Giuseppe Funicello</div>
           </div>
         </div>
-        {course.github_repo && (
-          <div>
-            <div className=" text-lg">repo</div>
-            <div className="flex gap-2 items-center">
-              <a
-                href={course.github_repo}
-                target="_blank"
-                className="text-3xl underline text-blue-500 font-semibold capitalize"
-              >
-                GitHub
-              </a>
-            </div>
-          </div>
-        )}
         <div>
           <div className=" text-lg">livello</div>
           <div className="flex gap-2 items-center">
