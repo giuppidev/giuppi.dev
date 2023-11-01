@@ -80,7 +80,7 @@ export async function POST(req: NextRequest) {
             const notificationOptions = {
               from: '"Giuseppe Funicello" <info@giuppi.dev>',
               to: "info@giuppi.dev",
-              subject: "🚀 Benvenuto nella giuppi<dev> academy!",
+              subject: "🚀 Nuovo iscritto alla giuppi<dev> academy!",
               html: notificationEmailHtml,
             };
             await sendMail(notificationOptions);
@@ -121,6 +121,17 @@ export async function POST(req: NextRequest) {
             console.log(e);
           }
         }
+        break;
+      case "customer.subscription.deleted":
+        const { id } = event.data.object as any;
+
+        await supabase
+          .from("subscriptions")
+          .update({
+            active: false,
+          })
+          .eq("stripe_id", id);
+
         break;
       default:
         // Unexpected event type

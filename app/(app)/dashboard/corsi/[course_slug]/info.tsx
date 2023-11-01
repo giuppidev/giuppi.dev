@@ -70,29 +70,3 @@ const InfoCard = ({ course }: InfoProps) => {
 };
 
 export default InfoCard;
-
-const StartDate = ({ date }: { date: string }) => {
-  const [formattedDate, setFormattedDate] = useState("");
-
-  useEffect(() => {
-    const lessonDate = new Date(date || "");
-    const lessonDatetime = new Intl.DateTimeFormat("it-IT", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-      hour: "numeric",
-      minute: "numeric",
-    }).format(lessonDate);
-
-    setFormattedDate(lessonDatetime);
-  }, []);
-
-  return (
-    <div>
-      <div className=" text-lg">data evento</div>
-      <div className="flex gap-2 items-center">
-        <div className="text-2xl font-semibold">{formattedDate}</div>
-      </div>
-    </div>
-  );
-};
