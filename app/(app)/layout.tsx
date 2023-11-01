@@ -13,9 +13,8 @@ export default function RootLayout({
   return (
     <div className={` min-h-screen `}>
       <SupabaseProvider>
-        <div className="min-h-screen grid grid-rows-[auto_auto_1fr_auto]">
+        <div className="min-h-screen grid grid-rows-[auto_1fr_auto]">
           <Header />
-          <Alert />
           <main id="skip" className="h-full bg-gray-100">
             {children}
           </main>

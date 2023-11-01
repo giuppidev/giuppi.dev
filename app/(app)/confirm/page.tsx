@@ -14,7 +14,7 @@ export default async function ConfirmPage({
   return (
     <ConfirmMessage
       isLogged={!!session}
-      messagge={!!success ? "success" : !!canceled ? "canceled" : "waiting"}
+      message={!!success ? "success" : !!canceled ? "canceled" : "waiting"}
     />
   );
 }
