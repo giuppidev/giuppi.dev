@@ -88,7 +88,7 @@ export default function Pricing() {
                   </form>
                 </>
                 <p className="mt-6 text-base leading-5 text-gray-800">
-                  Prova GRATIS 7 giorni, cancella quando vuoi. 🚀
+                  Cancellati quando vuoi. 🚀
                 </p>
               </div>
             </div>

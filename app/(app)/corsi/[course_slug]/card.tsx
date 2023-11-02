@@ -34,9 +34,6 @@ const CourseCard = ({ course, courseState }: CourseProps) => {
             className="bg-red-600 text-white font-semibold text-xl mt-4 relative"
           >
             ACCEDI A TUTTO - € 25/mese
-            <div className="absolute -bottom-6 text-gray-900 right-0 w-fit border-2 border-gray-900 font-semibold p-1 text-sm bg-blue-200">
-              PROVA GRATIS 7 GIORNI
-            </div>
           </Button>
         </form>
       </div>
