@@ -2,8 +2,6 @@ import { getURL } from "@/utils/helpers";
 import { stripe } from "@/utils/stripe";
 import { redirect } from "next/navigation";
 
-const TRIAL_DAYS = 7;
-
 export async function handleSubscribe(formData: FormData) {
   "use server";
 
@@ -19,14 +17,7 @@ export async function handleSubscribe(formData: FormData) {
         quantity: 1,
       },
     ],
-    subscription_data: {
-      trial_settings: {
-        end_behavior: {
-          missing_payment_method: "cancel",
-        },
-      },
-      trial_period_days: TRIAL_DAYS,
-    },
+
     allow_promotion_codes: true,
     custom_fields: [
       {
