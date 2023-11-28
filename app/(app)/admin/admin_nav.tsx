@@ -13,6 +13,7 @@ function checkCurrentPage(href: string, current: string) {
 const navigation = [
   { name: "Corsi", href: "/admin/corsi", icon: FolderIcon },
   { name: "Users", href: "/admin/users", icon: UsersIcon },
+  { name: "Tools", href: "/admin/tools", icon: UsersIcon },
 ];
 
 export default function AdminNavbar() {

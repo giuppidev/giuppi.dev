@@ -40,9 +40,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="it" className={workSans.className}>
-      <head>
-        <GAHeader />
-      </head>
+      <head></head>
       <body className={`${workSans.className} min-h-screen `}>
         {children}
         {/* <IubendaCookieBanner /> */}

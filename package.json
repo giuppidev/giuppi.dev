@@ -10,7 +10,8 @@
     "email": "email dev"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.15",
+    "@daily-co/daily-js": "^0.53.0",
+    "@daily-co/daily-react": "^0.15.0",
     "@heroicons/react": "^2.0.18",
     "@mdx-js/loader": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
@@ -46,6 +47,7 @@
     "react-dom": "18.2.0",
     "react-email": "1.9.4",
     "react-hook-form": "^7.44.3",
+    "recoil": "^0.7.7",
     "stripe": "^12.8.0",
     "tailwind-merge": "^1.13.0",
     "tailwindcss": "3.3.2"
