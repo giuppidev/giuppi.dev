@@ -34,7 +34,7 @@ export default function Pricing() {
             Come entrare
           </p>
         </div>
-        <div className="border-4  border-gray-900 shadow-brutalXl  mt-16 mx-16 max-w-md  bg-white  sm:mt-20 lg:mx-0 lg:flex md:max-w-none">
+        <div className="border-4  border-gray-900 shadow-brutalXl  mt-16 mx-4 max-w-md  bg-white  sm:mt-20 lg:mx-0 lg:flex md:max-w-none">
           <div className="p-8 sm:p-10 lg:flex-auto">
             <h1 className="text-4xl font-semibold tracking-tight text-gray-900">
               Tutto molto semplice
@@ -91,7 +91,10 @@ export default function Pricing() {
                   oppure{" "}
                   <form action={handleSubscribe} className="mt-8 font-semibold">
                     <input type="hidden" name="mode" value="yearly" />
-                    <button type="submit" className="hover:underline">
+                    <button
+                      type="submit"
+                      className="hover:underline whitespace-nowrap flex-nowrap"
+                    >
                       ottieni 2 mesi gratis 🚀
                     </button>
                   </form>

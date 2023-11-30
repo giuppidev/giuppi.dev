@@ -30,12 +30,12 @@ export default function Events({ events }: { events: any }) {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mx-auto lg:mx-32">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mx-auto max-w-7xl">
           {paginatedEvents.map((event: any) => (
             <Event event={event} key={event.id} />
           ))}
         </div>
-        <div className="justify-end hidden gap-2 md:flex mx-auto lg:mx-32">
+        <div className="justify-end hidden gap-2 md:flex mx-auto max-w-7xl">
           <button
             onClick={() => paginate(-1)}
             className={`${

@@ -11,7 +11,7 @@ export function Tags({ tags }: { tags: Tag }) {
         return (
           <div
             key={key}
-            className={`${colors[key]} shadow-[5px_5px_0px_0px_#000] px-2 py-1 rounded-full border-4 border-gray-900  font-medium text-sm`}
+            className={`${colors[key]} shadow-[5px_5px_0px_0px_#000] px-2 py-1 rounded-full border-4 border-gray-900  font-medium text-xs`}
           >
             {tag}
           </div>
@@ -21,4 +21,4 @@ export function Tags({ tags }: { tags: Tag }) {
   );
 }
 
-const colors = ["bg-yellow-300", "bg-green-300", "bg-blue-200", "bg-pink-300"];
+const colors = ["bg-yellow-200", "bg-green-200", "bg-red-200", "bg-blue-200"];
