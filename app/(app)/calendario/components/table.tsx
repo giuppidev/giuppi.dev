@@ -33,7 +33,7 @@ export default function Table({ events }: { events: any }) {
         <tr>
           <th></th>
           <th className="border-x-2 border-gray-900">Masterclass</th>
-          {/* <th>Corso</th> */}
+          <th>Corso</th>
         </tr>
       </thead>
       <tbody>
@@ -118,7 +118,7 @@ export default function Table({ events }: { events: any }) {
 
 function getMonth(date: string) {
   const newDate = new Date(date);
-  return newDate.toLocaleString("default", { month: "long" });
+  return newDate.toLocaleString("it-IT", { month: "long" });
 }
 
 function getMonthCourseCol(month: string) {
