@@ -23,7 +23,7 @@ const CourseCard = ({ course }: CourseProps) => {
   return (
     <Link
       href={`/corsi/${course.slug}/`}
-      className={` bg-white  hover:drop-shadow-[8px_8px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all p-5 border-4 border-gray-900 grid grid-rows-[subgrid] row-[span_5] gap-0`}
+      className={` bg-white  hover:drop-shadow-[8px_8px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all p-5 border-4 border-gray-900 grid grid-rows-[subgrid] row-[span_4] gap-0`}
     >
       <div className="relative bg-white  w-full">
         <img src={course.cover_url || ""} alt="copertina corso"></img>
@@ -32,10 +32,6 @@ const CourseCard = ({ course }: CourseProps) => {
       <h4 className=" text-2xl mb-3 font-extrabold mt-2">{course.name}</h4>
       <div className=" text-xl mb-3 ">{course.short_description}</div>
 
-      <div className=" text-xl mb-3 flex gap-2 ">
-        <strong>Quando: </strong>
-        <StartDate date={course.start_date || ""} />
-      </div>
       <div className="flex gap-2 items-end space-x-3  flex-grow text-secondary font-bold text-xl ">
         {linkLabel}
         <ArrowIcon />

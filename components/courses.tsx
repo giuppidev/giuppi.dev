@@ -55,20 +55,20 @@ export default function CoursesList({ courses, type }: CoursesProps) {
       <div className="  bg-white border-b-4 border-b-gray-900 space-y-2 pt-4 pb-4">
         <div className=" space-y-2 max-w-7xl mx-auto flex gap-2 items-center px-6 lg:px-8">
           <div className="flex gap-4 flex-wrap">
-            {tags?.map((tag, key) => {
+            {types?.map((type, key) => {
               return (
                 <button
-                  onClick={() => toggleTags(tag.name)}
+                  onClick={() => setFilter(type.value)}
                   key={key}
                   className={twMerge(
-                    tag.color,
+                    type.color,
                     "shadow-brutalXl px-2 py-1 rounded-full border-4 border-gray-900  font-semibold",
-                    filteredTags.includes(tag.name)
+                    filter === type.value
                       ? "shadow-brutalPressed translate-y-1"
                       : ""
                   )}
                 >
-                  {tag.name}
+                  {type.label}
                 </button>
               );
             })}
@@ -76,7 +76,7 @@ export default function CoursesList({ courses, type }: CoursesProps) {
         </div>
       </div>
       <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-8">
-        <div className="flex gap-2   flex-wrap mt-0">
+        {/* <div className="flex gap-2   flex-wrap mt-0">
           {types.map((type, key) => (
             <Button
               onClick={() => setFilter(type.value)}
@@ -91,39 +91,62 @@ export default function CoursesList({ courses, type }: CoursesProps) {
               {type.label}
             </Button>
           ))}
-        </div>
-        <ul
-          role="list"
-          className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-16 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3  
+        </div> */}
+
+        <div className="flex flex-col gap-16">
+          {(filter === "all" || filter === "course") && (
+            <div>
+              <div className="font-semibold text-5xl">I corsi</div>
+              <ul
+                role="list"
+                className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-16 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3  
           "
-        >
-          {filteredCourses.length > 0 ? (
-            filteredCourses.map((course, key) => (
-              <CourseCard course={course} key={key} />
-            ))
-          ) : (
-            <div className="text-3xl font-semibold">
-              Nessun corso trovato con questi filtri.
+              >
+                {filteredCourses
+                  .filter((c) => c.product_type === "course")
+                  .map((course, key) => (
+                    <CourseCard course={course} key={key} />
+                  ))}
+              </ul>
             </div>
           )}
-        </ul>
+          {(filter === "all" || filter === "masterclass") && (
+            <div className="">
+              <div className="font-semibold text-5xl">Le masterclass</div>
+              <ul
+                role="list"
+                className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-16 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3  
+          "
+              >
+                {filteredCourses
+                  .filter((c) => c.product_type === "masterclass")
+                  .map((course, key) => (
+                    <CourseCard course={course} key={key} />
+                  ))}
+              </ul>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
 }
 
-const types: { label: string; value: CourseType }[] = [
+const types: { label: string; value: CourseType; color: string }[] = [
   {
-    label: "Tutti",
+    label: "tutti",
     value: "all",
+    color: "bg-green-200",
   },
   {
-    label: "Corsi",
+    label: "corsi",
     value: "course",
+    color: "bg-red-200",
   },
   {
-    label: "Masterclass",
+    label: "masterclass",
     value: "masterclass",
+    color: "bg-blue-200",
   },
 ];
 

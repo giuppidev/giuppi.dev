@@ -33,7 +33,7 @@ export default async function Tools() {
         .select()
         .eq("active", true);
 
-      // emails = subs?.map((sub) => sub.email);
+      emails = subs?.map((sub) => sub.email);
       email = "info@giuppi.dev";
     }
 

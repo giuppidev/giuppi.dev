@@ -30,7 +30,7 @@ const logoURL =
 
 export default function CustomNotification({
   name = "nomade",
-  byeMessage = " Ci vediamo dall&apos;altra parte! 🚀",
+  byeMessage = " Ci vediamo dall'altra parte! 🚀",
   content,
   link,
   previewText,

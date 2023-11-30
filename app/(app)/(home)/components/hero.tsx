@@ -25,7 +25,7 @@ export default function Hero() {
               href="#subscription"
               className="bg-myGreen text-white w-fit font-medium flex gap-2 items-center"
             >
-              La mia academy <AcademicCapIcon className="h-8 w-8" />{" "}
+              Studia con me <AcademicCapIcon className="h-8 w-8" />{" "}
               <ArrowIcon />
             </LinkButton>
             <LinkButton
