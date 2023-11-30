@@ -61,8 +61,48 @@ export default function Table({ events }: { events: any }) {
                 })}
               </ul>
             </td>
-
-            {getMonthCourseCol(month)}
+            {month === "gennaio" && (
+              <td
+                className=" border-2 border-gray-900 py-4 px-2 lg:px-8 text-center"
+                rowSpan={2}
+              >
+                <Link
+                  href={`/corsi/algoritmi-per-web-developers`}
+                  className="hover:underline hover:cursor-pointer"
+                >
+                  Algoritmi per web developers
+                </Link>
+              </td>
+            )}
+            {month === "marzo" && (
+              <td
+                className=" border-2 border-gray-900 py-4 px-2 lg:px-8 text-center"
+                rowSpan={2}
+              >
+                <Link
+                  href={`/corsi/flutter`}
+                  className="hover:underline hover:cursor-pointer"
+                >
+                  Flutter
+                </Link>
+              </td>
+            )}
+            {month === "maggio" && (
+              <td
+                className=" border-2 border-gray-900 py-4 px-2 lg:px-8 text-center"
+                rowSpan={2}
+              >
+                <Link
+                  href={`/corsi/qwik`}
+                  className="hover:underline hover:cursor-pointer"
+                >
+                  Qwik
+                </Link>
+              </td>
+            )}
+            {month === "dicembre" && (
+              <td className=" border-2 border-gray-900 py-4 px-2 lg:px-8 text-center"></td>
+            )}
           </tr>
         ))}
         <tr>

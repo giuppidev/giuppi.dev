@@ -16,7 +16,7 @@ export default async function Calendario() {
   return (
     <>
       <CalendarHero />
-      <div className="border-b-4 border-gray-900 py-2">
+      <div className="border-b-4 border-gray-900 py-2 bg-white">
         <div className="mx-auto mb-8 max-w-7xl">
           <p className=" text-3xl font-semibold p-2  tracking-tight text-gray-900 sm:text-3xl lg:text-center">
             Le prossime lezioni
@@ -35,7 +35,7 @@ export default async function Calendario() {
           <p className=" text-5xl font-semibold pb-8  tracking-tight text-gray-900 sm:text-5xl lg:text-center">
             Calendario 2023 / 2024
           </p>
-          <div className="flex  max-w-5xlv xwlg:px-8 lg:mx-auto ">
+          <div className="flex  max-w-5xlv xwlg:px-8 lg:mx-auto bg-white">
             <Table events={data} />
           </div>
         </div>

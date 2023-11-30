@@ -28,13 +28,13 @@ export default function Pricing() {
       className="bg-lime-200 py-20  border-b-4 border-gray-900"
       id="subscription"
     >
-      <div className="mx-auto max-w-7xl ">
+      <div className="mx-auto max-w-7xl px-4">
         <div className="mx-auto max-w-2xl text-center lg:max-w-7xl">
           <p className=" text-5xl font-semibold  tracking-tight text-gray-900 sm:text-7xl">
             Come entrare
           </p>
         </div>
-        <div className="border-4  border-gray-900 shadow-brutalXl mx-auto mt-16 max-w-md  bg-white  sm:mt-20 lg:mx-0 lg:flex md:max-w-none">
+        <div className="border-4  border-gray-900 shadow-brutalXl  mt-16 mx-16 max-w-md  bg-white  sm:mt-20 lg:mx-0 lg:flex md:max-w-none">
           <div className="p-8 sm:p-10 lg:flex-auto">
             <h1 className="text-4xl font-semibold tracking-tight text-gray-900">
               Tutto molto semplice
