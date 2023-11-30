@@ -25,7 +25,7 @@ export const Event = ({ event }: { event: any }) => {
   return (
     <Link
       href={`/corsi/${event.products.slug}/`}
-      className="border-4  border-gray-900   hover:drop-shadow-[8px_8px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all bg-white  grid grid-rows-[subgrid] row-[span_3] p-4 gap-3 mx-8 lg:mx-0"
+      className="border-4  border-gray-900   hover:drop-shadow-[8px_8px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all bg-white  flex flex-col p-4 gap-3 mx-8 lg:mx-0"
     >
       <h1 className="text-xl font-semibold tracking-tight text-gray-900 flex justify-between">
         {formattedDate}
