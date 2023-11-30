@@ -4,25 +4,35 @@ import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
 
 const faqs = [
   {
-    question: "Come si svolgeranno le lezioni?",
+    question: "Cosa ottengo se mi iscrivo?",
     answer:
-      "Le lezioni si svolgeranno LIVE utilizzando la piattaforma ZOOM: sulla pagina del corso troverai le date di ogni lezioni. Durante la lezioni ci sarà la possibilità di interagire e farmi domande.",
+      "Registrandoti qui sulla piattaforma, avrai accesso a tutte le lezioni passate e a quelle nuove non appena disponibili. Inoltre, se vorrai, sarai nel team del progetto nomade!",
   },
   {
-    question: "E se il corso è iniziato oppure è già finito?",
+    question: "Non so se sono abbastanza bravo per seguire le lezioni",
     answer:
-      "Nel caso in cui il corso sia iniziato o già terminato, entrando nella community troverai la registrazione di ogni lezione. Potrai comunque seguire lo sviluppo del progetto, visionare il codice e chiedere aiuto alla community su DISCORD se ti blocchi.",
+      "Se hai le basi di programmazione, non hai di che preoccuparti! Ogni singola masterclass è fatta per essere compresa da qualunque programmatore, di qualsiasi livello.",
   },
   {
-    question: "Cosa ottengo comprando un corso o una masterclass?",
+    question: "Cosa ha di speciale questo progetto pratico?",
     answer:
-      "Oltre al link ZOOM dell'evento (se non ancora passato), riceverai l'accesso nella piattaforma alle registrazioni video e alle repository Github con il codice creato durante le lezioni.",
+      "Non è una esercitazione di fine corso o una simulazione: è un progetto vero, che io voglio sviluppare in prima persona e che sarà come una vera e propria esperienza lavorativa.",
+  },
+  {
+    question: "Devo per forza partecipare al progetto pratico?",
+    answer:
+      "Assolutamente no, puoi semplicemente guardare i contenuti che ti interessarno qui sulla piattaforma.",
   },
 
   {
-    question: "Come faccio a chiedere aiuto durante il corso?",
+    question: "Come faccio a chiedere aiuto?",
     answer:
-      "Ci sono 3 modi: farmi domande durante le lezioni live, chiedendo sul canale dedicato al corso su Discord per gli abbonati oppure acquistando una consulenza personalizzata per chiedere code review, aiuto e tutto quello che ti serve per proseguire nel tuo percorso.",
+      "Iscrivendoti avrai accesso ai canali Discord privati dei corsi, in cui risponderemo io e gli altri ragazzi della community.",
+  },
+  {
+    question: "Come faccio a cancellare il mio abbonamento?",
+    answer:
+      "Basta fare login, andare sulla pagina dashboard e cliccare su Gestici il tuo abbonamento (ci mancherai!).",
   },
 ];
 

@@ -23,14 +23,15 @@ const CourseCard = ({ course }: CourseProps) => {
   return (
     <Link
       href={`/corsi/${course.slug}/`}
-      className={` bg-white  hover:drop-shadow-[8px_8px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all p-5 border-4 border-gray-900 grid grid-rows-[subgrid] row-[span_4] gap-0`}
+      className={` bg-white  hover:drop-shadow-[8px_8px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all p-5 border-4 border-gray-900 grid grid-rows-[subgrid] row-[span_3] gap-0 gap-y-0`}
     >
       <div className="relative bg-white  w-full">
         <img src={course.cover_url || ""} alt="copertina corso"></img>
       </div>
-
-      <h4 className=" text-2xl mb-3 font-extrabold mt-2">{course.name}</h4>
-      <div className=" text-xl mb-3 ">{course.short_description}</div>
+      {/* 
+      <h4 className=" text-2xl mb-3 font-medium mt-2">{course.name}</h4> */}
+      <StartDate date={course.start_date || ""} />
+      {/* <div className=" text-xl mb-3 ">{course.short_description}</div> */}
 
       <div className="flex gap-2 items-end space-x-3  flex-grow text-secondary font-bold text-xl ">
         {linkLabel}
@@ -47,16 +48,20 @@ const StartDate = ({ date }: { date: string }) => {
 
   useEffect(() => {
     const lessonDate = new Date(date || "");
-    const lessonDatetime = new Intl.DateTimeFormat("it-IT", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    }).format(lessonDate);
+    const now = new Date();
 
-    setFormattedDate(lessonDatetime);
+    if (now < lessonDate) {
+      const lessonDatetime = new Intl.DateTimeFormat("it-IT", {
+        day: "numeric",
+        month: "numeric",
+        year: "numeric",
+      }).format(lessonDate);
+
+      setFormattedDate("📆 Disponibile dal " + lessonDatetime);
+    }
   }, []);
 
-  return <div className="">{formattedDate}</div>;
+  return <div className="text-sm py-4">{formattedDate}</div>;
 };
 
 function getDifficultyBg(course: Course) {

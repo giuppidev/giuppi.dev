@@ -6,6 +6,7 @@ import { Database } from "@/types/supabase";
 import { _ } from "drizzle-orm/column.d-66a08b85";
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
+import MasterclassCard from "./masterclass-card";
 
 type Course = Database["public"]["Tables"]["products"]["Row"];
 
@@ -99,7 +100,7 @@ export default function CoursesList({ courses, type }: CoursesProps) {
               <div className="font-semibold text-5xl">I corsi</div>
               <ul
                 role="list"
-                className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-16 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3  
+                className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-10 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3  
           "
               >
                 {filteredCourses
@@ -115,13 +116,13 @@ export default function CoursesList({ courses, type }: CoursesProps) {
               <div className="font-semibold text-5xl">Le masterclass</div>
               <ul
                 role="list"
-                className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-16 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3  
+                className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4  
           "
               >
                 {filteredCourses
                   .filter((c) => c.product_type === "masterclass")
                   .map((course, key) => (
-                    <CourseCard course={course} key={key} />
+                    <MasterclassCard course={course} key={key} />
                   ))}
               </ul>
             </div>

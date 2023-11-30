@@ -5,15 +5,24 @@ import Features from "./components/features";
 import Hero from "./components/hero";
 import Pricing from "./components/pricing";
 import { Target } from "./components/target";
+import Events from "./components/events";
 
 export default async function Home() {
   const supabase = createServerSupabaseClient();
-  const { data } = await supabase.auth.getSession();
+  const now = new Date().toISOString();
+
+  const { data } = await supabase
+    .from("lessons")
+    .select(`*, products(*)`)
+    .gte("event_timestamp", now)
+    .order("event_timestamp")
+    .limit(8);
 
   return (
     <main className="">
       <Hero />
-      <Claim />
+
+      <Events events={data} />
       <Features />
       <Target />
       <Pricing />

@@ -11,7 +11,7 @@ export default async function Corsi({
     .from("products")
     .select()
     .or("product_type.eq.course,product_type.eq.masterclass")
-    .order("order");
+    .order("start_date");
 
   const type = searchParams["type"] as CourseType | undefined;
   return (
@@ -20,7 +20,7 @@ export default async function Corsi({
         <div className="pt-16 pb-16 mx-auto max-w-7xl px-6 lg:px-8 ">
           <div className="mx-auto max-w-2xl lg:mx-0">
             <h2 className="text-5xl font-semibold lg:font-medium  tracking-tight text-gray-900 sm:text-8xl">
-              Scopri i corsi e le masterclass
+              Tutti i corsi e le masterclass
             </h2>
           </div>
         </div>

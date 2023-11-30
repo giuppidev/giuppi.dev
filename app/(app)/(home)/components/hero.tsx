@@ -14,16 +14,16 @@ export default function Hero() {
       <div className="mx-auto max-w-7xl    lg:px-0 py-8 lg:py-24  lg:flex items-center lg:gap-x-10 ">
         <div className="mx-auto max-w-7xl lg:mx-0 lg:flex-auto px-4">
           <h1 className="  max-w-2xl text-5xl font-semibold lg:font-medium tracking-tight text-gray-900 lg:text-8xl leading-tight ">
-            Sono un programmatore nomade.
+            Benvenuto, nomade.
           </h1>
           <p className="mt-2  max-w-2xl text-xl leading-8 text-gray-800">
             Mi chiamo Giuppi, sono un developer da 10+ anni, specializzato in
-            Frontend Web Development, e vivo da nomade digitale.
+            Web Development, e vivo da nomade digitale.
           </p>
-          <div className="mt-8 -ml-2 flex gap-4 flex-col md:flex-row">
+          <div className="mt-8 -ml-2 flex gap-4 flex-col md:flex-row ">
             <LinkButton
               href="#subscription"
-              className="bg-myGreen text-white w-fit font-medium flex gap-2 items-center"
+              className="bg-myGreen text-white w-fit font-medium flex gap-2 items-center whitespace-nowrap"
             >
               Studia con me <AcademicCapIcon className="h-8 w-8" />{" "}
               <ArrowIcon />
@@ -31,7 +31,7 @@ export default function Hero() {
             <LinkButton
               href={process.env.NEXT_PUBLIC_DISCORD_SERVER || ""}
               target="_blank"
-              className="bg-myYellow text-gray-900 w-fit font-medium flex gap-2 items-center"
+              className="bg-myYellow text-gray-900 w-fit font-medium flex gap-2 items-center whitespace-nowrap"
             >
               La mia community{" "}
               <svg

@@ -14,9 +14,9 @@ const academy = {
 
   description: "Accedi a tutti i corsi e alle masterclass!",
   features: [
-    "Lezioni settimanali con me LIVE su Zoom",
-    "Registrazioni video sempre disponibili",
-    "Accesso a tutti i corsi e masterclass, passati e futuri",
+    "Contenuti video settimanali",
+    "Registrazioni sempre disponibili",
+    "Partecipa con me ad un progetto reale",
     "Nessun vincolo, cancellati quando vuoi",
   ],
   pricePeriod: "mese",
@@ -31,7 +31,7 @@ export default function Pricing() {
       <div className="mx-auto max-w-7xl ">
         <div className="mx-auto max-w-2xl text-center lg:max-w-7xl">
           <p className=" text-5xl font-semibold  tracking-tight text-gray-900 sm:text-7xl">
-            Come entrare nell&apos;academy
+            Come entrare
           </p>
         </div>
         <div className="border-4  border-gray-900 shadow-brutalXl mx-auto mt-16 max-w-md  bg-white  sm:mt-20 lg:mx-0 lg:flex md:max-w-none">
@@ -87,9 +87,15 @@ export default function Pricing() {
                     </Button>
                   </form>
                 </>
-                <p className="mt-6 text-base leading-5 text-gray-800">
-                  Cancellati quando vuoi. 🚀
-                </p>
+                <div className="mt-6 text-base items-end leading-5 text-gray-800 flex gap-1">
+                  oppure{" "}
+                  <form action={handleSubscribe} className="mt-8 font-semibold">
+                    <input type="hidden" name="mode" value="yearly" />
+                    <button type="submit" className="hover:underline">
+                      ottieni 2 mesi gratis 🚀
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>

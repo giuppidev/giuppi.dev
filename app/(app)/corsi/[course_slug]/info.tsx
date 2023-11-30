@@ -23,26 +23,21 @@ const InfoCard = ({ course, courseState }: InfoProps) => {
             <div className="text-3xl font-semibold">Giuseppe Funicello</div>
           </div>
         </div>
-        <div>
-          <div className=" text-lg">livello</div>
-          <div className="flex gap-2 items-center">
-            <div className="text-3xl font-semibold capitalize">
-              {course.level}
-            </div>
-          </div>
-        </div>
+
         <div>
           <div className=" text-lg">tipologia</div>
           <div className="flex gap-2 items-center">
             <div className="text-3xl font-semibold">
-              {course.product_type === "course"
-                ? "Corso pratico"
-                : course.product_type}
+              {course.product_type === "course" ? "Corso" : course.product_type}
             </div>
           </div>
         </div>
 
-        <StartDate date={course.start_date || ""} courseState={courseState} />
+        <StartDate
+          date={course.start_date || ""}
+          courseState={courseState}
+          courseType={course.product_type || "masterclass"}
+        />
         {course.product_type === "course" && (
           <div>
             <div className=" text-lg">durata</div>
@@ -63,9 +58,11 @@ export default InfoCard;
 const StartDate = ({
   date,
   courseState,
+  courseType,
 }: {
   date: string;
   courseState: CourseStatus;
+  courseType: string;
 }) => {
   const [formattedDate, setFormattedDate] = useState("");
 
@@ -76,8 +73,6 @@ const StartDate = ({
       day: "numeric",
       month: "long",
       year: "numeric",
-      hour: "numeric",
-      minute: "numeric",
     }).format(lessonDate);
 
     setFormattedDate(lessonDatetime);
@@ -85,14 +80,16 @@ const StartDate = ({
 
   return (
     <div>
-      <div className=" text-lg">data inizio</div>
+      <div className=" text-lg">stato</div>
       <div className="flex gap-2 items-center">
         <div className="text-2xl font-semibold">
           {courseState === "new"
-            ? formattedDate
+            ? courseType === "course"
+              ? "Inizia il " + formattedDate
+              : "Disponibile dal " + formattedDate
             : courseState === "inprogress"
             ? "In corso"
-            : "Finito"}
+            : "Disponibile"}
         </div>
       </div>
     </div>

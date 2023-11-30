@@ -6,35 +6,115 @@ export default function Features() {
     <div className="px-8 border-b-4 border-gray-900 bg-cyan-500 ">
       <div className="mx-auto max-w-4xl lg:text-center py-12">
         <p className=" text-5xl font-semibold  tracking-tight text-gray-900 sm:text-7xl">
-          Come sono i miei corsi?
+          Come studiamo
         </p>
       </div>
       <div
         className="mx-auto max-w-7xl  grid  grid-cols-1 gap-x-8 gap-y-4 
-  lg:grid-cols-3 mb-16"
+  lg:grid-cols-2 mb-16"
       >
-        {features.map((feature) => (
-          <div key={feature.name}>
-            <Link
-              href={feature.href}
-              className="flex flex-col justify-between  px-3 py-10  border-4 border-gray-900 bg-white rounded-3xl transition-all hover:shadow-brutal hover:-translate-y-2 hover:-translate-x-2"
-            >
-              <div className="flex flex-col  gap-2 text-xl font-semibold leading-7 h-full ">
-                {feature.icon}
-                <div className="rounded-sm flex gap-2 items-center">
-                  <div className="py-1 text-4xl">{feature.name}</div>
-                </div>
-                <div className="font-normal">{feature.description}</div>
-                <div className="flex gap-2 mt-4 items-end space-x-3  flex-grow  font-semibold text-xl ">
-                  <div className="flex gap-2 items-center hover:underline">
-                    {feature.linkLabel}
-                    <ArrowIcon />
-                  </div>
-                </div>
+        <Link
+          href="/corsi"
+          className="flex flex-col justify-between  px-3 py-10  border-4 border-gray-900 bg-white rounded-3xl transition-all hover:shadow-brutal hover:-translate-y-2 hover:-translate-x-2"
+        >
+          <div className="flex flex-col  gap-2 text-xl font-semibold leading-7 h-full ">
+            <div className="flex gap-8">
+              <div className="rounded-sm flex gap-2 items-center">
+                <div className="py-1 text-4xl">Teoria</div>
               </div>
-            </Link>
+            </div>
+            <div className="font-normal">
+              <ul className="space-y-2">
+                <li className="flex gap-x-3 text-2xl">
+                  <Arrow
+                    className="h-8 w-5 flex-none text-gray-950"
+                    aria-hidden="true"
+                  />
+                  Un contenuto video ogni settimana (lezione o masterclass)
+                </li>
+                <li className="flex gap-x-3 text-2xl">
+                  <Arrow
+                    className="h-8 w-5 flex-none text-gray-950"
+                    aria-hidden="true"
+                  />
+                  Accesso a tutti i corsi già pubblicati.
+                </li>
+                <li className="flex gap-x-3 text-2xl">
+                  <Arrow
+                    className="h-8 w-5 flex-none text-gray-950"
+                    aria-hidden="true"
+                  />
+                  Esercizi pratici e repo.
+                </li>
+                <li className="flex gap-x-3 text-2xl">
+                  <Arrow
+                    className="h-8 w-5 flex-none text-gray-950"
+                    aria-hidden="true"
+                  />
+                  Canale Discord riservato per chiedere supporto a me e alla
+                  community.
+                </li>
+              </ul>
+            </div>
+            <div className="flex gap-2 mt-4 items-end space-x-3  flex-grow  font-semibold text-xl ">
+              <div className="flex gap-2 items-center hover:underline">
+                Vedi tutti i corsi
+                <ArrowIcon />
+              </div>
+            </div>
           </div>
-        ))}
+        </Link>
+        <Link
+          href="/corsi"
+          className="flex flex-col justify-between  px-3 py-10  border-4 border-gray-900 bg-white rounded-3xl transition-all hover:shadow-brutal hover:-translate-y-2 hover:-translate-x-2"
+        >
+          <div className="flex flex-col  gap-2 text-xl font-semibold leading-7 h-full ">
+            <div className="flex gap-8">
+              <div className="rounded-sm flex gap-2 items-center">
+                <div className="py-1 text-4xl">Pratica</div>
+              </div>
+            </div>
+            <div className="font-normal">
+              <ul className="space-y-2">
+                <li className="flex gap-x-3 text-2xl">
+                  <Arrow
+                    className="h-8 w-5 flex-none text-gray-950"
+                    aria-hidden="true"
+                  />
+                  Partecipa alla creazione di un progetto insieme a me.
+                </li>
+
+                <li className="flex gap-x-3 text-2xl">
+                  <Arrow
+                    className="h-8 w-5 flex-none text-gray-950"
+                    aria-hidden="true"
+                  />
+                  Utilizzeremo le tecnologie presenti nelle lezioni teoriche.
+                </li>
+                <li className="flex gap-x-3 text-2xl">
+                  <Arrow
+                    className="h-8 w-5 flex-none text-gray-950"
+                    aria-hidden="true"
+                  />
+                  Code review e sessioni di pair programming.
+                </li>
+                <li className="flex gap-x-3 text-2xl">
+                  <Arrow
+                    className="h-8 w-5 flex-none text-gray-950"
+                    aria-hidden="true"
+                  />
+                  Nessuna simulazione, stiamo creando qualcosa di reale.
+                </li>
+              </ul>
+            </div>
+            <div className="flex gap-2 mt-4 items-end space-x-3  flex-grow  font-semibold text-xl ">
+              <div className="flex gap-2 items-center hover:underline">
+                Vai al progetto
+                <ArrowIcon />
+              </div>
+            </div>
+          </div>
+        </Link>
       </div>
     </div>
   );
@@ -113,7 +193,7 @@ const NomadIcon = () => {
 
 const features = [
   {
-    name: "Classi live",
+    name: "Teoria",
     description:
       "I corsi si terranno live, completamente online, in modo che tu possa interagire con me facendo domande, commenti, ... Se arrivi tardi, don't worry: abbonandoti avrai accesso alle registrazioni video.",
     href: "/corsi",
@@ -121,19 +201,27 @@ const features = [
     linkLabel: "Vai ai corsi",
   },
   {
-    name: "Ti aiuto io",
+    name: "Pratica",
     description:
       "Puoi farmi domande durante le lezioni live oppure tramite il canale Discord dedicato al corso che stai seguendo se ti abboni. Vuoi una consulenza personalizzata? Prenota una mentorship!",
     href: "/mentorship",
     icon: <HelpIcon />,
     linkLabel: "Vai alla mentorship",
   },
-  {
-    name: "Vita nomade",
-    description:
-      "Se oltre a programmare sei interessato alla vita del freelance, al nomadismo digitale e tutto quello che va al di là del codice,  troverai  masterclass sul mondo del programmatore nomade.",
-    href: "/corsi",
-    icon: <NomadIcon />,
-    linkLabel: "Vai alle masterclass",
-  },
 ];
+
+const Arrow = (props: any) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="28"
+    height="19"
+    viewBox="0 0 28 19"
+    fill="none"
+    {...props}
+  >
+    <path
+      d="M19.8201 18.165C20.0623 13.2867 22.9685 10.3806 27.2931 9.99999L27.2931 8.13038C22.9685 7.74981 20.0623 4.87823 19.8201 -1.73273e-06L16.6025 0.691946C16.7755 2.45641 17.3983 4.01329 18.4362 5.43179C19.5087 6.81568 20.7196 7.58483 22.1035 8L6.99382e-07 8L8.74228e-07 10L22.1035 9.99999C20.7196 10.4152 19.5087 11.3147 18.4362 12.7332C17.3983 14.1517 16.7755 15.7086 16.6025 17.4384L19.8201 18.165Z"
+      fill="currentColor"
+    />
+  </svg>
+);

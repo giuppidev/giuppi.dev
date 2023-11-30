@@ -8,7 +8,7 @@ import { useSupabase } from "@/app/supabase-provider";
 import { useRouter } from "next/navigation";
 const navigation = [
   { name: "Corsi", href: "/corsi" },
-  { name: "Mentorship", href: "/mentorship" },
+  { name: "Progetto nomade", href: "/progetto-nomade" },
   { name: "About me", href: "/about-me" },
 ];
 
@@ -67,7 +67,7 @@ export default function Mobile({ isAdmin, user }: NavigationMenuProps) {
                   <a
                     key={item.name}
                     href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-5xl  leading-7 text-gray-900 hover:bg-gray-50"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-5xl  leading-9 text-gray-900 hover:bg-gray-50"
                   >
                     {item.name}
                   </a>

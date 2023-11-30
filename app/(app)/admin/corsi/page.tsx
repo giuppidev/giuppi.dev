@@ -69,12 +69,24 @@ export default async function AdminCorsi() {
                       {course.price}
                     </td>
 
-                    <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+                    <td className="relative space-x-2 whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
                       <a
                         href={`/admin/corsi/${course.id}`}
-                        className="text-indigo-600 hover:text-indigo-900"
+                        className="text-myGreen hover:text-indigo-900"
                       >
                         View
+                      </a>
+                      <a
+                        href={`/admin/corsi/${course.id}/edit`}
+                        className="text-myGreen hover:text-indigo-900"
+                      >
+                        Edit
+                      </a>
+                      <a
+                        href={`/admin/corsi/${course.id}/lessons/create`}
+                        className="text-myGreen hover:text-indigo-900"
+                      >
+                        Crea lezione
                       </a>
                     </td>
                   </tr>
