@@ -44,7 +44,7 @@ export default function RootLayout({
       <body className={`${workSans.className} min-h-screen `}>
         {children}
         {/* <IubendaCookieBanner /> */}
-        <CookieConsent />
+        {/* <CookieConsent /> */}
       </body>
     </html>
   );

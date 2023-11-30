@@ -31,31 +31,6 @@ const nextConfig = {
         destination: process.env.NEXT_PUBLIC_YOUTUBE,
         permanent: true,
       },
-      {
-        source: "/",
-        destination: "/coming-soon",
-        permanent: false,
-      },
-      {
-        source: "/about-me",
-        destination: "/coming-soon",
-        permanent: false,
-      },
-      {
-        source: "/mentorship",
-        destination: "/coming-soon",
-        permanent: false,
-      },
-      {
-        source: "/corsi",
-        destination: "/coming-soon",
-        permanent: false,
-      },
-      {
-        source: "/corsi/:course_id",
-        destination: "/coming-soon",
-        permanent: false,
-      },
     ];
   },
 };
