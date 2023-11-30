@@ -33,7 +33,7 @@ export default function Table({ events }: { events: any }) {
         <tr>
           <th></th>
           <th className="border-x-2 border-gray-900">Masterclass</th>
-          <th>Corso</th>
+          {/* <th>Corso</th> */}
         </tr>
       </thead>
       <tbody>
