@@ -16,7 +16,7 @@ export default async function Home() {
     .select(`*, products(*)`)
     .gte("event_timestamp", now)
     .order("event_timestamp")
-    .limit(8);
+    .limit(4);
 
   return (
     <main className="">

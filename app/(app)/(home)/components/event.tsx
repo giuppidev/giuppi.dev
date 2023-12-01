@@ -11,7 +11,6 @@ export const Event = ({ event }: { event: any }) => {
     const lessonDatetime = new Intl.DateTimeFormat("it-IT", {
       day: "numeric",
       month: "long",
-      year: "numeric",
     }).format(lessonDate);
 
     setFormattedDate(lessonDatetime);
@@ -25,17 +24,17 @@ export const Event = ({ event }: { event: any }) => {
   return (
     <Link
       href={`/corsi/${event.products.slug}/`}
-      className="border-4  border-gray-900   hover:drop-shadow-[8px_8px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all bg-white  flex flex-col p-4 gap-1"
+      className=" hover:-translate-x-1 hover:-translate-y-1 transition-all  flex flex-col p-4 gap-3"
     >
-      <h1 className="text-xl font-semibold tracking-tight text-gray-900 flex justify-between">
+      <h1 className="text-2xl font-semibold tracking-tight text-gray-900 flex justify-between">
         {formattedDate}{" "}
-        <span className="font-normal">
+        <span className="font-normal text-lg">
           {event.products.product_type === "course"
             ? "lezione " + event.name
             : ""}
         </span>
       </h1>
-      <div className="relative bg-white  w-full flex justify-center border-4 border-gray-900">
+      <div className="relative bg-white  w-full flex justify-center border-4 border-gray-900 drop-shadow-[4px_4px_0px_#000]  rounded-xl overflow-hidden">
         <img
           src={event.products.cover_url || ""}
           alt={event.products.name || ""}
@@ -46,7 +45,7 @@ export const Event = ({ event }: { event: any }) => {
         <Tags tags={event.products.tags} />
       </div>
 
-      <div className="flex gap-2 items-end space-x-3  flex-grow text-secondary  text-xl pt-8">
+      <div className="flex gap-2 items-end space-x-3  flex-grow text-secondary  text-xl pt-4">
         {linkLabel}
         <ArrowIcon />
       </div>

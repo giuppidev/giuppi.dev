@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        map_pattern: "url('/public/map.svg)",
+      },
       boxShadow: {
         brutalSmall: "4px 4px 0px 0px #000",
         brutal: "5px 5px 0px 0px #000",
@@ -21,6 +24,7 @@ module.exports = {
         myYellow: "#FFCC33",
         myYellowLight: "#ffedbf",
         myGreen: "#495F16",
+        gianluGreen: "#85EDAA",
       },
       fontFamily: {
         worksans: ["var(--font-worksans)"],
