@@ -42,7 +42,7 @@ export default function FAQ() {
       <div className="mx-auto  px-6 py-24 sm:py-32 lg:px-8 ">
         <div className="mx-auto max-w-7xl divide-y-4 divide-gray-900">
           <h2 className="text-5xl lg:text-7xl font-semibold  leading-tight lg:leading-10 tracking-tight text-gray-900">
-            Frequently asked questions
+            FAQ
           </h2>
           <dl className="mt-10  divide-y-4 divide-gray-900">
             {faqs.map((faq) => (
@@ -51,7 +51,7 @@ export default function FAQ() {
                   <>
                     <dt>
                       <Disclosure.Button className="flex w-full items-start justify-between text-left text-gray-900">
-                        <span className="text-4xl leading-7">
+                        <span className="text-3xl leading-7">
                           {faq.question}
                         </span>
                         <span className="ml-6 flex h-7 items-center">

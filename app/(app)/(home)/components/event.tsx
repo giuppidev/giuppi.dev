@@ -26,14 +26,6 @@ export const Event = ({ event }: { event: any }) => {
       href={`/corsi/${event.products.slug}/`}
       className=" hover:-translate-x-1 hover:-translate-y-1 transition-all  flex flex-col p-4 gap-3"
     >
-      <h1 className="text-2xl font-semibold tracking-tight text-gray-900 flex justify-between">
-        {formattedDate}{" "}
-        <span className="font-normal text-lg">
-          {event.products.product_type === "course"
-            ? "lezione " + event.name
-            : ""}
-        </span>
-      </h1>
       <div className="relative bg-white  w-full flex justify-center border-4 border-gray-900 drop-shadow-[4px_4px_0px_#000]  rounded-xl overflow-hidden">
         <img
           src={event.products.cover_url || ""}
@@ -44,11 +36,18 @@ export const Event = ({ event }: { event: any }) => {
       <div>
         <Tags tags={event.products.tags} />
       </div>
-
-      <div className="flex gap-2 items-end space-x-3  flex-grow text-secondary  text-xl pt-4">
+      <h1 className="text-3xl font-semibold tracking-tight text-gray-900 flex justify-between items-center">
+        {formattedDate}{" "}
+        <span className="font-normal text-lg">
+          {event.products.product_type === "course"
+            ? "lezione " + event.name
+            : ""}
+        </span>
+      </h1>
+      {/* <div className="flex gap-2 items-end space-x-3  flex-grow text-secondary  text-xl pt-4">
         {linkLabel}
         <ArrowIcon />
-      </div>
+      </div> */}
     </Link>
   );
 };

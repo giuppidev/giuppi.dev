@@ -52,14 +52,16 @@ export default function Mobile({ isAdmin, user }: NavigationMenuProps) {
               <span className="sr-only">Giuppi.dev</span>
               <GiuppiLogo className="w-64 lg:w-64" />
             </a>
-            <button
-              type="button"
-              className="-m-2.5 rounded-md p-2.5 text-gray-700"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <span className="sr-only">Close menu</span>
-              <XMarkIcon className="h-12 w-12" aria-hidden="true" />
-            </button>
+            <div className="pr-5 pt-4">
+              <button
+                type="button"
+                className="-m-2.5 rounded-md  text-gray-700"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span className="sr-only">Close menu</span>
+                <XMarkIcon className="h-12 w-12" aria-hidden="true" />
+              </button>
+            </div>
           </div>
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y-4 divide-gray-900">

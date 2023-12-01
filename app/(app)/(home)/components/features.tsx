@@ -1,226 +1,146 @@
 import { ArrowIcon } from "@/components/course";
-import { LifebuoyIcon, VideoCameraIcon } from "@heroicons/react/24/solid";
+import { LinkArrow } from "@/components/link-arrow";
 import Link from "next/link";
 export default function Features() {
   return (
     <div className="px-8 border-b-4 border-gray-900 bg-cyan-500 ">
       <div className="mx-auto max-w-4xl lg:text-center py-12">
         <p className=" text-5xl font-semibold  tracking-tight text-gray-900 sm:text-7xl">
-          Come studiamo
+          Come funziona
         </p>
       </div>
       <div
         className="mx-auto max-w-7xl  grid  grid-cols-1 gap-x-8 gap-y-4 
   lg:grid-cols-2 mb-16"
       >
-        <Link
-          href="/corsi"
-          className="flex flex-col justify-between  px-3 py-10  border-4 border-gray-900 bg-white rounded-3xl transition-all hover:shadow-brutal hover:-translate-y-2 hover:-translate-x-2"
-        >
-          <div className="flex flex-col  gap-2 text-xl font-semibold leading-7 h-full ">
-            <div className="flex gap-8">
-              <div className="rounded-sm flex gap-2 items-center">
-                <div className="py-1 text-4xl">Teoria</div>
+        {features.map((feature) => (
+          <Link
+            key={feature.name}
+            href={feature.href}
+            className="flex flex-col justify-between  px-8 py-10  border-4 border-gray-900 bg-white  transition-all hover:shadow-brutal hover:-translate-y-2 hover:-translate-x-2"
+          >
+            <div className="flex flex-col  gap-2 text-xl font-semibold leading-7 h-full ">
+              <div className="flex gap-8">
+                <div className="rounded-sm flex gap-2 items-center ml-2">
+                  <div
+                    className={`py-1 text-5xl bg-black text-white w-52 px-2 ${feature.shadowClass} mb-8`}
+                  >
+                    {feature.name}
+                  </div>
+                </div>
+              </div>
+              <div className="font-normal ">
+                <ul className="space-y-4">
+                  {feature.highlights.map((highlight) => (
+                    <li className="flex gap-x-3 text-2xl" key={highlight.title}>
+                      <Arrow
+                        className={`h-8 w-5 flex-none ${feature.textColor}`}
+                        aria-hidden="true"
+                      />
+                      <div className="flex flex-col gap-1">
+                        <span className="text-3xl font-semibold">
+                          {highlight.title}
+                        </span>
+                        <span className="text-lg"> {highlight.subtitle}</span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="flex gap-2 mt-8 items-end space-x-3  flex-grow  font-semibold text-xl ">
+                <div className="flex gap-4 items-center hover:underline">
+                  {feature.linkLabel}
+                  <LinkArrow
+                    className={`w-8 h-8 `}
+                    shadowColor={feature.arrowColor}
+                  />
+                </div>
               </div>
             </div>
-            <div className="font-normal">
-              <ul className="space-y-2">
-                <li className="flex gap-x-3 text-2xl">
-                  <Arrow
-                    className="h-8 w-5 flex-none text-gray-950"
-                    aria-hidden="true"
-                  />
-                  Un contenuto video ogni settimana (lezione o masterclass)
-                </li>
-                <li className="flex gap-x-3 text-2xl">
-                  <Arrow
-                    className="h-8 w-5 flex-none text-gray-950"
-                    aria-hidden="true"
-                  />
-                  Accesso a tutti i corsi già pubblicati.
-                </li>
-                <li className="flex gap-x-3 text-2xl">
-                  <Arrow
-                    className="h-8 w-5 flex-none text-gray-950"
-                    aria-hidden="true"
-                  />
-                  Esercizi pratici e repo.
-                </li>
-                <li className="flex gap-x-3 text-2xl">
-                  <Arrow
-                    className="h-8 w-5 flex-none text-gray-950"
-                    aria-hidden="true"
-                  />
-                  Canale Discord riservato per chiedere supporto a me e alla
-                  community.
-                </li>
-              </ul>
-            </div>
-            <div className="flex gap-2 mt-4 items-end space-x-3  flex-grow  font-semibold text-xl ">
-              <div className="flex gap-2 items-center hover:underline">
-                Vedi tutti i corsi
-                <ArrowIcon />
-              </div>
-            </div>
-          </div>
-        </Link>
-        <Link
-          href="/corsi"
-          className="flex flex-col justify-between  px-3 py-10  border-4 border-gray-900 bg-white rounded-3xl transition-all hover:shadow-brutal hover:-translate-y-2 hover:-translate-x-2"
-        >
-          <div className="flex flex-col  gap-2 text-xl font-semibold leading-7 h-full ">
-            <div className="flex gap-8">
-              <div className="rounded-sm flex gap-2 items-center">
-                <div className="py-1 text-4xl">Pratica</div>
-              </div>
-            </div>
-            <div className="font-normal">
-              <ul className="space-y-2">
-                <li className="flex gap-x-3 text-2xl">
-                  <Arrow
-                    className="h-8 w-5 flex-none text-gray-950"
-                    aria-hidden="true"
-                  />
-                  Partecipa alla creazione di un progetto insieme a me.
-                </li>
-
-                <li className="flex gap-x-3 text-2xl">
-                  <Arrow
-                    className="h-8 w-5 flex-none text-gray-950"
-                    aria-hidden="true"
-                  />
-                  Utilizzeremo le tecnologie presenti nelle lezioni teoriche.
-                </li>
-                <li className="flex gap-x-3 text-2xl">
-                  <Arrow
-                    className="h-8 w-5 flex-none text-gray-950"
-                    aria-hidden="true"
-                  />
-                  Code review e sessioni di pair programming.
-                </li>
-                <li className="flex gap-x-3 text-2xl">
-                  <Arrow
-                    className="h-8 w-5 flex-none text-gray-950"
-                    aria-hidden="true"
-                  />
-                  Nessuna simulazione, stiamo creando qualcosa di reale.
-                </li>
-              </ul>
-            </div>
-            <div className="flex gap-2 mt-4 items-end space-x-3  flex-grow  font-semibold text-xl ">
-              <div className="flex gap-2 items-center hover:underline">
-                Vai al progetto
-                <ArrowIcon />
-              </div>
-            </div>
-          </div>
-        </Link>
+          </Link>
+        ))}
       </div>
     </div>
   );
 }
 
-const LiveIcon = () => {
-  return (
-    <div className="bg-red-400 px-2 py-1 w-fit border-4 border-gray-900 shadow-brutal mb-6">
-      <VideoCameraIcon className="h-24 w-24  text-gray-900" />
-    </div>
-  );
-};
-
-const HelpIcon = () => {
-  return (
-    <div className="bg-yellow-300 px-2 py-1 w-fit border-4 border-gray-900 shadow-brutal mb-6">
-      <LifebuoyIcon className="h-24 w-24  text-gray-900 " />
-    </div>
-  );
-};
-const NomadIcon = () => {
-  return (
-    <div className="bg-green-400 px-2 py-1 w-fit border-4 border-gray-900 shadow-brutal mb-6">
-      <svg
-        fill="#000000"
-        height="800px"
-        width="800px"
-        version="1.1"
-        id="Capa_1"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 488.798 488.798"
-        className="h-24 w-24  text-gray-900"
-      >
-        <path
-          d="M488.798,135.222l-5.559-10.515c-16.629-31.457-41.852-48.581-76.913-52.127c0.449-12.111,1.283-32.889,2.168-46.425
-	l0.635-9.708l-9.686-0.902c-31.372-2.918-52.056,9.297-63.892,20.063c-5.713,5.197-9.954,10.575-12.92,14.986
-	c-14.822-7.584-45.612-19.377-81.617-10.488l-11.644,2.875l4.921,10.937c8.565,19.035,18.833,36.976,24.914,47.109
-	c-5.275,3.629-12.316,8.883-19.259,15.309c-19.483,18.032-28.336,35.892-26.314,53.084l1.19,10.114l10.091-1.374
-	c13.063-1.779,22.98-2.722,31.731-3.554c5.713-0.543,10.994-1.046,16.462-1.704c-1.198,12.692-0.739,32.374,8.132,54.489
-	l4.812,11.996l10.403-7.67c26.002-19.169,36.639-31.293,44.405-40.146c0.249-0.284,0.487-0.555,0.73-0.831
-	c10.542,32.834,32.945,124.205-13.245,200.381c-17.369-9.795-39.5-17.032-67.004-17.032c-34.126,0-59.987,11.136-78.73,24.483
-	c-39.87-16.951-55.195-66.365-61.004-98.131c5.376,5.282,12.741,11.738,23.778,19.876l10.405,7.672l4.812-11.999
-	c6.107-15.231,7-29.003,6.442-38.737c9.317,0.716,18.382,0.155,35.064-1.672l7.913-0.867l0.93-7.906
-	c1.131-9.621-1.58-24.289-20.919-39.534c-3.992-3.146-8.03-5.792-11.513-7.866c4.626-7.865,11.313-19.859,16.999-32.495
-	l4.922-10.938l-11.645-2.875c-26.019-6.422-48.504,1.248-60.534,7.027c-2.188-3.017-5.073-6.437-8.757-9.787
-	c-9.193-8.361-25.245-17.853-49.527-15.594l-9.686,0.902l0.635,9.708c0.603,9.217,1.171,22.97,1.518,32.132
-	c-25.774,3.24-44.443,16.361-56.884,39.896L0,247.9l11.313,3.67c13.542,4.394,25.647,7.493,34.014,9.432
-	c-5.083,13.18-9.966,29.318-4.084,50.368l3.875,13.867l11.641-8.474c4.201-3.058,8.458-6.324,12.576-9.483
-	c10.048-7.708,20.339-15.6,29.96-20.572c1.336,11.624,4.194,29.349,10.244,48.292c11.808,36.968,31.126,63.462,56.365,77.619
-	c-1.523,1.501-2.977,2.993-4.343,4.463c-19.62,21.116-27.604,42.237-27.935,43.125l-5.011,13.484h265.451l-5.011-13.484
-	c-0.331-0.889-8.315-22.009-27.935-43.125c-4.508-4.852-9.869-9.934-16.128-14.835c25.668-41.983,35.929-94.169,29.7-151.628
-	c-3.003-27.698-9.118-50.625-13.621-64.759c13.472,6.8,27.733,17.726,41.654,28.404c5.507,4.225,11.202,8.594,16.803,12.671
-	l11.642,8.476l3.875-13.87c8.154-29.185,0.252-51.292-6.83-69.18c11.09-2.477,28.957-6.88,49.271-13.47L488.798,135.222z
-	 M58.641,290.277c0.441-9.814,3.812-18.275,7.107-26.55c0.864-2.168,1.757-4.411,2.563-6.604l4.101-11.155l-11.691-2.133
-	c-0.158-0.029-13.174-2.43-30.873-7.513c7.864-10.088,20.401-18.965,43.208-19.596l10.049-0.278l-0.331-10.047
-	c-0.029-0.874-0.578-17.417-1.297-31.793c24.552,2.175,33.59,21.973,33.98,22.854l4.793,11.221l10.086-6.882
-	c0.207-0.141,17.911-11.988,41.132-11.058c-7.658,14.956-15.322,26.96-15.418,27.11l-6.283,9.806l10.642,4.729
-	c8.611,3.826,24.288,13.723,29.226,24.357c-14.465,1.311-21.155,0.98-32.767-0.969l-16.032-2.751l4.805,15.51
-	c0.042,0.141,3.246,11.36,0.266,26.858c-9.818-8.12-14.771-13.764-18.953-18.531c-3.787-4.315-7.363-8.391-13.02-12.405
-	l-3.698-2.624l-4.41,1.052C89.686,266.737,73.915,278.569,58.641,290.277z M363.532,453.692H159.149
-	c3.939-6.715,9.702-15.169,17.572-23.541c22.5-23.931,50.97-36.064,84.619-36.064c33.649,0,62.119,12.134,84.619,36.064
-	C353.831,438.524,359.593,446.979,363.532,453.692z M412.803,135.142l-11.688,2.134l4.097,11.152
-	c1.068,2.909,2.209,5.772,3.416,8.803c5.314,13.348,10.771,27.049,9.745,43.83c-1.164-0.891-2.324-1.781-3.476-2.664
-	c-20.852-15.996-42.413-32.537-64.08-37.708l-4.411-1.053l-3.698,2.625c-7.266,5.157-11.723,10.237-16.883,16.12
-	c-6.29,7.169-13.86,15.798-30.182,28.786c-6.19-24.535-0.851-42.978-0.798-43.152l4.809-15.512l-16.016,2.689
-	c-10.407,1.747-18.971,2.561-28.887,3.504c-5.939,0.564-12.404,1.179-20.024,2.066c3.169-9.561,11.29-18.756,18.557-25.519
-	c11.774-10.957,24.306-18.299,24.58-18.459l9.064-5.238l-5.653-8.816c-0.14-0.219-12.104-18.942-23.202-41.318
-	c34.963-3.486,62.254,14.872,62.535,15.064l10.114,7.023l4.799-11.341c0.145-0.343,13.918-31.779,52.414-33.007
-	c-1.069,20.261-1.934,46.151-1.943,46.457l-0.334,10.049l10.052,0.278c18.569,0.514,44.414,4.576,63.489,31.695
-	C432.991,131.408,413.03,135.1,412.803,135.142z"
-        />
-      </svg>
-    </div>
-  );
-};
-
 const features = [
   {
     name: "Teoria",
-    description:
-      "I corsi si terranno live, completamente online, in modo che tu possa interagire con me facendo domande, commenti, ... Se arrivi tardi, don't worry: abbonandoti avrai accesso alle registrazioni video.",
     href: "/corsi",
-    icon: <LiveIcon />,
-    linkLabel: "Vai ai corsi",
+    highlights: [
+      {
+        title: "Un contenuto a settimana",
+        subtitle: "lezione o masterclass",
+      },
+      {
+        title: "Accesso totale",
+        subtitle: "a tutti i contenuti passati",
+      },
+      {
+        title: "Canale Discord",
+        subtitle: "per supportarti in ogni fase dello studio",
+      },
+      {
+        title: "Materiale didattico",
+        subtitle: "accesso alle repo, slide e links",
+      },
+    ],
+    linkLabel: "Scopri i corsi",
+    shadowClass: "shadow-upperBlue",
+    textColor: "text-cyan-500",
+    arrowColor: "#07B6D4",
   },
   {
     name: "Pratica",
-    description:
-      "Puoi farmi domande durante le lezioni live oppure tramite il canale Discord dedicato al corso che stai seguendo se ti abboni. Vuoi una consulenza personalizzata? Prenota una mentorship!",
-    href: "/mentorship",
-    icon: <HelpIcon />,
-    linkLabel: "Vai alla mentorship",
+    href: "/progetto-nomade",
+    highlights: [
+      {
+        title: "Il progetto nomade",
+        subtitle: "facciamo insieme un progetto reale",
+      },
+      {
+        title: "Mettiamo in pratica",
+        subtitle: "le tecnologie viste a lezione",
+      },
+      {
+        title: "Code review",
+        subtitle: "per migliorare il tuo codice",
+      },
+      {
+        title: "Pair programming",
+        subtitle: "per accrescere le tue competenze",
+      },
+    ],
+    linkLabel: "Scopri il progetto",
+    shadowClass: "shadow-upperYellow",
+    textColor: "text-myYellow",
+    arrowColor: "#FFCC00",
   },
 ];
 
 const Arrow = (props: any) => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="28"
-    height="19"
-    viewBox="0 0 28 19"
+    width="25"
+    height="35"
+    viewBox="0 0 25 35"
     fill="none"
+    xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path
-      d="M19.8201 18.165C20.0623 13.2867 22.9685 10.3806 27.2931 9.99999L27.2931 8.13038C22.9685 7.74981 20.0623 4.87823 19.8201 -1.73273e-06L16.6025 0.691946C16.7755 2.45641 17.3983 4.01329 18.4362 5.43179C19.5087 6.81568 20.7196 7.58483 22.1035 8L6.99382e-07 8L8.74228e-07 10L22.1035 9.99999C20.7196 10.4152 19.5087 11.3147 18.4362 12.7332C17.3983 14.1517 16.7755 15.7086 16.6025 17.4384L19.8201 18.165Z"
+    <rect
+      x="7.2561"
+      width="24.7487"
+      height="10.2617"
+      transform="rotate(45 7.2561 0)"
+      fill="currentColor"
+    />
+    <rect
+      x="24.7561"
+      y="17.5"
+      width="24.7487"
+      height="10.2617"
+      transform="rotate(135 24.7561 17.5)"
       fill="currentColor"
     />
   </svg>

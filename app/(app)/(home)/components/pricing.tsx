@@ -1,31 +1,20 @@
 import { Button } from "@/components/button";
-import { LinkButton } from "@/components/link";
-import { CheckIcon } from "@heroicons/react/20/solid";
 import { twMerge } from "tailwind-merge";
 import { handleSubscribe } from "../../actions";
 
 const academy = {
-  name: "Academy",
-  id: "tier-sub",
-  href: "/subscription",
-  priceMonthly: "€ 25",
-  mostPopular: true,
-  buttonLabel: "Entra",
-
-  description: "Accedi a tutti i corsi e alle masterclass!",
   features: [
     "Contenuti video settimanali",
     "Registrazioni sempre disponibili",
     "Partecipa con me ad un progetto reale",
     "Nessun vincolo, cancellati quando vuoi",
   ],
-  pricePeriod: "mese",
 };
 
 export default function Pricing() {
   return (
     <div
-      className="bg-lime-200 py-20  border-b-4 border-gray-900"
+      className="bg-myYellow py-20  border-b-4 border-gray-900"
       id="subscription"
     >
       <div className="mx-auto max-w-7xl px-4">
@@ -34,7 +23,7 @@ export default function Pricing() {
             Come entrare
           </p>
         </div>
-        <div className="border-4  border-gray-900 shadow-brutalXl  mt-16 mx-4 max-w-md  bg-white  sm:mt-20 lg:mx-0 lg:flex md:max-w-none">
+        <div className=" mt-8 mx-4 max-w-7xl   sm:mt-8 lg:mx-0 lg:grid md:grid-cols-2">
           <div className="p-8 sm:p-10 lg:flex-auto">
             <h1 className="text-4xl font-semibold tracking-tight text-gray-900">
               Tutto molto semplice
@@ -55,50 +44,51 @@ export default function Pricing() {
               ))}
             </ul>
           </div>
-          <div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0 ">
-            <div className="rounded-2xl py-10 text-center lg:flex lg:flex-col lg:justify-center lg:py-16">
-              <div className="mx-auto max-w-xs px-8 flex flex-col items-center">
-                <p className="text-base font-semibold text-gray-900">
-                  Accedi a masterclass e corsi
-                </p>
-                <p
-                  className={twMerge(
-                    " flex items-baseline gap-x-1",
-                    academy.mostPopular ? "mt-6 lg:mt-8" : "mt-6 lg:mt-8"
-                  )}
-                >
-                  <span className="text-6xl font-bold tracking-tight text-gray-900">
-                    {academy.priceMonthly}
-                  </span>
-                  {academy.pricePeriod && (
-                    <span className="text-lg font-semibold leading-6 text-gray-600">
-                      /{academy.pricePeriod}
+          <div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:flex-shrink-0 ">
+            <div className="rounded-2xl py-10 text-center flex flex-col lg:justify-center lg:py-16 gap-8">
+              <div className="mx-auto max-w-lg px-8 flex flex-col lg:flex-row  justify-between items-center bg-white py-8 w-full gap-8 border-4 border-gray-950 shadow-brutal">
+                <div className="text-left w-full">
+                  <p className=" flex items-baseline justify-start w-full">
+                    <span className="text-6xl font-bold tracking-tight text-gray-900">
+                      € 25
                     </span>
-                  )}
-                </p>
-                <>
-                  <form action={handleSubscribe} className="mt-8">
-                    <input type="hidden" name="mode" value="monthly" />
-                    <Button
-                      type="submit"
-                      className="bg-myGreen text-white font-semibold text-xl  relative uppercase"
-                    >
-                      {academy.buttonLabel}
-                    </Button>
-                  </form>
-                </>
-                <div className="mt-6 text-base items-end leading-5 text-gray-800 flex gap-1">
-                  oppure{" "}
-                  <form action={handleSubscribe} className="mt-8 font-semibold">
-                    <input type="hidden" name="mode" value="yearly" />
-                    <button
-                      type="submit"
-                      className="hover:underline whitespace-nowrap flex-nowrap"
-                    >
-                      ottieni 2 mesi gratis 🚀
-                    </button>
-                  </form>
+
+                    <span className="text-3xl leading-6 text-gray-600">
+                      /mese
+                    </span>
+                  </p>
+                  <p className="lg:text-lg text-gray-900">Accedi a tutto</p>
                 </div>
+                <form action={handleSubscribe} className="">
+                  <input type="hidden" name="mode" value="monthly" />
+                  <Button
+                    type="submit"
+                    className="bg-cyan-200 text-black font-semibold text-xl  relative uppercase"
+                  >
+                    Entra
+                  </Button>
+                </form>
+              </div>
+              <div className="mx-auto max-w-lg px-2 gap-8 px-8 flex flex-col lg:flex-row  justify-between  bg-white py-8 items-center w-full border-4 border-gray-950 shadow-brutal">
+                <div className="text-left w-full">
+                  <p className=" flex items-baseline ">
+                    <span className="text-4xl lg:text-4xl font-bold  text-gray-900">
+                      1 mese gratis
+                    </span>
+                  </p>
+                  <p className="lg:text-lg text-gray-900">
+                    Con 6 mesi di abbonamento 🚀
+                  </p>
+                </div>
+                <form action={handleSubscribe} className="">
+                  <input type="hidden" name="mode" value="six_months" />
+                  <Button
+                    type="submit"
+                    className="bg-green-300 text-black font-semibold text-xl  relative uppercase"
+                  >
+                    Entra
+                  </Button>
+                </form>
               </div>
             </div>
           </div>

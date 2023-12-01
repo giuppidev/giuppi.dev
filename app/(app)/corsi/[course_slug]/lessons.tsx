@@ -1,10 +1,5 @@
 import { Database } from "@/types/supabase";
-import { Disclosure, Transition } from "@headlessui/react";
-import {
-  MinusSmallIcon,
-  PlusSmallIcon,
-  CalendarDaysIcon,
-} from "@heroicons/react/24/outline";
+import { CalendarDaysIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 
 type Lesson = Database["public"]["Tables"]["lessons"]["Row"];

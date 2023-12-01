@@ -6,7 +6,12 @@ export default function Description() {
       <div
         className={` bg-white w-full   transition-all p-5 border-4 border-gray-900 shadow-brutal`}
       >
-        <div className="text-3xl font-semibold pb-4">Programmatore</div>
+        <div
+          className={`py-1 text-4xl bg-black text-white w-80 px-2 shadow-upperBlue mb-8`}
+        >
+          Programmatore
+        </div>
+
         <div className="text-2xl">
           Ho iniziato ad appassionarmi alla programmazione quando c&apos;erano
           ancora i floppy disk.. Da lì, molto studio, la scelta di fare
@@ -32,7 +37,11 @@ export default function Description() {
       <div
         className={` bg-white w-full   transition-all p-5 border-4 border-gray-900 shadow-brutal`}
       >
-        <div className="text-3xl font-semibold pb-4">Nomade</div>
+        <div
+          className={`py-1 text-4xl bg-black text-white w-80 px-2 shadow-upperYellow mb-8`}
+        >
+          Nomade
+        </div>
         <div className="text-2xl">
           Fin dal primo giorno in ufficio, ho capito che qualcosa non andava,
           ovvero io non sono fatto per stare chiuso in un ufficio.

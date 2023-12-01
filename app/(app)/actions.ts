@@ -93,6 +93,9 @@ function getSubscriptionPriceID(mode: string) {
   if (mode === "yearly") {
     return process.env.STRIPE_SUBSCRIPTION_ID_YEARLY || "";
   }
+  if (mode === "six_months") {
+    return process.env.STRIPE_SUBSCRIPTION_ID_SEMESTER || "";
+  }
   return process.env.STRIPE_SUBSCRIPTION_ID_MONTHLY || "";
 }
 function getMentorshipPriceID(duration: string) {

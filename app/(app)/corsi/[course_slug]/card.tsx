@@ -31,7 +31,7 @@ const CourseCard = ({ course, courseState }: CourseProps) => {
           <input type="hidden" name="mode" value="monthly" />
           <Button
             type="submit"
-            className="bg-myGreen text-white font-semibold text-xl mt-4 relative"
+            className="bg-green-300 text-black font-semibold text-xl mt-4 relative"
           >
             Iscriviti a € 25/mese
           </Button>

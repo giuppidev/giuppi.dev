@@ -26,7 +26,7 @@ const AboutCard = () => {
 
         <div className="flex  gap-2 items-center w-full">
           <LinkButton
-            className="bg-myGreen text-white font-semibold text-xl flex-grow"
+            className="bg-green-300 text-black font-semibold text-xl flex-grow"
             href={github}
             target="_blank"
           >
@@ -34,7 +34,7 @@ const AboutCard = () => {
           </LinkButton>
 
           <LinkButton
-            className="bg-myGreen text-white font-semibold text-xl flex-grow"
+            className="bg-red-300 text-black font-semibold text-xl flex-grow"
             href={youtube}
             target="_blank"
           >
