@@ -17,7 +17,7 @@ export default function Features() {
           <Link
             key={feature.name}
             href={feature.href}
-            className="flex flex-col justify-between  px-8 py-10  border-4 border-gray-900 bg-white  transition-all hover:shadow-brutal hover:-translate-y-2 hover:-translate-x-2"
+            className="flex flex-col justify-between  px-8 py-10  border-4 border-gray-900 bg-white  transition-all md:hover:shadow-brutal md:hover:-translate-y-2 md:hover:-translate-x-2"
           >
             <div className="flex flex-col  gap-2 text-xl font-semibold leading-7 h-full ">
               <div className="flex gap-8">
@@ -70,12 +70,12 @@ const features = [
     href: "/corsi",
     highlights: [
       {
-        title: "Un contenuto a settimana",
+        title: "Un contenuto video a settimana",
         subtitle: "lezione o masterclass",
       },
       {
         title: "Accesso totale",
-        subtitle: "a tutti i contenuti passati",
+        subtitle: "a tutti i contenuti pubblicati",
       },
       {
         title: "Canale Discord",

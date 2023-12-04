@@ -4,10 +4,10 @@ import { handleSubscribe } from "../../actions";
 
 const academy = {
   features: [
-    "Contenuti video settimanali",
-    "Registrazioni sempre disponibili",
+    "Nuovi video ogni settimana",
+    "Catalogo sempre disponibile",
     "Partecipa con me ad un progetto reale",
-    "Nessun vincolo, cancellati quando vuoi",
+    "Supporto e pair programming",
   ],
 };
 
@@ -57,7 +57,10 @@ export default function Pricing() {
                       /mese
                     </span>
                   </p>
-                  <p className="lg:text-lg text-gray-900">Accedi a tutto</p>
+                  <p className="lg:text-lg text-gray-900">
+                    Zero vincoli,{" "}
+                    <span className="font-medium">esci quando vuoi</span>
+                  </p>
                 </div>
                 <form action={handleSubscribe} className="">
                   <input type="hidden" name="mode" value="monthly" />
@@ -69,7 +72,7 @@ export default function Pricing() {
                   </Button>
                 </form>
               </div>
-              <div className="mx-auto max-w-lg px-2 gap-8 px-8 flex flex-col lg:flex-row  justify-between  bg-white py-8 items-center w-full border-4 border-gray-950 shadow-brutal">
+              <div className="mx-auto max-w-lg  gap-8 px-8 flex flex-col lg:flex-row  justify-between  bg-white py-8 items-center w-full border-4 border-gray-950 shadow-brutal">
                 <div className="text-left w-full">
                   <p className=" flex items-baseline ">
                     <span className="text-4xl lg:text-4xl font-bold  text-gray-900">
