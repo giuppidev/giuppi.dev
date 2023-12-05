@@ -27,7 +27,6 @@ const CourseCard = ({ course }: CourseProps) => {
           </div>
 
           <h4 className=" text-2xl mb-3 font-extrabold mt-2">{course.name}</h4>
-          <div className=" text-xl mb-3 ">{course.short_description}</div>
 
           <div className="flex gap-2 items-end space-x-3  flex-grow text-secondary font-bold text-xl ">
             {linkLabel}

@@ -12,7 +12,7 @@ type Lesson = Database["public"]["Tables"]["lessons"]["Row"];
 export default function Masterclass({ lessons }: { lessons: Lesson[] }) {
   return (
     <div className="mt-8 max-w-3xl">
-      <h1 className="text-5xl font-semibold mb-6">Video</h1>
+      <h1 className="text-5xl font-semibold mb-6">Masterclass</h1>
       <dl className=" divide-y-4 divide-gray-900">
         {lessons.map((lesson, k) => (
           <Lesson lesson={lesson} key={k} k={k} />
@@ -27,12 +27,14 @@ const Lesson = ({ lesson, k }: { lesson: Lesson; k: number }) => {
 
   useEffect(() => {
     const lessonDate = new Date(lesson.event_timestamp || "");
+    const now = new Date();
+    if (now > lessonDate) {
+      return;
+    }
     const lessonDatetime = new Intl.DateTimeFormat("it-IT", {
       day: "numeric",
       month: "long",
       year: "numeric",
-      hour: "numeric",
-      minute: "numeric",
     }).format(lessonDate);
 
     setFormattedDate(lessonDatetime);
@@ -40,16 +42,19 @@ const Lesson = ({ lesson, k }: { lesson: Lesson; k: number }) => {
 
   return (
     <div className="text-lg leading-7  space-y-1 py-8" key={k}>
-      <span className=" text-3xl">
-        <span className="font-semibold">Registrazione {k + 1}</span>{" "}
-        {/* {lesson.name} */}
-      </span>
       {/* <div className="py-4">{lesson.description}</div> */}
-
-      <div className="flex gap-2 items-center text-base">
-        <CalendarDaysIcon className="w-5 h-5" />
-        <span>{formattedDate}</span>
-      </div>
+      {formattedDate && (
+        <div className="flex gap-2 items-center text-base">
+          <CalendarDaysIcon className="w-5 h-5" />
+          <span>{formattedDate}</span>
+        </div>
+      )}{" "}
+      {lesson.description && (
+        <div>
+          <strong>Argomenti: </strong>
+          {lesson.description}
+        </div>
+      )}
       {lesson.video_yt_id && (
         <iframe
           src={`https://www.youtube.com/embed/${lesson.video_yt_id}`}
