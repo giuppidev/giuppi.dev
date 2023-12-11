@@ -25,7 +25,7 @@ const MentoshipCard = () => {
               type="submit"
               className="bg-myGreen text-white font-semibold text-xl"
             >
-              30 MINUTI - € 30
+              30 MINUTI - € 40
             </Button>
           </form>
           <div>oppure</div>
