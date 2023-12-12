@@ -38,17 +38,12 @@ export default async function AdminCorsi() {
                   >
                     Name
                   </th>
+
                   <th
                     scope="col"
                     className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                   >
-                    Description
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                  >
-                    Price
+                    visible
                   </th>
 
                   <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-0">
@@ -62,11 +57,9 @@ export default async function AdminCorsi() {
                     <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
                       {course.name}
                     </td>
-                    <td className="flex-wrap px-3 py-4 text-sm text-gray-500">
-                      {course.description}
-                    </td>
+
                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                      {course.price}
+                      {course.visible ? "Yes" : "No"}
                     </td>
 
                     <td className="relative space-x-2 whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">

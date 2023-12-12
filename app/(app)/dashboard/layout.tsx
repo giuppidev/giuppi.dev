@@ -1,6 +1,6 @@
 import { Database } from "@/types/supabase";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 
 export default async function AdminLayout({
@@ -9,17 +9,14 @@ export default async function AdminLayout({
   children: React.ReactNode;
 }) {
   const supabase = createServerComponentClient<Database>({ cookies });
-
-  const { data: session } = await supabase.auth.getSession();
-
-  const { data: user } = await supabase
-    .from("profiles")
-    .select()
-    .eq("id", session.session?.user.id)
-    .single();
-
+  const headersList = headers();
+  const path = headersList.get("x-url") || "";
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
   if (!session) {
-    redirect("/");
+    const redirectPath = path || "/dashboard/corsi";
+    redirect(`/auth/sign-in?redirectTo=${redirectPath}`);
   }
 
   return (

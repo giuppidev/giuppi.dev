@@ -37,20 +37,6 @@ export default function CoursesList({ courses, type }: CoursesProps) {
       );
     }) || [];
 
-  const toggleTags = (tag: string) => {
-    if (tag === "all") {
-      setFilteredTags(["all"]);
-    } else if (filteredTags.includes(tag)) {
-      if (filteredTags.length === 1) {
-        setFilteredTags(["all"]);
-      } else {
-        setFilteredTags(filteredTags.filter((t) => t !== tag && t !== "all"));
-      }
-    } else {
-      setFilteredTags([...filteredTags, tag].filter((t) => t !== "all"));
-    }
-  };
-
   return (
     <div className="mb-8">
       <div className="  bg-white border-b-4 border-b-gray-900 space-y-2 pt-4 pb-4">
@@ -77,23 +63,6 @@ export default function CoursesList({ courses, type }: CoursesProps) {
         </div>
       </div>
       <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-8">
-        {/* <div className="flex gap-2   flex-wrap mt-0">
-          {types.map((type, key) => (
-            <Button
-              onClick={() => setFilter(type.value)}
-              key={key}
-              className={twMerge(
-                `  text-base md:text-2xl py-1 md:py-2 `,
-                filter === type.value
-                  ? "bg-myGreen text-white shadow-brutalPressed translate-y-1"
-                  : ""
-              )}
-            >
-              {type.label}
-            </Button>
-          ))}
-        </div> */}
-
         <div className="flex flex-col gap-16">
           {(filter === "all" || filter === "course") && (
             <div>

@@ -3,6 +3,7 @@ import { createServerSupabaseClient } from "../../../supabase-server";
 import CoursesList from "./courses";
 import { notFound, redirect } from "next/navigation";
 import { LinkButton } from "@/components/link";
+import { headers } from "next/headers";
 
 type Course = Database["public"]["Tables"]["products"]["Row"];
 export default async function Corsi() {
@@ -11,8 +12,11 @@ export default async function Corsi() {
     data: { session },
   } = await supabase.auth.getSession();
 
+  const headersList = headers();
+  const path = headersList.get("x-url") || "";
   if (!session) {
-    redirect("/auth/sign-in?redirectTo=/dashboard/corsi");
+    const redirectPath = path || "/dashboard/corsi";
+    redirect(`/auth/sign-in?redirectTo=${redirectPath}`);
   }
 
   const customerPortal = process.env.NEXT_PUBLIC_STRIPE_CUSTOMER_PORTAL || "";
@@ -28,7 +32,7 @@ export default async function Corsi() {
   const { data } = await supabase
     .from("products")
     .select()
-    .lte("start_date", now)
+    .eq("visible", true)
     .order("order");
 
   return (

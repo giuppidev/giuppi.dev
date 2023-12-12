@@ -14,23 +14,23 @@ const CourseCard = ({ course }: CourseProps) => {
   }
 
   const linkLabel =
-    course.product_type === "course" ? "Vedi corso " : "Vedi masterclass ";
+    course.product_type === "course" ? "corso " : "masterclass ";
 
   return (
     <div
       className={` bg-white  hover:drop-shadow-[8px_8px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all p-5 border-4 border-gray-900`}
     >
       <Link href={`/dashboard/corsi/${course.slug}/`}>
-        <div className="flex flex-col h-full">
-          <div className="relative bg-white h-44 w-full">
+        <div className="flex flex-col h-full gap-2">
+          <div className="relative bg-white  w-full">
             <img src={course.cover_url || ""} alt="copertina corso"></img>
           </div>
 
-          <h4 className=" text-2xl mb-3 font-extrabold mt-2">{course.name}</h4>
-
-          <div className="flex gap-2 items-end space-x-3  flex-grow text-secondary font-bold text-xl ">
-            {linkLabel}
-            <ArrowIcon />
+          <div className="flex items-end  flex-grow text-secondary  text-xl ">
+            <div className="flex  items-center">
+              Vedi <span className="font-semibold px-2">{linkLabel}</span>
+              <ArrowIcon />
+            </div>
           </div>
         </div>
       </Link>

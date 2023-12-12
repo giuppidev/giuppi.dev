@@ -64,7 +64,10 @@ export async function getUserDetails() {
 export async function getAllCourses() {
   const supabase = createServerSupabaseClient();
   try {
-    const { data: courses } = await supabase.from("products").select();
+    const { data: courses } = await supabase
+      .from("products")
+      .select()
+      .order("start_date");
     return courses;
   } catch (error) {
     console.error("Error:", error);

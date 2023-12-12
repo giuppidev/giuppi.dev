@@ -19,9 +19,14 @@ const faqs = [
       "Non è una esercitazione di fine corso o una simulazione: è un progetto vero, che io voglio sviluppare in prima persona e che sarà come una vera e propria esperienza lavorativa.",
   },
   {
+    question: "Sono necessarie particolari competenze per partecipare?",
+    answer:
+      "Il progetto copre diverse aree, dal frontend al backend, dall'infrastruttura all'ai. Qualunque sia il tuo livello, lavoreremo insieme per migliorare le tue skill sul campo!",
+  },
+  {
     question: "Devo per forza partecipare al progetto pratico?",
     answer:
-      "Assolutamente no, puoi semplicemente guardare i contenuti che ti interessarno qui sulla piattaforma.",
+      "Assolutamente no, puoi semplicemente guardare i contenuti che ti interessano qui sulla piattaforma.",
   },
 
   {

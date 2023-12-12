@@ -28,7 +28,7 @@ const Lesson = ({ lesson, k }: { lesson: Lesson; k: number }) => {
   useEffect(() => {
     const lessonDate = new Date(lesson.event_timestamp || "");
     const now = new Date();
-    if (now > lessonDate) {
+    if (now > lessonDate || !!lesson.video_yt_id) {
       return;
     }
     const lessonDatetime = new Intl.DateTimeFormat("it-IT", {

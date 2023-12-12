@@ -4,6 +4,7 @@ import Sections from "./sections";
 import InfoCard from "./info";
 import { ResolvingMetadata } from "next";
 import { redirect } from "next/navigation";
+import { headers } from "next/headers";
 export const revalidate = 600;
 
 export async function generateMetadata(
@@ -42,13 +43,15 @@ export default async function CoursePage({
   params: { course_slug: string };
 }) {
   const supabase = createServerSupabaseClient();
-
+  const headersList = headers();
+  const path = headersList.get("next-url") || "";
   const {
     data: { session },
   } = await supabase.auth.getSession();
 
   if (!session) {
-    redirect("/auth/sign-in?redirectTo=/dashboard/corsi");
+    const redirectPath = path || "/dashboard/corsi";
+    redirect(`/auth/sign-in?redirectTo=${redirectPath}`);
   }
 
   const { data: sub } = await supabase
@@ -59,7 +62,8 @@ export default async function CoursePage({
     .single();
 
   if (!sub) {
-    redirect("/auth/sign-in?redirectTo=/dashboard/corsi");
+    const redirectPath = path || "/dashboard/corsi";
+    redirect(`/auth/sign-in?redirectTo=${redirectPath}`);
   }
 
   const { data: course } = await supabase

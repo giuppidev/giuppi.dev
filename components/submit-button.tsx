@@ -1,4 +1,5 @@
 "use client";
+import { experimental_useFormStatus } from "react-dom";
 import { twMerge } from "tailwind-merge";
 
 interface ButtonProps {
@@ -10,7 +11,7 @@ interface ButtonProps {
   disabled?: boolean;
 }
 
-export const Button = ({
+export const SubmitButton = ({
   children,
   className = "",
   onClick,
@@ -22,6 +23,7 @@ export const Button = ({
     " my-0 mx-1 text-2xl bg-white text-gray-900 py-2 px-4 rounded-md border-2 border-gray-900 shadow-brutal cursor-pointer active:translate-y-1 active:shadow-brutalPressed   flex gap-4",
     className
   );
+  const { pending } = experimental_useFormStatus();
 
   return (
     <button
@@ -29,9 +31,10 @@ export const Button = ({
       onClick={onClick}
       type={type}
       disabled={disabled}
+      aria-disabled={pending}
     >
       {children}
-      {loading && <Spinner />}
+      {pending && <Spinner />}
     </button>
   );
 };
