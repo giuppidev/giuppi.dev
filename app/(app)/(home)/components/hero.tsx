@@ -15,7 +15,7 @@ export default function Hero() {
       <div className="mx-auto max-w-7xl    lg:px-0 py-8 lg:py-24  lg:grid grid-cols-2 items-center lg:gap-x-10 ">
         <div className="mx-auto max-w-7xl lg:mx-0 lg:flex-auto px-4">
           <h1 className="  max-w-2xl text-5xl font-semibold lg:font-medium tracking-tight text-gray-900 lg:text-8xl leading-tight ">
-            Benvenuto, nomade.
+            Continuous developing
           </h1>
           <p className="mt-2  max-w-2xl text-xl leading-8 text-gray-800">
             Mi chiamo Giuppi, sono un developer da 10+ anni, specializzato in
