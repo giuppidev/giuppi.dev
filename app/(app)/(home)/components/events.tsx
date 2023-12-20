@@ -13,14 +13,14 @@ export default function Events({ events }: { events: any }) {
         </div>
 
         <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mx-auto max-w-7xl lg:[&>*:nth-child(even)]:-mt-8 ">
-          {events.map((event: any) => (
+          {events?.map((event: any) => (
             <Event event={event} key={event.id} />
           ))}
         </div>
         <div className="justify-center lg:justify-end  gap-2 flex mx-auto max-w-7xl pt-4">
           <Link href="/corsi" className="flex gap-4 items-center">
             <span className="hover:underline text-2xl font-semibold">
-              Tutti i corsi
+              Vedi tutto
             </span>{" "}
             <LinkArrow />
           </Link>
