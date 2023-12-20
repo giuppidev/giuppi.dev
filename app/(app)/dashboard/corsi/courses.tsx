@@ -1,10 +1,9 @@
 "use client";
 
-import { Button } from "@/components/button";
-import CourseCard from "./course";
+import CourseCard from "@/components/course";
+import MasterclassRow from "@/components/masterclass-row";
 import { Database } from "@/types/supabase";
 import { useState } from "react";
-import { twMerge } from "tailwind-merge";
 
 type Course = Database["public"]["Tables"]["products"]["Row"];
 
@@ -37,7 +36,7 @@ export default function CoursesList({ courses }: CoursesProps) {
               {filteredCourses
                 .filter((c) => c.product_type === "course")
                 .map((course, key) => (
-                  <CourseCard course={course} key={key} />
+                  <CourseCard course={course} key={key} href={`/dashboard/corsi/${course.slug}`} />
                 ))}
             </ul>
           </div>
@@ -46,13 +45,13 @@ export default function CoursesList({ courses }: CoursesProps) {
             <div className="font-semibold text-5xl">Le masterclass</div>
             <ul
               role="list"
-              className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4  
+              className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-4  lg:mx-0 lg:max-w-none  
           "
             >
               {filteredCourses
                 .filter((c) => c.product_type === "masterclass")
                 .map((course, key) => (
-                  <CourseCard course={course} key={key} />
+                  <MasterclassRow course={course} key={key} href={`/dashboard/corsi/${course.slug}`} />
                 ))}
             </ul>
           </div>

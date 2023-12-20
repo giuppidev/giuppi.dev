@@ -27,14 +27,15 @@ const CourseCard = ({ course, courseState }: CourseProps) => {
           />
         </div>
 
-        <form action={handleSubscribe} className="pb-8">
+        <form action={handleSubscribe} className="pb-4">
           <input type="hidden" name="mode" value="monthly" />
           <Button
             type="submit"
             className="bg-green-300 text-black font-semibold text-xl mt-4 relative"
           >
-            Iscriviti a € 25/mese
+            Abbonati a € 25/mese
           </Button>
+          <div className="text-center pt-4">esci quando vuoi 🚀</div>
         </form>
       </div>
     </div>

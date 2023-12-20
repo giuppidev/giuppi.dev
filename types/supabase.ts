@@ -38,6 +38,7 @@ export interface Database {
           id: number
           name: string | null
           product_id: number
+          video_stream_id: string | null
           video_yt_id: string | null
         }
         Insert: {
@@ -47,6 +48,7 @@ export interface Database {
           id?: number
           name?: string | null
           product_id: number
+          video_stream_id?: string | null
           video_yt_id?: string | null
         }
         Update: {
@@ -56,6 +58,7 @@ export interface Database {
           id?: number
           name?: string | null
           product_id?: number
+          video_stream_id?: string | null
           video_yt_id?: string | null
         }
         Relationships: [

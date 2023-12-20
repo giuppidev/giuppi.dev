@@ -1,9 +1,7 @@
+import { VideoPlayer } from "@/components/video-player";
 import { Database } from "@/types/supabase";
-import { Disclosure, Transition } from "@headlessui/react";
 import {
-  MinusSmallIcon,
-  PlusSmallIcon,
-  CalendarDaysIcon,
+CalendarDaysIcon
 } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 
@@ -41,28 +39,21 @@ const Lesson = ({ lesson, k }: { lesson: Lesson; k: number }) => {
   }, []);
 
   return (
-    <div className="text-lg leading-7  space-y-1 py-8" key={k}>
-      {/* <div className="py-4">{lesson.description}</div> */}
+    <div className="text-lg leading-7  space-y-4 py-8" key={k}>
       {formattedDate && (
         <div className="flex gap-2 items-center text-base">
           <CalendarDaysIcon className="w-5 h-5" />
           <span>{formattedDate}</span>
         </div>
-      )}{" "}
+      )}
       {lesson.description && (
         <div>
           <strong>Argomenti: </strong>
           {lesson.description}
         </div>
       )}
-      {lesson.video_yt_id && (
-        <iframe
-          src={`https://www.youtube.com/embed/${lesson.video_yt_id}`}
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-          className="aspect-video w-full px-4 pt-4 "
-        ></iframe>
+      {lesson.video_stream_id && (
+       <VideoPlayer videoId={lesson.video_stream_id} />
       )}
     </div>
   );

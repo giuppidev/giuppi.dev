@@ -1,10 +1,6 @@
+import { VideoPlayer } from "@/components/video-player";
 import { Database } from "@/types/supabase";
-import { Disclosure, Transition } from "@headlessui/react";
-import {
-  MinusSmallIcon,
-  PlusSmallIcon,
-  CalendarDaysIcon,
-} from "@heroicons/react/24/outline";
+import { CalendarDaysIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 
 type Lesson = Database["public"]["Tables"]["lessons"]["Row"];
@@ -61,14 +57,10 @@ const Lesson = ({ lesson, k }: { lesson: Lesson; k: number }) => {
           {lesson.description}
         </div>
       )}
-      {lesson.video_yt_id && (
-        <iframe
-          src={`https://www.youtube.com/embed/${lesson.video_yt_id}`}
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-          className="aspect-video w-2/3 px-4 pt-4 "
-        ></iframe>
+      {lesson.video_stream_id && (
+        <div className="lg:w-2/3 pt-4">
+          <VideoPlayer videoId={lesson.video_stream_id} />
+        </div>
       )}
     </div>
   );

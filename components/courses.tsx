@@ -7,6 +7,7 @@ import { _ } from "drizzle-orm/column.d-66a08b85";
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
 import MasterclassCard from "./masterclass-card";
+import MasterclassRow from "./masterclass-row";
 
 type Course = Database["public"]["Tables"]["products"]["Row"];
 
@@ -19,23 +20,17 @@ interface CoursesProps {
 export default function CoursesList({ courses, type }: CoursesProps) {
   const [filter, setFilter] = useState<CourseType>(type || "all");
 
-  const [filteredTags, setFilteredTags] = useState<string[]>(["all"]);
-
-  const filteredCourses =
+  const courseList =
     courses?.filter((course) => {
-      if (filter === "all") {
-        return (
-          course &&
-          (filteredTags[0] === "all" ||
-            course.tags?.some((tag) => filteredTags.includes(tag)))
-        );
-      }
-      return (
-        course.product_type === filter &&
-        (filteredTags[0] === "all" ||
-          course.tags?.some((tag) => filteredTags.includes(tag)))
-      );
+      return course.product_type === "course";
     }) || [];
+
+  const masterclassList =
+    courses?.filter((course) => {
+      return course.product_type === "masterclass";
+    }) || [];
+
+  const today = new Date();
 
   return (
     <div className="mb-8">
@@ -72,11 +67,9 @@ export default function CoursesList({ courses, type }: CoursesProps) {
                 className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-10 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3  
           "
               >
-                {filteredCourses
-                  .filter((c) => c.product_type === "course")
-                  .map((course, key) => (
-                    <CourseCard course={course} key={key} />
-                  ))}
+                {courseList.map((course, key) => (
+                  <CourseCard course={course} key={key} />
+                ))}
               </ul>
             </div>
           )}
@@ -85,11 +78,29 @@ export default function CoursesList({ courses, type }: CoursesProps) {
               <div className="font-semibold text-5xl">Le masterclass</div>
               <ul
                 role="list"
-                className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4  
+                className="mx-auto mt-10 grid max-w-2xl grid-cols-1  gap-4 sm:gap-x-10  lg:mx-0 lg:max-w-none  
           "
               >
-                {filteredCourses
-                  .filter((c) => c.product_type === "masterclass")
+                {masterclassList
+                  .filter((m) => {
+                    const masterclassStartDate = new Date(m.start_date || "");
+                    return today > masterclassStartDate;
+                  })
+                  .map((course, key) => (
+                    <MasterclassRow course={course} key={key} />
+                  ))}
+              </ul>
+              <div className="font-semibold text-2xl pt-8">Prossimamente:</div>
+              <ul
+                role="list"
+                className="mx-auto mt-4 grid max-w-2xl  gap-4 grid-cols-1 lg:mx-0 lg:max-w-none lg:grid-cols-4  
+          "
+              >
+                {masterclassList
+                  .filter((m) => {
+                    const masterclassStartDate = new Date(m.start_date || "");
+                    return today < masterclassStartDate;
+                  })
                   .map((course, key) => (
                     <MasterclassCard course={course} key={key} />
                   ))}

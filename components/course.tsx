@@ -7,9 +7,10 @@ type Course = Database["public"]["Tables"]["products"]["Row"];
 
 interface CourseProps {
   course: Course;
+  href?:string;
 }
 
-const CourseCard = ({ course }: CourseProps) => {
+const CourseCard = ({ course, href=`/corsi/${course.slug}/` }: CourseProps) => {
   if (!course) {
     return <></>;
   }
@@ -22,8 +23,8 @@ const CourseCard = ({ course }: CourseProps) => {
 
   return (
     <Link
-      href={`/corsi/${course.slug}/`}
-      className={` bg-white  hover:drop-shadow-[8px_8px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all p-5 border-4 border-gray-900 grid grid-rows-[subgrid] row-[span_3] gap-0 gap-y-0`}
+      href={href}
+      className={` bg-white  hover:drop-shadow-[8px_8px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all p-5  grid grid-rows-[subgrid] row-[span_3] gap-0 gap-y-0`}
     >
       <div className="relative bg-white  w-full">
         <img src={course.cover_url || ""} alt="copertina corso"></img>
