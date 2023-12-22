@@ -50,6 +50,7 @@ export default function CoursesList({ courses }: CoursesProps) {
             >
               {filteredCourses
                 .filter((c) => c.product_type === "masterclass")
+                .reverse()
                 .map((course, key) => (
                   <MasterclassRow course={course} key={key} href={`/dashboard/corsi/${course.slug}`} />
                 ))}

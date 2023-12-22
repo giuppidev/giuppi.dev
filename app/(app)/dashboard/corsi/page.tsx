@@ -33,7 +33,7 @@ export default async function Corsi() {
     .from("products")
     .select()
     .eq("visible", true)
-    .order("order");
+    .order("start_date");
 
   return (
     <>
