@@ -30,6 +30,28 @@ export async function POST(req: NextRequest) {
   try {
     // Handle the event
     switch (event.type) {
+      case "invoice.payment_succeeded":
+        const nodeUrl = process.env.NODE_FISCOZEN;
+        const customHeaders = {
+          "Content-Type": "application/json",
+        };
+        const paymentInvoiceSucceeded = event.data.object as any;
+
+        const amount = paymentInvoiceSucceeded.amount_paid;
+        const customerName = paymentInvoiceSucceeded.customer_name;
+        const creationDate = paymentInvoiceSucceeded.created;
+        const data = {
+          amount_paid: amount,
+          customer_name: customerName,
+          created: creationDate,
+        };
+        await fetch(`${nodeUrl}create-invoice`, {
+          method: "POST",
+          headers: customHeaders,
+          body: JSON.stringify(data),
+        });
+
+        break;
       case "invoice.paid":
         const res = event.data.object as any;
 
