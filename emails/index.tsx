@@ -40,14 +40,14 @@ export default function OrderEmail({ name = "nomade" }: EmailProps) {
               />
             </Section>
             <Heading className="text-black text-[24px] font-normal text-center p-0 my-[30px] mx-0">
-              Benvenuto nella mia academy!
+              Benvenuto nella mia community di studio!
             </Heading>
             <Text className="text-black text-[14px] leading-[24px]">
               Ciao {name},
             </Text>
             <Text className="text-black text-[14px] leading-[24px]">
-              grazie per aver scelto di entrare nell'academy per{" "}
-              <strong>programmatori nomadi</strong>.
+              grazie per aver scelto di entrare nella mia{" "}
+              <strong>community di studio</strong>.
             </Text>
 
             <Text className="text-black text-[14px] leading-[24px]">
@@ -85,7 +85,7 @@ export default function OrderEmail({ name = "nomade" }: EmailProps) {
             <Hr className="border border-solid border-[#eaeaea] my-[26px] mx-0 w-full" />
             <Text className="text-black text-[14px] leading-[24px]">
               * dalla tua area riservata potrai gestire il tuo abbonamento e
-              trovera le registrazioni dei corsi passati.
+              troverai le registrazioni dei corsi passati.
             </Text>
           </Container>
         </Body>

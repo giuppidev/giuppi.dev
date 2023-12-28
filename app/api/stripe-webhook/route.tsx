@@ -31,35 +31,35 @@ export async function POST(req: NextRequest) {
     // Handle the event
     switch (event.type) {
       case "invoice.payment_succeeded":
-        const nodeUrl = process.env.NODE_FISCOZEN;
-        const customHeaders = {
-          "Content-Type": "application/json",
-        };
         const paymentInvoiceSucceeded = event.data.object as any;
 
         const amount = paymentInvoiceSucceeded.amount_paid;
-        const customerName = paymentInvoiceSucceeded.customer_name;
+        const customerEmail = paymentInvoiceSucceeded.customer_email;
         const creationDate = paymentInvoiceSucceeded.created;
-        const data = {
-          amount_paid: amount,
-          customer_name: customerName,
-          created: creationDate,
-        };
-        await fetch(`${nodeUrl}create-invoice`, {
-          method: "POST",
-          headers: customHeaders,
-          body: JSON.stringify(data),
-        });
 
-        break;
-      case "invoice.paid":
         const res = event.data.object as any;
 
         const customer_email = res.customer_email;
+        const payment_intent = res.payment_intent;
 
         const subscription = res.subscription;
 
         if (res.billing_reason === "subscription_cycle") {
+          const nodeUrl = process.env.NODE_FISCOZEN;
+          const customHeaders = {
+            "Content-Type": "application/json",
+          };
+
+          const data = {
+            amount_paid: amount,
+            customer_email: customerEmail,
+            created: creationDate,
+          };
+          await fetch(`${nodeUrl}create-invoice`, {
+            method: "POST",
+            headers: customHeaders,
+            body: JSON.stringify(data),
+          });
           return NextResponse.json({
             message: "Subcription cycle",
             success: true,
@@ -95,8 +95,9 @@ export async function POST(req: NextRequest) {
           };
           if (customer_email) {
             await sendMail(options);
+
             const notificationEmailHtml = render(
-              <Newsub email={customer_email} />
+              <Newsub email={customer_email} payment_intent={payment_intent} />
             );
 
             const notificationOptions = {
