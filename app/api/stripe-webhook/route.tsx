@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
           payment_intent,
           subscription,
           billing_reason,
-        } = paymentInvoiceSucceeded;
+        } = paymentInvoiceSucceeded.customer_email;
 
         if (billing_reason === "subscription_cycle") {
           const nodeUrl = process.env.NODE_FISCOZEN;

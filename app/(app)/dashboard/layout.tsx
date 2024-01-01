@@ -2,7 +2,6 @@ import { Database } from "@/types/supabase";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
-import { PrivateMenu } from "./menu";
 
 export default async function AdminLayout({
   children,
@@ -21,11 +20,10 @@ export default async function AdminLayout({
   }
 
   return (
-
-      <div className="grid grid-rows-[auto_1fr]  h-full">
-        <PrivateMenu />
+    <>
+      <div className="grid  h-full">
         <main className="">{children}</main>
       </div>
-
+    </>
   );
 }
