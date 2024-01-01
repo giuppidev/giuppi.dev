@@ -33,27 +33,27 @@ export async function POST(req: NextRequest) {
       case "invoice.payment_succeeded":
         const paymentInvoiceSucceeded = event.data.object as any;
 
-        const amount = paymentInvoiceSucceeded.amount_paid;
-        const customerEmail = paymentInvoiceSucceeded.customer_email;
-        const creationDate = paymentInvoiceSucceeded.created;
+        const {
+          amount_paid,
+          customer_email,
+          customer_name,
+          created,
+          payment_intent,
+          subscription,
+          billing_reason,
+        } = paymentInvoiceSucceeded.customer_email;
 
-        const res = event.data.object as any;
-
-        const customer_email = res.customer_email;
-        const payment_intent = res.payment_intent;
-
-        const subscription = res.subscription;
-
-        if (res.billing_reason === "subscription_cycle") {
+        if (billing_reason === "subscription_cycle") {
           const nodeUrl = process.env.NODE_FISCOZEN;
           const customHeaders = {
             "Content-Type": "application/json",
           };
 
           const data = {
-            amount_paid: amount,
-            customer_email: customerEmail,
-            created: creationDate,
+            amount_paid,
+            customer_email,
+            customer_name,
+            created,
           };
           await fetch(`${nodeUrl}create-invoice`, {
             method: "POST",
@@ -65,7 +65,7 @@ export async function POST(req: NextRequest) {
             success: true,
           });
         }
-        if (res.billing_reason !== "subscription_create") {
+        if (billing_reason !== "subscription_create") {
           return NextResponse.json({
             message: "Subcription state unknow",
             success: true,
