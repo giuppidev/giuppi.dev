@@ -13,8 +13,9 @@ export default async function Home() {
 
   const { data } = await supabase
     .from("lessons")
-    .select(`*, products(*)`)
+    .select(`*, products!inner(*)`)
     .gte("event_timestamp", now)
+    .filter("products.show", "eq", true)
     .order("event_timestamp")
     .limit(4);
 

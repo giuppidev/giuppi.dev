@@ -16,11 +16,6 @@ export const Event = ({ event }: { event: any }) => {
     setFormattedDate(lessonDatetime);
   }, []);
 
-  const linkLabel =
-    event.products.product_type === "course"
-      ? "Vedi corso "
-      : "Vedi masterclass ";
-
   return (
     <Link
       href={`/corsi/${event.products.slug}/`}

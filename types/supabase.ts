@@ -126,7 +126,9 @@ export interface Database {
           order: number | null
           price: number | null
           product_type: Database["public"]["Enums"]["course_type_enum"] | null
+          published: boolean
           short_description: string | null
+          show: boolean
           slug: string | null
           start_date: string | null
           tags: string[] | null
@@ -146,7 +148,9 @@ export interface Database {
           order?: number | null
           price?: number | null
           product_type?: Database["public"]["Enums"]["course_type_enum"] | null
+          published?: boolean
           short_description?: string | null
+          show?: boolean
           slug?: string | null
           start_date?: string | null
           tags?: string[] | null
@@ -166,7 +170,9 @@ export interface Database {
           order?: number | null
           price?: number | null
           product_type?: Database["public"]["Enums"]["course_type_enum"] | null
+          published?: boolean
           short_description?: string | null
+          show?: boolean
           slug?: string | null
           start_date?: string | null
           tags?: string[] | null

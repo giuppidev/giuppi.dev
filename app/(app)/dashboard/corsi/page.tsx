@@ -1,9 +1,9 @@
+import { LinkButton } from "@/components/link";
 import { Database } from "@/types/supabase";
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 import { createServerSupabaseClient } from "../../../supabase-server";
 import CoursesList from "./courses";
-import { notFound, redirect } from "next/navigation";
-import { LinkButton } from "@/components/link";
-import { headers } from "next/headers";
 
 type Course = Database["public"]["Tables"]["products"]["Row"];
 export default async function Corsi() {
@@ -28,11 +28,10 @@ export default async function Corsi() {
     .eq("active", true)
     .single();
 
-  const now = new Date().toISOString();
   const { data } = await supabase
     .from("products")
     .select()
-    .eq("visible", true)
+    .eq("published", true)
     .order("start_date");
 
   return (

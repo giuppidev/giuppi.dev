@@ -5,7 +5,6 @@ import { usePathname, useRouter } from "next/navigation";
 import { twMerge } from "tailwind-merge";
 
 export const navigation = [
-  { name: "CALENDARIO", href: "/calendario" },
   { name: "CORSI", href: "/corsi" },
   // { name: "PROGETTO NOMADE", href: "/progetto-nomade" },
   { name: "ABOUT ME", href: "/about-me" },

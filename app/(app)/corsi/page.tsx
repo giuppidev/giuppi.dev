@@ -11,6 +11,7 @@ export default async function Corsi({
     .from("products")
     .select()
     .or("product_type.eq.course,product_type.eq.masterclass")
+    .eq("show", true)
     .order("start_date");
 
   const type = searchParams["type"] as CourseType | undefined;

@@ -9,7 +9,7 @@ interface CourseProps {
   course: Course;
 }
 
-const MasterclassCard = ({ course }: CourseProps) => {
+const MasterclassComingSoon = ({ course }: CourseProps) => {
   const [formattedDate, setFormattedDate] = useState("");
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const MasterclassCard = ({ course }: CourseProps) => {
           year: "numeric",
         }).format(lessonDate);
 
-        setFormattedDate("📆 Dal " + lessonDatetime);
+        setFormattedDate("📆 Disponibile dal " + lessonDatetime);
       }
     }
   }, []);
@@ -38,24 +38,29 @@ const MasterclassCard = ({ course }: CourseProps) => {
   return (
     <Link
       href={`/corsi/${course.slug}/`}
-      className={` bg-white  shadow-brutalSmall lg:shadow-none  lg:hover:drop-shadow-[8px_8px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all p-1 lg:p-5  grid grid-rows-[subgrid] row-[span_3] gap-0`}
+      className={` bg-white shadow-brutalSmall lg:shadow-none  lg:hover:drop-shadow-[8px_8px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 transition-all p-4  grid grid-cols-1 sm:grid-cols-[30fr_70fr] lg:grid-cols-[20fr_80fr] gap-2 lg:gap-8`}
     >
-      <div className="relative bg-white  w-full hidden ">
+      <div className="relative bg-white  w-full">
         <img src={course.cover_url || ""} alt="copertina corso"></img>
       </div>
+      <div className="h-full flex flex-col justify-between gap-2">
+        <div className="flex flex-col gap-1">
+          <h4 className=" text-2xl font-semibold  flex flex-col justify-between ">
+            {course.name}
+          </h4>
+          <div className="text-sm py-2">{formattedDate}</div>
+        </div>
 
-    <h4 className=" text-xl mb-3 font-semibold mt-2 ">{course.name}</h4> 
-      <div className="text-sm py-2">{formattedDate}</div>
-
-      <div className="hidden lg: gap-2 items-end space-x-3  flex-grow text-secondary  text-xl ">
-        {linkLabel}
-        <ArrowIcon />
+        <div className="flex gap-2 items-end space-x-3  flex-grow text-secondary  text-xl ">
+          {linkLabel}
+          <ArrowIcon />
+        </div>
       </div>
     </Link>
   );
 };
 
-export default MasterclassCard;
+export default MasterclassComingSoon;
 
 export const ArrowIcon = () => (
   <svg

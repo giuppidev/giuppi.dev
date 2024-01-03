@@ -7,7 +7,6 @@ import { User } from "@supabase/supabase-js";
 import { useSupabase } from "@/app/supabase-provider";
 import { useRouter } from "next/navigation";
 const navigation = [
-  { name: "Calendario", href: "/calendario" },
   { name: "Corsi", href: "/corsi" },
   // { name: "Progetto nomade", href: "/progetto-nomade" },
   { name: "About me", href: "/about-me" },

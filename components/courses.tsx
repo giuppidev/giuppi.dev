@@ -90,21 +90,30 @@ export default function CoursesList({ courses, type }: CoursesProps) {
                     <MasterclassRow course={course} key={key} />
                   ))}
               </ul>
-              <div className="font-semibold text-2xl pt-8">Prossimamente:</div>
-              <ul
-                role="list"
-                className="mx-auto mt-4 grid max-w-2xl  gap-4 grid-cols-1 lg:mx-0 lg:max-w-none lg:grid-cols-4  
-          "
-              >
-                {masterclassList
-                  .filter((m) => {
-                    const masterclassStartDate = new Date(m.start_date || "");
-                    return today < masterclassStartDate;
-                  })
-                  .map((course, key) => (
-                    <MasterclassCard course={course} key={key} />
-                  ))}
-              </ul>
+              {masterclassList.filter((m) => {
+                const masterclassStartDate = new Date(m.start_date || "");
+                return today < masterclassStartDate;
+              }).length > 0 && (
+                <>
+                  <div className="font-semibold text-2xl pt-8">In arrivo:</div>
+                  <ul
+                    role="list"
+                    className="mx-auto mt-10 grid max-w-2xl grid-cols-1  gap-4 sm:gap-x-10  lg:mx-0 lg:max-w-none  
+                "
+                  >
+                    {masterclassList
+                      .filter((m) => {
+                        const masterclassStartDate = new Date(
+                          m.start_date || ""
+                        );
+                        return today < masterclassStartDate;
+                      })
+                      .map((course, key) => (
+                        <MasterclassCard course={course} key={key} />
+                      ))}
+                  </ul>
+                </>
+              )}
             </div>
           )}
         </div>
