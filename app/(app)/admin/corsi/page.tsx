@@ -43,7 +43,13 @@ export default async function AdminCorsi() {
                     scope="col"
                     className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                   >
-                    visible
+                    show
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                  >
+                    published
                   </th>
 
                   <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-0">
@@ -59,7 +65,10 @@ export default async function AdminCorsi() {
                     </td>
 
                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                      {course.visible ? "Yes" : "No"}
+                      {course.show ? "Yes" : "No"}
+                    </td>
+                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                      {course.published ? "Yes" : "No"}
                     </td>
 
                     <td className="relative space-x-2 whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">

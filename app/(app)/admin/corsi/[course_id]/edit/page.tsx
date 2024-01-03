@@ -24,7 +24,8 @@ export default async function Edit({
     "use server";
     const name = formData.get("name") as string;
     const description = formData.get("description") as string;
-    const visible = formData.get("visible") as string;
+    const show = formData.get("show") as string;
+    const published = formData.get("published") as string;
     const course_type = formData.get("type") as CourseType;
     const tags = formData.get("tags") as string;
     const supabase = createServerComponentClient<Database>({ cookies });
@@ -35,7 +36,8 @@ export default async function Edit({
       .update({
         name,
         description,
-        visible: !!visible,
+        show: !!show,
+        published: !!published,
         product_type: course_type,
         tags: tags.split(","),
         slug,
@@ -130,18 +132,35 @@ export default async function Edit({
       </div>
       <div>
         <label
-          htmlFor="visible"
+          htmlFor="show"
           className="block text-sm font-medium leading-6 text-gray-900"
         >
-          Visible
+          Show
         </label>
         <div className="mt-2">
           <input
-            name="visible"
-            id="visible"
+            name="show"
+            id="show"
             type="checkbox"
             className="block rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            defaultChecked={course.visible || false}
+            defaultChecked={course.show || false}
+          />
+        </div>
+      </div>
+      <div>
+        <label
+          htmlFor="published"
+          className="block text-sm font-medium leading-6 text-gray-900"
+        >
+          Published
+        </label>
+        <div className="mt-2">
+          <input
+            name="published"
+            id="published"
+            type="checkbox"
+            className="block rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            defaultChecked={course.published || false}
           />
         </div>
       </div>
