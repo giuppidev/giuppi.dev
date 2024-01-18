@@ -23,7 +23,7 @@ export default async function Edit({
     const name = formData.get("name") as string;
     const description = formData.get("description") as string;
     const video_stream_id = formData.get("video_stream_id") as string;
-
+    console.log("CLICK");
     const supabase = createServerComponentClient<Database>({ cookies });
     const { error, data } = await supabase
       .from("lessons")
@@ -37,6 +37,7 @@ export default async function Edit({
     if (error) {
       console.log(error);
     } else {
+      console.log(data);
       redirect(`admin/corsi/${params.course_id}`);
     }
   };

@@ -31,8 +31,6 @@ const Lesson = ({ lesson, k }: { lesson: Lesson; k: number }) => {
       day: "numeric",
       month: "long",
       year: "numeric",
-      hour: "numeric",
-      minute: "numeric",
     }).format(lessonDate);
 
     setFormattedDate(lessonDatetime);
