@@ -122,6 +122,7 @@ export interface Database {
           id: number
           lessons_count: number | null
           level: string | null
+          logo: string | null
           name: string | null
           order: number | null
           price: number | null
@@ -144,6 +145,7 @@ export interface Database {
           id?: number
           lessons_count?: number | null
           level?: string | null
+          logo?: string | null
           name?: string | null
           order?: number | null
           price?: number | null
@@ -166,6 +168,7 @@ export interface Database {
           id?: number
           lessons_count?: number | null
           level?: string | null
+          logo?: string | null
           name?: string | null
           order?: number | null
           price?: number | null

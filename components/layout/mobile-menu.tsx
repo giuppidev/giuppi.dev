@@ -6,10 +6,11 @@ import { GiuppiLogo, Logo } from "./logo";
 import { User } from "@supabase/supabase-js";
 import { useSupabase } from "@/app/supabase-provider";
 import { useRouter } from "next/navigation";
-const navigation = [
-  { name: "Corsi", href: "/corsi" },
-  // { name: "Progetto nomade", href: "/progetto-nomade" },
-  { name: "About me", href: "/about-me" },
+export const navigation = [
+  { name: "Come funziona", href: "#features" },
+  { name: "Corsi", href: "#corsi" },
+  // { name: "PROGETTO NOMADE", href: "/progetto-nomade" },
+  { name: "Abbonati", href: "#subscription" },
 ];
 
 interface NavigationMenuProps {

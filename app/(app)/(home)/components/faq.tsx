@@ -6,13 +6,19 @@ const faqs = [
   {
     question: "Cosa ottengo se mi iscrivo?",
     answer:
-      "Registrandoti qui sulla piattaforma, avrai accesso a tutte le lezioni passate e a quelle nuove non appena disponibili. Inoltre, se vorrai, sarai nel team del progetto nomade!",
+      "Appena ti abboni, potrai accedere alla piattaforma ed avere accesso completo a tutti i corsi e a tutte le masterclass caricate, ed ogni settimana riceverai una notifica col nuovo contenuto. Inoltre potrai accedere al Discord privato della community, in cui chiedere aiuto a me e agli altri studenti e partecipare al progetto nomade.",
+  },
+  {
+    question: "Che garanzie ho?",
+    answer:
+      "L'abbonamento è cancellabile in qualsiasi momento, nessuno vincolo. Una volta abbonato avrai accesso a tutti i contenuti, senza alcuna limitazione, e se vedi che non fa per te puoi semplicemente cancellarti.",
   },
   {
     question: "Non so se sono abbastanza bravo per seguire le lezioni",
     answer:
       "Se hai le basi di programmazione, non hai di che preoccuparti! Ogni singola masterclass è fatta per essere compresa da qualunque programmatore, di qualsiasi livello.",
   },
+
   {
     question: "Cosa ha di speciale questo progetto pratico?",
     answer:

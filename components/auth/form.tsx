@@ -94,10 +94,10 @@ export const AuthLink = ({
         <p className="text-base text-gray-900 ">
           Sei nuovo?{" "}
           <a
-            href="/auth/sign-up"
+            href="/#subscription"
             className="font-medium text-primary-600 hover:underline "
           >
-            Registrati qui!
+            Abbonati!
           </a>
         </p>
       )}
