@@ -1,9 +1,12 @@
-import { ArrowIcon } from "@/components/course";
-import { LinkArrow } from "@/components/link-arrow";
-import Link from "next/link";
+import { LinkButton } from "@/components/link";
+import {
+  AcademicCapIcon,
+  CodeBracketSquareIcon,
+} from "@heroicons/react/24/solid";
+
 export default function Features() {
   return (
-    <div className="px-8 border-b-4 border-gray-900 bg-cyan-500 ">
+    <div className="px-8 border-b-4 border-gray-900 bg-cyan-500 " id="features">
       <div className="mx-auto max-w-4xl lg:text-center py-12">
         <p className=" text-5xl font-semibold  tracking-tight text-gray-900 sm:text-7xl">
           Come funziona
@@ -14,10 +17,9 @@ export default function Features() {
   lg:grid-cols-2 mb-16"
       >
         {features.map((feature) => (
-          <Link
+          <div
             key={feature.name}
-            href={feature.href}
-            className="flex flex-col justify-between  px-8 py-10  border-4 border-gray-900 bg-white  transition-all md:hover:shadow-brutal md:hover:-translate-y-2 md:hover:-translate-x-2"
+            className="flex flex-col justify-between  px-8 py-10  border-4 border-gray-900 bg-white  transition-all md:shadow-brutal md:-translate-y-2 md:-translate-x-2"
           >
             <div className="flex flex-col  gap-2 text-xl font-semibold leading-7 h-full ">
               <div className="flex gap-8">
@@ -46,18 +48,16 @@ export default function Features() {
                     </li>
                   ))}
                 </ul>
-              </div>
-              <div className="flex gap-2 mt-8 items-end space-x-3  flex-grow  font-semibold text-xl ">
-                <div className="flex gap-4 items-center hover:underline">
-                  {feature.linkLabel}
-                  <LinkArrow
-                    className={`w-8 h-8 `}
-                    shadowColor={feature.arrowColor}
-                  />
-                </div>
-              </div>
+              </div>{" "}
             </div>
-          </Link>
+            <LinkButton
+              href="#subscription"
+              className={`${feature.linkColor} text-lg lg:text-xl  w-fit mt-8 text-black font-medium flex gap-2 items-center whitespace-nowrap`}
+            >
+              {feature.linkLabel} {feature.linkIcon}
+              <ArrowIcon color=" #000" />
+            </LinkButton>
+          </div>
         ))}
       </div>
     </div>
@@ -75,7 +75,7 @@ const features = [
       },
       {
         title: "Accesso totale",
-        subtitle: "a tutti i contenuti pubblicati",
+        subtitle: "a tutti i contenuti già pubblicati",
       },
       {
         title: "Canale Discord",
@@ -86,10 +86,11 @@ const features = [
         subtitle: "accesso alle repo, slide e links",
       },
     ],
-    linkLabel: "Scopri i corsi",
+    linkLabel: "Studia con me",
     shadowClass: "shadow-upperBlue",
     textColor: "text-cyan-500",
-    arrowColor: "#07B6D4",
+    linkColor: "bg-cyan-500",
+    linkIcon: <AcademicCapIcon className="h-8 w-8" />,
   },
   {
     name: "Pratica",
@@ -112,10 +113,11 @@ const features = [
         subtitle: "per accrescere le tue competenze",
       },
     ],
-    linkLabel: "Scopri il progetto",
+    linkLabel: "Programma con me",
     shadowClass: "shadow-upperYellow",
     textColor: "text-myYellow",
-    arrowColor: "#FFCC00",
+    linkColor: "bg-myYellow",
+    linkIcon: <CodeBracketSquareIcon className="h-8 w-8" />,
   },
 ];
 
@@ -142,6 +144,23 @@ const Arrow = (props: any) => (
       height="10.2617"
       transform="rotate(135 24.7561 17.5)"
       fill="currentColor"
+    />
+  </svg>
+);
+
+const ArrowIcon = ({ color = "#fff" }: { color?: string }) => (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M16.8982 10.6436L14.242 13.2998C14.001 13.5408 14.001 13.95 14.242 14.191C14.483 14.432 14.8921 14.432 15.1332 14.191L19.1473 10.1768L19.3241 10L19.1473 9.82327L15.0973 5.77327C14.8563 5.53225 14.4472 5.53225 14.2062 5.77327C13.9651 6.01429 13.9651 6.42341 14.2062 6.66443L16.8982 9.35652L2.53758 9.37375C2.53752 9.37375 2.53746 9.37375 2.53741 9.37375L16.8982 10.6436ZM16.8982 10.6436L2.53758 10.6264C2.53752 10.6264 2.53746 10.6264 2.5374 10.6264L16.8982 10.6436Z"
+      fill={color}
+      stroke={color}
+      strokeWidth="0.5"
     />
   </svg>
 );

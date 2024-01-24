@@ -1,10 +1,7 @@
-import { handleSubscribe } from "@/app/(app)/actions";
-import { ArrowIcon } from "@/app/(app)/dashboard/corsi/course";
 import { getSession, isAdmin } from "@/app/supabase-server";
 import { NavigationMenu } from "./header-buttons";
 import { GiuppiLogo } from "./logo";
 import Mobile from "./mobile-menu";
-import { twMerge } from "tailwind-merge";
 
 export default async function Header() {
   const session = await getSession();

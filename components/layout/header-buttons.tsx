@@ -5,9 +5,10 @@ import { usePathname, useRouter } from "next/navigation";
 import { twMerge } from "tailwind-merge";
 
 export const navigation = [
-  { name: "CORSI", href: "/corsi" },
+  { name: "COME FUNZIONA", href: "#features" },
+  { name: "CORSI", href: "#corsi" },
   // { name: "PROGETTO NOMADE", href: "/progetto-nomade" },
-  { name: "ABOUT ME", href: "/about-me" },
+  { name: "ABBONATI", href: "#subscription" },
 ];
 
 interface NavigationMenuProps {

@@ -1,0 +1,94 @@
+export const KeyboardIcon = () => (
+  <svg
+    id="OBJECT"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 32 32"
+    className="w-24 h-24"
+  >
+    <defs></defs>
+    <rect
+      className="cls-1"
+      x="14"
+      y="2"
+      width="16"
+      height="12"
+      rx="1.5"
+      fill="#fff"
+    />
+    <rect
+      className="cls-2"
+      x="2"
+      y="18"
+      width="28"
+      height="12"
+      fill="#7dd9c2"
+    />
+    <path
+      className="cls-3"
+      fill="#7dd9c2"
+      d="M15.5,15h13A2.5,2.5,0,0,0,31,12.5v-9A2.5,2.5,0,0,0,28.5,1h-13A2.5,2.5,0,0,0,13,3.5V7H8.5a3,3,0,0,0-3,3v7H2a1,1,0,0,0-1,1V30a1,1,0,0,0,1,1H30a1,1,0,0,0,1-1V18a1,1,0,0,0-1-1H7.5V10a1,1,0,0,1,1-1H13v3.5A2.5,2.5,0,0,0,15.5,15ZM29,29H3V19H29ZM15,3.5a.5.5,0,0,1,.5-.5h13a.5.5,0,0,1,.5.5v9a.5.5,0,0,1-.5.5h-13a.5.5,0,0,1-.5-.5Z"
+    />
+    <path
+      className="cls-3"
+      fill="#49498c"
+      d="M18.79,11.2,20.2,9.79,18.41,8,20.2,6.21,18.79,4.8l-2.5,2.49a1,1,0,0,0,0,1.42Z"
+    />
+    <path
+      className="cls-3"
+      fill="#49498c"
+      d="M25.59,8,23.8,9.79l1.41,1.41,2.5-2.49a1,1,0,0,0,0-1.42L25.21,4.8,23.8,6.21Z"
+    />
+    <rect
+      className="cls-3"
+      fill="#49498c"
+      x="18.06"
+      y="7"
+      width="7.89"
+      height="2"
+      transform="translate(8.9 27.4) rotate(-75.96)"
+    />
+    <rect className="cls-3" fill="#49498c" x="5" y="21" width="3" height="2" />
+    <rect
+      className="cls-3"
+      fill="#49498c"
+      x="9.75"
+      y="21"
+      width="3"
+      height="2"
+    />
+    <rect
+      className="cls-3"
+      fill="#49498c"
+      x="14.5"
+      y="21"
+      width="3"
+      height="2"
+    />
+    <rect
+      className="cls-3"
+      fill="#49498c"
+      x="19.25"
+      y="21"
+      width="3"
+      height="2"
+    />
+    <rect className="cls-3" fill="#49498c" x="24" y="21" width="3" height="2" />
+    <rect className="cls-3" fill="#49498c" x="5" y="25" width="3" height="2" />
+    <rect
+      className="cls-3"
+      fill="#49498c"
+      x="9.75"
+      y="25"
+      width="3"
+      height="2"
+    />
+    <rect
+      className="cls-3"
+      fill="#49498c"
+      x="14.5"
+      y="25"
+      width="12.5"
+      height="2"
+    />
+  </svg>
+);

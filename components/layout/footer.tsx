@@ -82,7 +82,7 @@ export default function Footer() {
         </div>
         <div className="mt-8 md:order-1 md:mt-0">
           <p className="text-center text-xl lg:text-2xl leading-5 text-gray-800">
-            2023 - Made with ❤️ by Giuppi.
+            2024 - Made with ❤️ by Giuppi.
           </p>
         </div>
       </div>

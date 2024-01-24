@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Tags } from "./tags";
-import Link from "next/link";
 
 export const Event = ({ event }: { event: any }) => {
   const [formattedDate, setFormattedDate] = useState("");
@@ -17,10 +16,7 @@ export const Event = ({ event }: { event: any }) => {
   }, []);
 
   return (
-    <Link
-      href={`/corsi/${event.products.slug}/`}
-      className=" hover:-translate-x-1 hover:-translate-y-1 transition-all  flex flex-col p-4 gap-3"
-    >
+    <div className=" hover:-translate-x-1 hover:-translate-y-1 transition-all  flex flex-col p-4 gap-3">
       <div className="relative bg-white  w-full flex justify-center border-4 border-gray-900 drop-shadow-[4px_4px_0px_#000]  rounded-xl overflow-hidden">
         <img
           src={event.products.cover_url || ""}
@@ -43,7 +39,7 @@ export const Event = ({ event }: { event: any }) => {
         {linkLabel}
         <ArrowIcon />
       </div> */}
-    </Link>
+    </div>
   );
 };
 
