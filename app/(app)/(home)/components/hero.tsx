@@ -41,8 +41,8 @@ export default function Hero() {
                 <div className="w-4 border-2 border-gray-900 h-4 rounded-full bg-green-700"></div>
               </div>
             </div>
-            <div className="flex gap-4 lg:gap-6 flex-col items-center ">
-              <div className=" m-4 border-4 border-gray-900 ">
+            <div className="flex gap-4 lg:gap-6  flex-col items-center p-4">
+              <div className=" m-4 border-4 border-gray-900 w-full ">
                 {showVideo ? (
                   <div style={{ position: "relative", paddingTop: "56.25%" }}>
                     <iframe
