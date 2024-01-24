@@ -67,7 +67,7 @@ export default function Hero() {
                     className="cursor-pointer"
                   >
                     <img
-                      src="https://res.cloudinary.com/de30mupo1/image/upload/v1705840347/giuppi.dev/hero.png"
+                      src="https://res.cloudinary.com/de30mupo1/image/upload/c_limit,h_753,q_80/v1706081396/giuppi.dev/landing_hero.png"
                       className=""
                       alt="giuppi"
                     />
