@@ -21,7 +21,7 @@ const logoURL =
   "https://res.cloudinary.com/de30mupo1/image/upload/v1687948027/giuppi.dev/logo_white.png";
 
 export default function OrderEmail({ name = "nomade" }: EmailProps) {
-  const previewText = `Sei entrato ufficialmente nella community dei programmatori nomadi!`;
+  const previewText = `Sei entrato ufficialmente nella community di studio!`;
 
   return (
     <Html>
@@ -43,10 +43,10 @@ export default function OrderEmail({ name = "nomade" }: EmailProps) {
               Benvenuto nella mia community di studio!
             </Heading>
             <Text className="text-black text-[14px] leading-[24px]">
-              Ciao {name},
+              Ciao dev e benvenuto!
             </Text>
             <Text className="text-black text-[14px] leading-[24px]">
-              grazie per aver scelto di entrare nella mia{" "}
+              Grazie per aver scelto di entrare nella mia{" "}
               <strong>community di studio</strong>.
             </Text>
 

@@ -90,7 +90,7 @@ export async function POST(req: NextRequest) {
           const options = {
             from: '"Giuseppe Funicello" <info@giuppi.dev>',
             to: customer_email,
-            subject: "🚀 Benvenuto nella giuppi<dev> academy!",
+            subject: "🚀 Benvenuto nella community di continuous developing!",
             html: emailHtml,
           };
           if (customer_email) {

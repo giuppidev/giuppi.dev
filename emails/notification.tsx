@@ -29,7 +29,7 @@ const logoURL =
   "https://res.cloudinary.com/de30mupo1/image/upload/v1687948027/giuppi.dev/logo_white.png";
 
 export default function CustomNotification({
-  name = "nomade",
+  name = "dev",
   byeMessage = " Ci vediamo dall'altra parte! 🚀",
   content,
   link,
