@@ -62,6 +62,18 @@ export default function Signup() {
 
   return (
     <AuthForm label="Registrati">
+      <div>
+        Se ti sei appena abbonato, <strong>registrati</strong> per accedere ai
+        contenuti.
+        <p className="text-base text-gray-900 pt-1 mt-1">
+          <a
+            href="/#subscription"
+            className="font-medium text-primary-600 hover:underline "
+          >
+            Non sei abbonato?
+          </a>
+        </p>
+      </div>{" "}
       <FormProvider {...methods}>
         <form
           className="space-y-4 md:space-y-6"
