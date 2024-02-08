@@ -76,6 +76,7 @@ export async function POST(req: NextRequest) {
           {
             email: customer_email || "",
             stripe_id: subscription || "",
+            active: true,
           },
           { onConflict: "email" }
         );
