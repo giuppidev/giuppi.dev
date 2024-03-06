@@ -25,12 +25,12 @@ const CourseRow = ({
     if (now < lessonDate) {
       {
         const lessonDatetime = new Intl.DateTimeFormat("it-IT", {
-          day: "numeric",
-          month: "numeric",
+          day: "2-digit",
+          month: "2-digit",
           year: "numeric",
         }).format(lessonDate);
 
-        setFormattedDate("📆 Disponibile dal " + lessonDatetime);
+        setFormattedDate("📆 Online dal " + lessonDatetime);
       }
     }
   }, []);
@@ -44,12 +44,12 @@ const CourseRow = ({
       <Disclosure>
         <Disclosure.Button>
           <div
-            className={`w-full grid grid-cols-[auto_1fr] gap-4 ${
+            className={`w-full h-24 md:h-20 grid grid-cols-[auto_1fr] gap-4 ${
               course.product_type === "course" ? "text-3xl" : "text-xl "
             } items-center`}
           >
             <ChevronRightIcon className="w-10 h-10 ui-open:rotate-90 ui-open:transform" />
-            <div className="flex gap-2 items-center">
+            <div className="flex gap-4 items-center">
               <img
                 src={course.logo || undefined}
                 alt="copertina corso"
@@ -73,7 +73,7 @@ const CourseRow = ({
             <div
               className={` bg-white transition-all py-4  grid grid-cols-1 sm:grid-cols-[30fr_70fr] lg:grid-cols-[20fr_80fr] gap-2 lg:gap-8 `}
             >
-              <div className="relative bg-white  w-full">
+              <div className="relative bg-white  w-full hidden md:block">
                 <img
                   src={course.cover_url || undefined}
                   alt="copertina corso"
@@ -82,7 +82,8 @@ const CourseRow = ({
               <div className="h-full flex flex-col justify-between gap-2">
                 <div className="flex flex-col gap-1">
                   <h4 className="flex text-base flex-col justify-between ">
-                    {formattedDate || course.short_description}
+                    <p className="font-semibold pb-2">{formattedDate}</p>
+                    <p>{course.short_description}</p>
                   </h4>
                 </div>
 
